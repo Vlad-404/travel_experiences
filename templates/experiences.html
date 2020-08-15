@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+	<title>Travel Experiences</title>
+</head>
+
+
+<body>
+
+    {% for experience in experiences %}
+        {{ experience.title }} <br>
+        {{ experience.country_name }} <br>
+        {{ experience.location }} <br>
+        {{ experience.recommendation }} <br>
+        {{ experience.travel_arrangements }} <br>
+        {{ experience.description }} <br>
+        {{ experience.duration }} <br>
+    {% endfor %}
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+</body>
+
+
+</html>
