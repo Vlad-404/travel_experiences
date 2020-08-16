@@ -108,7 +108,7 @@ The following fonts were chosen:
 
 ### Colours
 I decided to go with minimalism and few colours. Only thing that will have accents in colour is text in navbars, floating icons  and icons at the bottom of the page. Also, pictures posted by users will add some colour.
-* orange #f4511e deep-orange darken-1 - navbar header and footer text
+* orange #ff7043 deep-orange lighten-1 - navbar header and footer text
 * dark grey #424242 grey darken-3 - navbar header and footer background
 * bright green #00e676 green accent-3 - for floating Icons
 * green #66bb6a green lighten-1 - buttons for confirmation, home, add new experience, log in, log out(confirm), update, save

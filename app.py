@@ -18,10 +18,10 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
-@app.route("/get_experiences")
-def get_experiences():
+@app.route("/experiences_home")
+def experiences_home():
     experiences = mongo.db.experiences.find()
-    return render_template("experiences.html", experiences=experiences)
+    return render_template("experiences_home.html", experiences=experiences)
 
 
 if __name__ == "__main__":

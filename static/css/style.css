@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxygen&family=Permanent+Marker&display=swap');
+
+body {
+    /* Materialize class for making footer sticky */
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+
+  .marker-font {
+      font-family: 'Permanent Marker', 'Oxygen', Calibri;
+      font-size: 2.1rem;
+  }
+
+  .oxygen-font {
+      font-family: 'Oxygen', Calibri;
+  }
+
+  .color-orange {
+      color: #ff7043 !important;
+  }
+
+  .color-light-green {
+      color: #00e676;
+  }
+
+  .color-green {
+      color: #66bb6a
+  }

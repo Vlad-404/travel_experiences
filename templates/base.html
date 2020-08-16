@@ -15,8 +15,60 @@
 
 <body>
 
+    <header>
+        <!-- Top navbar -->
+		<div class="navbar-fixed">
+			<nav class="nav-extended grey darken-3">
+                <a href="{{ url_for('experiences_home') }}" class="color-orange left-align marker-font">TRAVEL EXPERIENCES</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger right color-orange"><i class="fas fa-bars"></i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="#" class="color-orange oxygen-font">About</a></li>
+                    <li><a href="{{ url_for('experiences_home') }}" class="color-orange oxygen-font">Home</a></li>
+                    <li><a href="#" class="color-orange oxygen-font">Search</a></li>
+                    <li><a href="#" class="color-orange oxygen-font">My Page</a></li>
+                    <li><a href="#" class="color-orange oxygen-font">Add New Experience</a></li>
+                    <li><a href="#" class="color-orange oxygen-font">Logout</a></li>
+                    <li><a href="#" class="color-orange oxygen-font">Login</a></li>
+                    <li><a href="#" class="color-orange oxygen-font">Register</a></li>
+                </ul>
+			</nav>
+		</div>
+
+        <!-- Mobile sidenav -->		
+		<ul class="sidenav grey darken-3" id="mobile-demo">
+            <li><h4 class="center-align color-orange oxygen-font">Travel Experiences</h4></li>
+			<li><a href="#" class="color-orange oxygen-font">About</a></li>
+			<li><a href="{{ url_for('experiences_home') }}" class="color-orange oxygen-font">Home</a></li>
+			<li><a href="#" class="color-orange oxygen-font">Search</a></li>
+			<li><a href="#" class="color-orange oxygen-font">My Page</a></li>
+			<li><a href="#" class="color-orange oxygen-font">Add New Experience</a></li>
+			<li><a href="#" class="color-orange oxygen-font">Logout</a></li>
+			<li><a href="#" class="color-orange oxygen-font">Login</a></li>
+			<li><a href="#" class="color-orange oxygen-font">Register</a></li>
+		</ul>
+    </header>
+
+    <main>
 	{% block content %}
 	{% endblock %}
+    </main>
+
+    <footer class="page-footer grey darken-3 navbar-fixed">
+        
+            <nav>
+                <div class="nav-wrapper grey darken-3">
+                    <ul class="left hide-on-med-and-down">
+                        <li><a href="#" class="color-orange oxygen-font">About</a></li>
+			            <li><a href="{{ url_for('experiences_home') }}" class="color-orange oxygen-font">Home</a></li>
+			            <li><a href="#" class="color-orange oxygen-font">Search</a></li>
+                    </ul>
+                    <ul class="right">
+                        <li class="color-orange oxygen-font">Back to top</li>
+                    </ul>
+                </div>
+            </nav>
+        
+    </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
