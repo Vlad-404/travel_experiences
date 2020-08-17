@@ -94,6 +94,19 @@
         {% endblock %}
     </main>
 
+	<div class="fixed-action-btn">
+		<a class="btn-floating btn-large green accent-4">
+			<i class="fas fa-user-alt"></i>
+		</a>
+		<ul>
+			<li class="oxygen-font"><a href="{{ url_for('register') }}" class="btn-floating color-orange"><i class="fas fa-user-plus"></i></a>Register</li>
+			<li class="oxygen-font"><a class="btn-floating color-orange"><i class="fas fa-sign-in-alt"></i></a>Login</li>
+			<li class="oxygen-font"><a class="btn-floating blue"><i class="far fa-address-card"></i></i></a>Your Profile</li>
+			<li class="oxygen-font"><a class="btn-floating red"><i class="fas fa-sign-out-alt"></i></a>Logout</li>
+		</ul>
+	</div>
+
+
 	<footer class="page-footer grey darken-3 margin-above">
 		<div class="container">
                 <h2 class="white-text marker-font color-orange center-align">Travel Experiences</h2>
@@ -114,19 +127,6 @@
 			</div>
 		</div>
 	</footer>
-
-<!--	<footer class="page-footer grey darken-3 navbar-fixed hide-on-small-only">
-		<div class="row">
-			<ul class="left hide-on-med-and-down">
-				<li><a href="#" class="color-orange oxygen-font">About</a></li>
-				<li><a href="{{ url_for('experiences_home') }}" class="color-orange oxygen-font">Home</a></li>
-				<li><a href="#" class="color-orange oxygen-font">Search</a></li>
-			</ul>
-			<ul class="right">
-				<li class="color-orange oxygen-font">Back to top</li>
-			</ul>
-		</div>
-	</footer> -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
