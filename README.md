@@ -111,7 +111,7 @@ I decided to go with minimalism and few colours. Only thing that will have accen
 * orange #ff7043 deep-orange lighten-1 - navbar header and footer text
 * dark grey #424242 grey darken-3 - navbar header and footer background
 * bright green #00e676 green accent-3 - for floating Icons
-* green #66bb6a green lighten-1 - buttons for confirmation, home, add new experience, log in, log out(confirm), update, save
+* green #00e676 green accent-3 - buttons for confirmation, home, add new experience, log in, log out(confirm), update, save, register
 *red #f44336 red - for log out(initiate), cancel, delete
 
 ### Icons
