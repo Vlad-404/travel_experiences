@@ -39,19 +39,19 @@
 			<div class="slider">
 				<ul class="slides">
 					<li>
-						<a href="{{ url_for('experiences_home') }}"><img src="https://lorempixel.com/580/250/nature/1"></a> <!-- random image -->
+						<a href="{{ url_for('experiences_home') }}"><img src="#"></a> <!-- random image -->
 						<div class="caption right-align">
 							<h3>Need inspiration?</h3>
 						</div>
 					</li>
 					<li>
-						<a href="#"><img src="https://lorempixel.com/580/250/nature/2"></a> <!-- random image -->
+						<a href="#"><img src="#"></a> <!-- random image -->
 						<div class="caption right-align">
 							<h3>Want to contribute?</h3>
 						</div>
 					</li>
 					<li>
-						<a href="#"><img src="https://lorempixel.com/580/250/nature/3"></a> <!-- random image -->
+						<a href="#"><img src="#"></a> <!-- random image -->
 						<div class="caption right-align">
 							<h3>Need Travel arrangements?</h3>
 						</div>
@@ -74,8 +74,8 @@
 		</ul>
     </header>
 
+    <!-- Flash messages container -->
     <section>
-		<!-- Flash messages container -->
 		{% with messages = get_flashed_messages() %}
 		{% if messages %}
 		{% for message in messages %}
@@ -94,17 +94,41 @@
         {% endblock %}
     </main>
 
-    <!-- Modal Trigger -->
-    <!--<a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>-->
-
     <!-- Modal Structure -->
 	<div id="modal1" class="modal">
 		<div class="modal-content">
-			<h4>Modal Header</h4>
-			<p>A bunch of text</p>
+			<h4 class="center-align marker-font">Log in</h4>
+            <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('login')}}">
+                <div class="card-panel">
+                    <!-- User name -->
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="fas fa-user-plus prefix deep-orange-text text-lighten-1"></i>
+                            <input id="username" name="username" type="text" minlength="4" maxlength="18" patern="^[a-zA-Z0-9]{4,18}$" class="validate" required>
+                            <label for="username">User name</label>
+                        </div>
+                    </div>
+                    <!-- Password -->
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="fas fa-user-lock prefix deep-orange-text text-lighten-1"></i>
+                            <input id="password" name="password" type="password" minlength="4" maxlength="18" patern="^[a-zA-Z0-9]{4,18}$" class="validate" required>
+                            <label for="password">Password</label>
+                        </div>
+                    </div>
+
+                    <!-- Log in button -->
+                    <div type="submit" class="btn-large green accent-4 modal-close oxygen-font"><a href="{{ url_for('login') }}">
+                        Log in <i class="fas fa-sign-in-alt"></i></a>
+                    </div>
+                    <div type="submit" class="btn-large red accent-4 modal-close oxygen-font">
+                                Cancel <i class="far fa-times-circle"></i>
+                    </div>  
+                </div>
+            </form>
 		</div>
 		<div class="modal-footer">
-			<a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+            <p class="center-align">Not a member? <a href="{{ url_for('register') }}" class="modal-close color-orange oxygen-font">Register here.</a></p>
 		</div>
 	</div>
 
@@ -116,12 +140,12 @@
 		<ul>
 			<li class="oxygen-font"><a href="{{ url_for('register') }}" class="btn-floating color-orange"><i class="fas fa-user-plus"></i></a>Register</li>
 			<li class="oxygen-font"><a data-target="modal1" class="btn-floating color-orange modal-trigger"><i class="fas fa-sign-in-alt"></i></a>Login</li>
-			<li class="oxygen-font"><a class="btn-floating blue"><i class="far fa-address-card"></i></i></a>Your Profile</li>
+			<li class="oxygen-font"><a class="btn-floating blue"><i class="far fa-address-card"></i></a>Your Profile</li>
 			<li class="oxygen-font"><a class="btn-floating red"><i class="fas fa-sign-out-alt"></i></a>Logout</li>
 		</ul>
 	</div>
 
-
+    <!-- Footer -->
 	<footer class="page-footer grey darken-3 margin-above">
 		<div class="container">
                 <h2 class="white-text marker-font color-orange center-align">Travel Experiences</h2>
@@ -132,7 +156,7 @@
                     <li><a class="color-orange larger-icons" href="https://youtube.com" target="_blank"><i class="fab fa-youtube-square"></i></a></li>
                     <li><a class="color-orange larger-icons" href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-square"></i></a></li>
                     <li><a class="color-orange larger-icons" href="https://twitter.com" target="_blank"><i class="fab fa-twitter-square"></i></a></li>
-                    <li><a class="color-orange larger-icons" href="https://instagram.com" target="_blank"><i class="fab fa-instagram-square"></i></i></a></li>
+                    <li><a class="color-orange larger-icons" href="https://instagram.com" target="_blank"><i class="fab fa-instagram-square"></i></a></li>
                 </ul>
 		</div>
 		<div class="footer-copyright">

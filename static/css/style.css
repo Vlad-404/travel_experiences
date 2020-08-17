@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Oxygen&family=Permanent+Marker&display=swap');
 
+* {
+    font-family: 'Oxygen', Calibri;
+}
+
 body {
     /* Materialize class for making footer sticky */
     display: flex;
