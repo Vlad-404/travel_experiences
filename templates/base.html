@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
 	{% block styles %}
@@ -15,7 +15,7 @@
 
 <body>
 
-    <header>
+    <header id="top-of-page" class="scrollspy">
         <!-- Top navbar -->
 		<div class="navbar-fixed">
 			<nav class="nav-extended grey darken-3">
@@ -74,27 +74,59 @@
 		</ul>
     </header>
 
-    <main>
-	{% block content %}
-	{% endblock %}
+    <section>
+		<!-- Flash messages container -->
+		{% with messages = get_flashed_messages() %}
+		{% if messages %}
+		{% for message in messages %}
+		<div class="row flashes ">
+			<h4 class="center-align color-orange oxygen-font">
+				{{ message }}
+			</h4>
+		</div>
+		{% endfor %}
+		{% endif %}
+		{% endwith %}
+	</section>
+
+    <main class="container">
+        {% block content %}
+        {% endblock %}
     </main>
 
-    <footer class="page-footer grey darken-3 navbar-fixed">
-        
-            <nav>
-                <div class="nav-wrapper grey darken-3">
-                    <ul class="left hide-on-med-and-down">
-                        <li><a href="#" class="color-orange oxygen-font">About</a></li>
-			            <li><a href="{{ url_for('experiences_home') }}" class="color-orange oxygen-font">Home</a></li>
-			            <li><a href="#" class="color-orange oxygen-font">Search</a></li>
-                    </ul>
-                    <ul class="right">
-                        <li class="color-orange oxygen-font">Back to top</li>
-                    </ul>
-                </div>
-            </nav>
-        
-    </footer>
+	<footer class="page-footer grey darken-3 margin-above">
+		<div class="container">
+                <h2 class="white-text marker-font color-orange center-align">Travel Experiences</h2>
+                <p class="color-orange center-align">Check out our groups in social media:</p>
+                <ul id="horizontal-list" class="center-align">
+                    <li><a class="color-orange larger-icons" href="{{ url_for('experiences_home') }}"><i class="fas fa-home"></i></a></li>
+                    <li><a class="color-orange larger-icons" href="#"><i class="far fa-envelope"></i></a></li> <!-- mail -->
+                    <li><a class="color-orange larger-icons" href="https://youtube.com" target="_blank"><i class="fab fa-youtube-square"></i></a></li>
+                    <li><a class="color-orange larger-icons" href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-square"></i></a></li>
+                    <li><a class="color-orange larger-icons" href="https://twitter.com" target="_blank"><i class="fab fa-twitter-square"></i></a></li>
+                    <li><a class="color-orange larger-icons" href="https://instagram.com" target="_blank"><i class="fab fa-instagram-square"></i></i></a></li>
+                </ul>
+		</div>
+		<div class="footer-copyright">
+			<div class="container color-orange">
+				© 2020 Copyright Text
+				<a class="right color-orange scrollspy medium-icons" href="#top-of-page">Back to top  <i class="fa fa-chevron-circle-up larger-icons" aria-hidden="true"></i></a>
+			</div>
+		</div>
+	</footer>
+
+<!--	<footer class="page-footer grey darken-3 navbar-fixed hide-on-small-only">
+		<div class="row">
+			<ul class="left hide-on-med-and-down">
+				<li><a href="#" class="color-orange oxygen-font">About</a></li>
+				<li><a href="{{ url_for('experiences_home') }}" class="color-orange oxygen-font">Home</a></li>
+				<li><a href="#" class="color-orange oxygen-font">Search</a></li>
+			</ul>
+			<ul class="right">
+				<li class="color-orange oxygen-font">Back to top</li>
+			</ul>
+		</div>
+	</footer> -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
