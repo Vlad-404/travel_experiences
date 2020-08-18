@@ -79,7 +79,7 @@ def login():
     return render_template("login.html")
 
 
-@app.route("/check_user/<username>")
+'''@app.route("/check_user/<username>")
 def check_user(username):
     existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
@@ -87,7 +87,7 @@ def check_user(username):
     if existing_user:
         return username
     else:
-        return "Profile"
+        return "Profile"'''
 
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
@@ -95,7 +95,19 @@ def profile(username):
     # gets the session username from db
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    return render_template("profile.html", username=username)
+
+    if session["user"]:
+        return render_template("profile.html", username=username)
+
+    return return_redirect(url_for("login"))
+
+
+@app.route("/logout")
+def logout():
+    # remove user from session
+    flash("You have been logged out")
+    session.pop("user")
+    return redirect (url_for("experiences_home"))
 
 
 if __name__ == "__main__":

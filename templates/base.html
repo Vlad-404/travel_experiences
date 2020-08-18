@@ -25,11 +25,14 @@
                     <li><a href="#" class="color-orange oxygen-font">About</a></li>
                     <li><a href="{{ url_for('experiences_home') }}" class="color-orange oxygen-font">Home</a></li>
                     <li><a href="#" class="color-orange oxygen-font">Search</a></li>
-                    <li><a href="{{ url_for('profile', username=session['user']) }}" class="color-orange oxygen-font">My Page</a></li>
-                    <li><a href="#" class="color-orange oxygen-font">Add New Experience</a></li>
-                    <li><a href="#" class="color-orange oxygen-font">Logout</a></li>
-                    <li><a href="{{ url_for('login') }}" data-target="modal1" class="color-orange oxygen-font modal-trigger">Login</a></li>
-                    <li><a href="{{ url_for('register') }}" class="color-orange oxygen-font">Register</a></li>
+                    {% if session.user %}
+                        <li><a href="{{ url_for('profile', username=session['user']) }}" class="color-orange oxygen-font">My Page</a></li>
+                        <li><a href="#" class="color-orange oxygen-font">Add New Experience</a></li>
+                        <li><a href="{{ url_for('logout') }}" class="color-orange oxygen-font">Logout</a></li>
+                    {% else %}
+                        <li><a href="{{ url_for('login') }}" data-target="modal1" class="color-orange oxygen-font modal-trigger">Login</a></li>
+                        <li><a href="{{ url_for('register') }}" class="color-orange oxygen-font">Register</a></li>
+                    {% endif %}
                 </ul>
 			</nav>
 		</div>
@@ -62,30 +65,33 @@
 
         <!-- Mobile sidenav -->		
 		<ul class="sidenav grey darken-3" id="mobile-demo">
-            <li><h4 class="center-align color-orange oxygen-font">Travel Experiences</h4></li>
+            <li><h4 class="center-align color-orange marker-font">Travel Experiences</h4></li>
 			<li><a href="#" class="color-orange oxygen-font">About</a></li>
 			<li><a href="{{ url_for('experiences_home') }}" class="color-orange oxygen-font">Home</a></li>
 			<li><a href="#" class="color-orange oxygen-font">Search</a></li>
-			<li><a href="{{ url_for('profile', username=session['user']) }}" class="color-orange oxygen-font">My Page</a></li>
-			<li><a href="#" class="color-orange oxygen-font">Add New Experience</a></li>
-			<li><a href="#" class="color-orange oxygen-font">Logout</a></li>
-			<li><a href="{{ url_for('login') }}" data-target="modal1" class="color-orange oxygen-font modal-trigger">Login</a></li>
-			<li><a href="{{ url_for('register') }}" class="color-orange oxygen-font">Register</a></li>
+            {% if session.user %}
+                <li><a href="{{ url_for('profile', username=session['user']) }}" class="color-orange oxygen-font">My Page</a></li>
+                <li><a href="#" class="color-orange oxygen-font">Add New Experience</a></li>
+                <li><a href="{{ url_for('logout') }}" class="color-orange oxygen-font">Logout</a></li>
+            {% else %}
+                <li><a href="{{ url_for('login') }}" data-target="modal1" class="color-orange oxygen-font modal-trigger">Login</a></li>
+                <li><a href="{{ url_for('register') }}" class="color-orange oxygen-font">Register</a></li>
+            {% endif %}
 		</ul>
     </header>
 
     <!-- Flash messages container -->
     <section>
 		{% with messages = get_flashed_messages() %}
-		{% if messages %}
-		{% for message in messages %}
-		<div class="row flashes ">
-			<h4 class="center-align color-orange oxygen-font">
-				{{ message }}
-			</h4>
-		</div>
-		{% endfor %}
-		{% endif %}
+            {% if messages %}
+                {% for message in messages %}
+                <div class="row flashes ">
+                    <h4 class="center-align color-orange oxygen-font">
+                        {{ message }}
+                    </h4>
+                </div>
+                {% endfor %}
+            {% endif %}
 		{% endwith %}
 	</section>
 
@@ -139,13 +145,17 @@
 		<a class="btn-floating btn-large green accent-4">
 			<i class="fas fa-user-alt"></i>
 		</a>
-        <!--<p class="center-align">{{ check_user }}</p>-->
+        <p class="center-align green-text text-accent-4">{{session["user"]}}</p>
 		<ul>
-			<li class="oxygen-font"><a href="{{ url_for('register') }}" class="btn-floating color-orange"><i class="fas fa-user-plus"></i></a>Register</li>
-			<!--<li class="oxygen-font"><a data-target="{{ url_for('login') }}" class="btn-floating color-orange modal-trigger"><i class="fas fa-sign-in-alt"></i></a>Login</li> -->
-            <li class="oxygen-font"><a href="{{ url_for('login') }}" class="btn-floating color-orange modal-trigger"><i class="fas fa-sign-in-alt"></i></a>Login</li>
-			<li class="oxygen-font"><a href="{{ url_for('profile', username=session['user']) }}" class="btn-floating blue"><i class="far fa-address-card"></i></a>Your Profile</li>
-			<li class="oxygen-font"><a href="#" class="btn-floating red"><i class="fas fa-sign-out-alt"></i></a>Logout</li>
+			{% if session.user %}
+                <li><a href="{{ url_for('profile', username=session['user']) }}" class="btn-floating tooltipped blue" data-position="left" data-tooltip="Add New Experience"><i class="fas fa-plus"></i></a></li>
+                <li class="oxygen-font"><a href="{{ url_for('profile', username=session['user']) }}" class="btn-floating tooltipped blue" data-position="left" data-tooltip="Your Profile"><i class="far fa-address-card"></i></a></li>
+                <li class="oxygen-font"><a href="{{ url_for('logout') }}" class="btn-floating tooltipped red" data-position="left" data-tooltip="Logout"><i class="fas fa-sign-out-alt"></i></a></li>
+            {% else %}
+                <li class="oxygen-font"><a href="{{ url_for('register') }}" class="btn-floating tooltipped color-orange" data-position="left" data-tooltip="Register"><i class="fas fa-user-plus"></i></a></li>
+                <!--<li class="oxygen-font"><a data-target="{{ url_for('login') }}" class="btn-floating color-orange modal-trigger"><i class="fas fa-sign-in-alt"></i></a>Login</li> -->
+                <li class="oxygen-font"><a href="{{ url_for('login') }}" class="btn-floating tooltipped color-orange" data-position="left" data-tooltip="Login"><i class="fas fa-sign-in-alt"></i></a></li>
+            {% endif %}
 		</ul>
 	</div>
 
@@ -153,7 +163,7 @@
 	<footer class="page-footer grey darken-3 margin-above">
 		<div class="container">
                 <h2 class="white-text marker-font color-orange center-align">Travel Experiences</h2>
-                <p class="color-orange center-align">Check out our groups in social media:</p>
+                <p class="color-orange center-align">Check out our other groups:</p>
                 <ul id="horizontal-list" class="center-align">
                     <li><a class="color-orange larger-icons" href="{{ url_for('experiences_home') }}"><i class="fas fa-home"></i></a></li>
                     <li><a class="color-orange larger-icons" href="#"><i class="far fa-envelope"></i></a></li> <!-- mail -->

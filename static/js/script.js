@@ -4,4 +4,5 @@ $(document).ready(function(){
     $('.scrollspy').scrollSpy();
     $('.fixed-action-btn').floatingActionButton();
     $('.modal').modal();
+    $('.tooltipped').tooltip();
   });
