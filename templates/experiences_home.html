@@ -1,15 +1,143 @@
 {% extends "base.html" %}
 {% block content %}
 
-    {% for experience in experiences %}
-        {{ experience.title }} <br>
-        {{ experience.country_name }} <br>
-        {{ experience.location }} <br>
-        {{ experience.recommendation }} <br>
-        {{ experience.travel_arrangements }} <br>
-        {{ experience.description }} <br>
-        {{ experience.duration }} <br>
-        {{ experience.tips }} <br>
-    {% endfor %}
+<h1 class="col s12 center-align marker-font color-orange">Welcome to TRAVEL EXPERIENCES!</h1>
+
+<div class="section">
+	<div class="row">
+		<div class="col s12 m8 offset-m2">
+			<div class="row">
+				<div class="col s6 m2 offset-m4 xl2 offset-xl4">
+					<button class="btn-large red">Green</button>
+				</div>
+				<div class="col s6 m2 xl2 ">
+					<button class="btn-large green">Red</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<section class="row">
+
+		<div class="col s4">
+			<div class="card">
+				<div class="card-image">
+					<img src="static/images/sample-1.jpg">
+				</div>
+				<div class="card-content">
+                    <h5 class="card-title marker-font color-orange">Experience 1</h5>
+					<p>
+						{% for experience in experiences %}
+						{{ experience.title }} <br>
+                            {{ experience.country_name }} <br>
+                            {{ experience.location }} <br>
+                            {{ experience.recommendation }} <br>
+                            {{ experience.travel_arrangements }} <br>
+                            {{ experience.description }} <br>
+                            {{ experience.duration }} <br>
+                            {{ experience.tips }} <br>
+                        {% endfor %}
+                    </p>
+				</div>
+				<div class="card-action center-align">
+					<a href="#">Read more...</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="col s4">
+			<div class="card">
+				<div class="card-image">
+					<img src="static/images/sample-1.jpg">
+				</div>
+				<div class="card-content">
+                    <h5 class="card-title marker-font color-orange">Experience 2</h5>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+				</div>
+				<div class="card-action center-align">
+					<a href="#">Read more...</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="col s4">
+			<div class="card">
+				<div class="card-image">
+					<img src="static/images/sample-1.jpg">
+				</div>
+				<div class="card-content">
+                    <h5 class="card-title marker-font color-orange">Experience 3</h5>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+				</div>
+				<div class="card-action center-align">
+					<a href="#">Read more...</a>
+				</div>
+			</div>
+		</div>
+	
+
+		<div class="row">
+			<div class="col s4">
+				<div class="card">
+					<div class="card-image">
+						<img src="static/images/sample-1.jpg">
+					</div>
+					<div class="card-content">
+                        <h5 class="card-title marker-font color-orange">Experience 4</h5>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+							et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+							aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+							cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+							culpa qui officia deserunt mollit anim id est laborum.
+						</p>
+					</div>
+					<div class="card-action center-align">
+						<a href="#">Read more...</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+        <div class="col s4">
+            <div class="card">
+                <div class="card-image">
+                    <img src="static/images/sample-1.jpg">
+                </div>
+                <div class="card-content">
+                    <h5 class="card-title marker-font color-orange">Experience 5</h5>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                </div>
+                <div class="card-action center-align">
+                    <a href="#">Read more...</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col s4">
+            <div class="card">
+                <div class="card-image">
+                    <img src="static/images/sample-1.jpg">
+                </div>
+                <div class="card-content">
+                    <h5 class="card-title marker-font color-orange">Experience 6</h5>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                </div>
+                <div class="card-action center-align">
+                    <a href="#">Read more...</a>
+                </div>
+            </div>
+        </div>
+
+</section>
 
 {% endblock %}

@@ -55,3 +55,12 @@ body {
 .medium-icons {
     font-size: 3rem;
 }
+
+.space-horizontal {
+    margin-left: 2rem !important;
+}
+
+.card-formatting {
+    min-height: 500px;
+    margin-left: 2rem !important;
+}
