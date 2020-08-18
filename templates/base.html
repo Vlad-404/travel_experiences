@@ -25,7 +25,7 @@
                     <li><a href="#" class="color-orange oxygen-font">About</a></li>
                     <li><a href="{{ url_for('experiences_home') }}" class="color-orange oxygen-font">Home</a></li>
                     <li><a href="#" class="color-orange oxygen-font">Search</a></li>
-                    <li><a href="#" class="color-orange oxygen-font">My Page</a></li>
+                    <li><a href="{{ url_for('profile', username=session['user']) }}" class="color-orange oxygen-font">My Page</a></li>
                     <li><a href="#" class="color-orange oxygen-font">Add New Experience</a></li>
                     <li><a href="#" class="color-orange oxygen-font">Logout</a></li>
                     <li><a href="{{ url_for('login') }}" data-target="modal1" class="color-orange oxygen-font modal-trigger">Login</a></li>
@@ -66,7 +66,7 @@
 			<li><a href="#" class="color-orange oxygen-font">About</a></li>
 			<li><a href="{{ url_for('experiences_home') }}" class="color-orange oxygen-font">Home</a></li>
 			<li><a href="#" class="color-orange oxygen-font">Search</a></li>
-			<li><a href="#" class="color-orange oxygen-font">My Page</a></li>
+			<li><a href="{{ url_for('profile', username=session['user']) }}" class="color-orange oxygen-font">My Page</a></li>
 			<li><a href="#" class="color-orange oxygen-font">Add New Experience</a></li>
 			<li><a href="#" class="color-orange oxygen-font">Logout</a></li>
 			<li><a href="{{ url_for('login') }}" data-target="modal1" class="color-orange oxygen-font modal-trigger">Login</a></li>
@@ -139,11 +139,13 @@
 		<a class="btn-floating btn-large green accent-4">
 			<i class="fas fa-user-alt"></i>
 		</a>
+        <!--<p class="center-align">{{ check_user }}</p>-->
 		<ul>
 			<li class="oxygen-font"><a href="{{ url_for('register') }}" class="btn-floating color-orange"><i class="fas fa-user-plus"></i></a>Register</li>
-			<li class="oxygen-font"><a data-target="{{ url_for('login') }}" class="btn-floating color-orange modal-trigger"><i class="fas fa-sign-in-alt"></i></a>Login</li>
-			<li class="oxygen-font"><a class="btn-floating blue"><i class="far fa-address-card"></i></a>Your Profile</li>
-			<li class="oxygen-font"><a class="btn-floating red"><i class="fas fa-sign-out-alt"></i></a>Logout</li>
+			<!--<li class="oxygen-font"><a data-target="{{ url_for('login') }}" class="btn-floating color-orange modal-trigger"><i class="fas fa-sign-in-alt"></i></a>Login</li> -->
+            <li class="oxygen-font"><a href="{{ url_for('login') }}" class="btn-floating color-orange modal-trigger"><i class="fas fa-sign-in-alt"></i></a>Login</li>
+			<li class="oxygen-font"><a href="{{ url_for('profile', username=session['user']) }}" class="btn-floating blue"><i class="far fa-address-card"></i></a>Your Profile</li>
+			<li class="oxygen-font"><a href="#" class="btn-floating red"><i class="fas fa-sign-out-alt"></i></a>Logout</li>
 		</ul>
 	</div>
 

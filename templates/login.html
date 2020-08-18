@@ -28,17 +28,14 @@
                 <button type="submit" class="col s12 btn-large green accent-4">
                     Log in <i class="fas fa-sign-in-alt"></i>
                 </button>
+				<div class="col s12">
+					<p class="center-align">
+						Not a member? <a href="{{ url_for('register') }}" class="color-orange oxygen-font">Register here.</a>
+					</p>
+				</div>
             </div>
 		</div>
 	</form>
-</div>
-
-<div class="row">
-    <div class="col s12">
-        <p class="center-align">
-            Not a member? <a href="{{ url_for('register') }}" data-target="modal1" class="modal-trigger color-orange oxygen-font">Register here.</a>
-        </p>
-    </div>
 </div>
 
 {% endblock %}
