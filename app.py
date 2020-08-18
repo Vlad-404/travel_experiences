@@ -62,6 +62,7 @@ def login():
                existing_user["password"], request.form.get("password")):
                     session["user"] = request.form.get("username").lower()
                     flash("Welcome, {}".format(request.form.get("username")))
+                    return redirect(url_for("experiences_home()"))
             else:
                 # password doesn't match
                 flash("Incorrect username and/or password")
@@ -71,7 +72,7 @@ def login():
             flash("Incorrect username and/or password")
             return redirect(url_for("login"))
 
-    return render_template("experiences_home.html")
+    return render_template("login.html")
 
 
 if __name__ == "__main__":

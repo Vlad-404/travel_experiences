@@ -28,7 +28,7 @@
                     <li><a href="#" class="color-orange oxygen-font">My Page</a></li>
                     <li><a href="#" class="color-orange oxygen-font">Add New Experience</a></li>
                     <li><a href="#" class="color-orange oxygen-font">Logout</a></li>
-                    <li><a href="#" data-target="modal1" class="color-orange oxygen-font modal-trigger">Login</a></li>
+                    <li><a href="{{ url_for('login') }}" data-target="modal1" class="color-orange oxygen-font modal-trigger">Login</a></li>
                     <li><a href="{{ url_for('register') }}" class="color-orange oxygen-font">Register</a></li>
                 </ul>
 			</nav>
@@ -69,7 +69,7 @@
 			<li><a href="#" class="color-orange oxygen-font">My Page</a></li>
 			<li><a href="#" class="color-orange oxygen-font">Add New Experience</a></li>
 			<li><a href="#" class="color-orange oxygen-font">Logout</a></li>
-			<li><a href="#modal1" data-target="modal1" class="color-orange oxygen-font modal-trigger">Login</a></li>
+			<li><a href="{{ url_for('login') }}" data-target="modal1" class="color-orange oxygen-font modal-trigger">Login</a></li>
 			<li><a href="{{ url_for('register') }}" class="color-orange oxygen-font">Register</a></li>
 		</ul>
     </header>
@@ -93,14 +93,14 @@
         {% block content %}
         {% endblock %}
     </main>
-
-    <!-- Modal Structure -->
+<!--
+     ** Modal for loging in ** 
 	<div id="modal1" class="modal">
 		<div class="modal-content">
 			<h4 class="center-align marker-font">Log in</h4>
             <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('login')}}">
                 <div class="card-panel">
-                    <!-- User name -->
+            ** User name **
                     <div class="row">
                         <div class="input-field col s12">
                             <i class="fas fa-user-plus prefix deep-orange-text text-lighten-1"></i>
@@ -108,7 +108,7 @@
                             <label for="username">User name</label>
                         </div>
                     </div>
-                    <!-- Password -->
+            ** Password **
                     <div class="row">
                         <div class="input-field col s12">
                             <i class="fas fa-user-lock prefix deep-orange-text text-lighten-1"></i>
@@ -117,7 +117,7 @@
                         </div>
                     </div>
 
-                    <!-- Log in button -->
+            ** Log in button **
                     <div type="submit" class="btn-large green accent-4 modal-close oxygen-font"><a href="{{ url_for('login') }}">
                         Log in <i class="fas fa-sign-in-alt"></i></a>
                     </div>
@@ -132,6 +132,8 @@
 		</div>
 	</div>
 
+-->
+
     <!-- Floating action button -->
 	<div class="fixed-action-btn">
 		<a class="btn-floating btn-large green accent-4">
@@ -139,7 +141,7 @@
 		</a>
 		<ul>
 			<li class="oxygen-font"><a href="{{ url_for('register') }}" class="btn-floating color-orange"><i class="fas fa-user-plus"></i></a>Register</li>
-			<li class="oxygen-font"><a data-target="modal1" class="btn-floating color-orange modal-trigger"><i class="fas fa-sign-in-alt"></i></a>Login</li>
+			<li class="oxygen-font"><a data-target="{{ url_for('login') }}" class="btn-floating color-orange modal-trigger"><i class="fas fa-sign-in-alt"></i></a>Login</li>
 			<li class="oxygen-font"><a class="btn-floating blue"><i class="far fa-address-card"></i></a>Your Profile</li>
 			<li class="oxygen-font"><a class="btn-floating red"><i class="fas fa-sign-out-alt"></i></a>Logout</li>
 		</ul>
