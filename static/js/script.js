@@ -6,3 +6,8 @@ $(document).ready(function(){
     $('.modal').modal();
     $('.tooltipped').tooltip();
   });
+
+  $('.carousel.carousel-slider').carousel({
+    fullWidth: true,
+    indicators: true
+  });
