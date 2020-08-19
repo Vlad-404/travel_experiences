@@ -3,14 +3,14 @@
 
 <!-- title, search bar and sort tools -->
 <h1 class="center-align marker-font color-orange">Welcome to TRAVEL EXPERIENCES!</h1>
-
+    {% if session.user %}
     <div class="container">
         <div class="row">
             <!--<button class="btn-large red">Green</button>-->
             <button class="col align-right btn-large green">New experience</button>
         </div>
     </div>
-
+    {% endif %}
 <!-- Experiences slider -->
 <section class="borders">
     <div class="container">

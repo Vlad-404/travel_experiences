@@ -110,6 +110,11 @@ def logout():
     return redirect (url_for("experiences_home"))
 
 
+@app.route("/add_experience")
+def add_experience():
+    return render_template("add_experience.html")
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
