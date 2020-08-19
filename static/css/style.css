@@ -86,3 +86,7 @@ body {
     border: 1px solid #424242;
     min-height: 300px !important;
 }
+
+.button-margin {
+    margin-right: 3rem;
+}

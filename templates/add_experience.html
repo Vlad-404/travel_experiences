@@ -4,7 +4,7 @@
     <h3 class="color-orange marker-font center-align">Add New Experience</h3>
 
     <!-- <input type="text"><input type="submit" value="Submit" class="col s12"> -->
-    <div class="container">
+    <div class="container margin-above">
     <!-- Title -->
         <div class="row">
             <div class="col s12 m10 offset-m1 l10 offset-l1 xl10 offset-xl1">
@@ -14,25 +14,40 @@
     <!-- Input fields -->
         <!-- Add Image -->
         <div class="row">
-            <div class="col s4 center-align border-around">
+            <div class="col s3 center-align border-around">
                 <a href="#">                
                     <p>Add image</p>
                     <p><i class="far fa-images"></i></p>
                 </a>
             </div>
 
-            <form class="col m5 s8">
+            <form class="col m6 s8">
                 <div class="row">
                     <div class="input-field col s12">
-                        <i class="fas fa-globe-europe color-orange"></i>
-                        <input id="country" placeholder="Country" type="text" class="validate">
+                        <div class="row">
+                            <div class="col s7">
+                                <i class="fas fa-globe-europe color-orange"></i>
+                                <input id="country" name="country" placeholder="Location" type="text" class="validate">
+                            </div>
+                            <div class="col s4">
+                                <p>Country selector</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="duration" name="duration" placeholder="Duration" type="text" class="validate">
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="recommendation" name="recommendation" placeholder="Recommendation" type="text" class="validate">
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="input-field col s12">
-                        <i class="prefix"></i>
-                        <input id="recommendation" name="recommendation" placeholder="Recommendation" type="text" class="validate">
+                        <input id="tips" name="tips" placeholder="Brief tips" type="text" class="validate">
                     </div>
                 </div>
 		    </form>
@@ -40,6 +55,35 @@
             <div class="col s3 border-around hide-on-med-and-down">
                 <p>Map container</p>
             </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12">
+                <div class="card">
+                    <div class="card-content">
+                    <span class="marker-font">Travel arrangements</span>
+                    <input id="traveling" name="traveling" placeholder="Describe how you got there" type="text"class="validate typewritter-font">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12">
+                <div class="card">
+                    <div class="card-content">
+                        <span class="marker-font" >Description</span>
+                        <!--<p><textarea id="myTextArea" class="typewritter-font" rows = "3" cols = "80">Describe your experience</textarea></p>-->
+                        <input id="description" name="description" placeholder="Describe your experience" type="text"class="validate typewritter-font">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <ul class="center-align">
+                <li class="btn-large green accent-3 button-margin"><a href="#" class="white-text">Save</a></li>
+                <li class="btn-large red"><a href="{{ url_for('experiences_home') }}" class="white-text">Cancel</a></li>
+            </ul>
         </div>
     </div>
 

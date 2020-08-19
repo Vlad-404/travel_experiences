@@ -79,17 +79,6 @@ def login():
     return render_template("login.html")
 
 
-'''@app.route("/check_user/<username>")
-def check_user(username):
-    existing_user = mongo.db.users.find_one(
-            {"username": request.form.get("username").lower()})
-
-    if existing_user:
-        return username
-    else:
-        return "Profile"'''
-
-
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     # gets the session username from db
