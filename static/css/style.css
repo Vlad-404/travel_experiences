@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Oxygen&family=Permanent+Marker&display=swap');
 
+@font-face {
+    font-family: 'typewritter';
+    src: url('static/fonts/typewritter.eot');
+}
+
+/* base */
 * {
     font-family: 'Oxygen', Calibri;
 }
@@ -24,6 +30,10 @@ body {
       font-family: 'Oxygen', Calibri;
   }
 
+  .typewritter-font {
+      font-family: 'typewritter', 'Oxygen', 'Calibri';
+  }
+
   .color-orange {
       color: #ff7043 !important;
   }
@@ -43,6 +53,7 @@ body {
   ul#horizontal-list li {
 		display: inline;
 	}
+
 .margin-above {
     margin-top: 2rem;
 }
@@ -56,14 +67,16 @@ body {
     font-size: 3rem;
 }
 
-.space-horizontal {
-    margin-left: 2rem !important;
-}
-
+/* Home page and card formatting */
 .card-formatting {
     min-height: 1000px !important;
 }
 
-.bottom-line {
+.borders {
     border-bottom: 1px solid #424242;
+    border-top: 1px solid #424242;
+}
+
+.card-xl {
+    max-height: 600px;
 }

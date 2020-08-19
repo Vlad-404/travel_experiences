@@ -103,7 +103,7 @@ The following fonts were chosen:
 
 - [Permanent Marker](https://fonts.google.com/specimen/Permanent+Marker) - this font is used for titles only (h1). I wanted to use a smooth, curvy, italic font that associated with the feeling of being relaxed as this page is about relaxation and having a good time. It may look a bit rough around the edges, but it's supposed to be leisurely and like it's had enough of rules - at least for a duration of holidays.
 - [Oxygen](https://fonts.google.com/specimen/Oxygen) - this font was used for everything else. It's lightness, as name suggests, should give a light note to the whole page. Combining bold and regular styles with different sizes, I can differentiate accents from plain text.
-- [Traveling Typewriter](https://www.1001fonts.com/traveling-typewriter-font.html#styles) - used only as names for form entries (Location, Travel arrangements,...) to associate with writing a diary.
+- [Traveling Typewriter](https://www.1001fonts.com/traveling-typewriter-font.html#styles) - used only as names for form entries (Location, Travel arrangements,...) to associate with writing a diary. For credits, see [credits](#credits)
 - Calibri - a backup font if others fail to load.
 
 ### Colours
@@ -331,6 +331,8 @@ Linking the Heroku and GitHub:
 [Backt to top](#travel-experiences)
 
 # Credits
+
+Traveling Typewritter font made by [Carl Krull](https://www.onlinewebfonts.com/author/Carl_Krull) from http://www.onlinewebfonts.com oNline Web Fonts is licensed by CC BY 3.0.
 
 ## Content
 

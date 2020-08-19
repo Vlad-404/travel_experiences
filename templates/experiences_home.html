@@ -15,42 +15,39 @@
         </div>
     </div>
 
-<!-- Divider -->
-<div class="container">
-    <div class="row bottom-line"></div>
-</div>
-
 <!-- Experiences slider -->
+<section class="borders">
+    <div class="container">
+        <div class="row">
 
-<section class="container">
-    <div class="row">
-
-    {% for experience in experiences %}
-    <!-- Cards slider -->
-        <div class="col s12 m6 l4 xl3">
-            <div class="card large">
-                <!-- Card image -->
-                <div class="card-image">
-                        <a href="static/images/sample-1.jpg">
-                            <img src="static/images/sample-1.jpg" alt="{{ experience.title }} image">
-                        </a>
+        {% for experience in experiences %}
+        <!-- Cards slider -->
+            <div class="col s12 m6 l4 xl3">
+                <div class="card card-xl">
+                    <!-- Card image -->
+                    <div class="card-image">
+                            <a href="static/images/sample-1.jpg">
+                                <img src="static/images/sample-1.jpg" alt="{{ experience.title }} image">
+                            </a>
+                    </div>
+                    <div class="card-content">
+                        <p class="left-align color-orange typewritter-font">{{ experience.title }}</p>
+                        <ul>
+                            <li>Location: {{ experience.location }}, {{ experience.country_name }}</li>
+                            <li>Recommendation: {{ experience.recommendation }}</li>
+                            <li>Duration: {{ experience.duration }}</li>
+                            <li>Tips: {{ experience.tips }}</li>
+                            <li class="truncate">Travel arrangements: {{ experience.travel_arrangements }}</li>
+                            <li class="truncate">Description: {{ experience.description }}</li>
+                        </ul>
+                    </div>
+                    <div class="card-action center-align">
+                        <a href="#">Read more...</a>
+                    </div>
                 </div>
-				<div class="card-content">
-					<ul>
-                        <li>Location: {{ experience.location }}, {{ experience.country_name }}</li>
-                        <li>Recommendation: {{ experience.recommendation }}</li>
-                        <li>Duration: {{ experience.duration }}</li>
-                        <li>Tips: {{ experience.tips }}</li>
-                        <li class="truncate">Travel arrangements: {{ experience.travel_arrangements }}</li>
-                        <li class="truncate">Description: {{ experience.description }}</li>     
-                    </ul>
-				</div>
-				<div class="card-action center-align">
-					<a href="#">Read more...</a>
-				</div>
-			</div>
+            </div>
+        {% endfor %}
         </div>
-    {% endfor %}
     </div>
 </section>
 
