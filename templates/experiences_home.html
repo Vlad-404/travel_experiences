@@ -4,14 +4,10 @@
 <!-- title, search bar and sort tools -->
 <h1 class="center-align marker-font color-orange">Welcome to TRAVEL EXPERIENCES!</h1>
 
-    <div class="center">
+    <div class="container">
         <div class="row">
-            <div class="col s6 m2 offset-m4 xl2 offset-xl4">
-                <button class="btn-large red">Green</button>
-            </div>
-            <div class="col s6 m2 xl2 ">
-                <button class="btn-large green">Red</button>
-            </div>
+            <!--<button class="btn-large red">Green</button>-->
+            <button class="col align-right btn-large green">New experience</button>
         </div>
     </div>
 
@@ -30,17 +26,19 @@
                                 <img src="static/images/sample-1.jpg" alt="{{ experience.title }} image">
                             </a>
                     </div>
+                    <!-- Card content -->
                     <div class="card-content">
                         <p class="left-align color-orange typewritter-font">{{ experience.title }}</p>
                         <ul>
-                            <li>Location: {{ experience.location }}, {{ experience.country_name }}</li>
-                            <li>Recommendation: {{ experience.recommendation }}</li>
-                            <li>Duration: {{ experience.duration }}</li>
-                            <li>Tips: {{ experience.tips }}</li>
-                            <li class="truncate">Travel arrangements: {{ experience.travel_arrangements }}</li>
-                            <li class="truncate">Description: {{ experience.description }}</li>
+                            <li><strong>Location: </strong><span class="typewritter-font">{{ experience.location }}, {{ experience.country_name }}</span></li>
+                            <li><strong>Recommendation: </strong><span class="typewritter-font">{{ experience.recommendation }}</span></li>
+                            <li><strong>Duration: </strong><span class="typewritter-font">{{ experience.duration }}</span></li>
+                            <li><strong>Tips: </strong><span class="typewritter-font">{{ experience.tips }}</span></li>
+                            <li class="truncate"><strong>Travel arrangements: </strong><span class="typewritter-font">{{ experience.travel_arrangements }}</span></li>
+                            <li class="truncate"><strong>Description: </strong><span class="typewritter-font">{{ experience.description }}</span></li>
                         </ul>
                     </div>
+                    <!-- Link to read more -->
                     <div class="card-action center-align">
                         <a href="#">Read more...</a>
                     </div>

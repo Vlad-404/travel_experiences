@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Oxygen&family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oxygen&family=Oxygen:wght@700&family=Permanent+Marker&display=swap');
 
 @font-face {
     font-family: 'typewritter';
-    src: url('static/fonts/typewritter.eot');
+    src: url('/static/fonts/typewritter.woff') format("woff");
 }
 
 /* base */
@@ -31,7 +31,7 @@ body {
   }
 
   .typewritter-font {
-      font-family: 'typewritter', 'Oxygen', 'Calibri';
+      font-family: 'typewritter', 'Oxygen', 'Calibri' !important;
   }
 
   .color-orange {
