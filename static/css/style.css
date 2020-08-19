@@ -82,7 +82,7 @@ body {
 }
 
 /* Adding new experience */
-
-.above-margin {
-    margin-top: 20px;
+.border-around {
+    border: 1px solid #424242;
+    min-height: 300px !important;
 }
