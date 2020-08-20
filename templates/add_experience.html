@@ -20,7 +20,7 @@
             <div class="row">
 
                 <!-- Add Image -->
-                <div class="col s3 center-align border-around">
+                <div class="col s12 m3 center-align border-around">
                     <a href="#">                
                         <p>Add image</p>
                         <p><i class="far fa-images"></i></p>
@@ -32,14 +32,15 @@
                     <div class="row">
 
                         <!-- Add location -->
-                        <div class="input-field col s7">
+                        <div class="input-field col s12 m7">
                             <i class="fas fa-globe-europe color-orange"></i>
                             <input id="city" name="city" placeholder="City" minlength="1" maxlength="30" type="text" class="validate typewritter-font" required>
                         </div>
 
                         <!-- Add country -->
-                        <div class="col s5 input-field">
+                        <div class="col s12 m5 input-field">
                             <select id="country_name" name="country_name" class="validate" required>
+                                <option value="" disabled selected>Select Country</option>
                                 <optgroup label="Europe">
                                     <option country_id="1">Ireland</option>
                                     <option country_id="2">United Kingdom</option>
@@ -67,11 +68,14 @@
 
                 <!-- Duration -->
                     <div class="row">
-                        <div class="input-field col s6">
+                        <div class="input-field col s6 m3">
                             <input id="duration" name="duration" placeholder="Duration" minlength="1" type="text" class="validate typewritter-font">
                         </div>
-                        <div class="input-field col s6">
-                            <input id="recommendation" name="recommendation" placeholder="Recommendation" type="text" class="validate" required>
+                        <div class="col s6 m3 valign-wrapper">
+                            <p class="left-align">days</p>
+                        </div>
+                        <div class="input-field col s12 m6">
+                            <input id="recommendation" name="recommendation" placeholder="Recommendation" type="text" patern="^[1-5]{1}$" class="validate" required>
                         </div>
                     </div>
 

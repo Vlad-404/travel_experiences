@@ -20,7 +20,7 @@
 
         {% for experience in experiences %}
         <!-- Cards slider -->
-            <div class="col s12 m6 l4 xl3">
+            <div class="col s12 m6 l3">
                 <div class="card card-xl">
                     <!-- Card image -->
                     <div class="card-image">
@@ -36,7 +36,7 @@
                             <li><strong>Recommendation: </strong><span class="typewritter-font">{{ experience.recommendation }}</span></li>
                             <li><strong>Created by: </strong>{{ experience.created_by }}</li>
                             <li><strong>Duration: </strong><span class="typewritter-font">{{ experience.duration }}</span></li>
-                            <li><strong>Tips: </strong><span class="typewritter-font">{{ experience.tips }}</span></li>
+                            <li class="truncate"><strong>Tips: </strong><span class="typewritter-font">{{ experience.tips }}</span></li>
                             <li class="truncate"><strong>Travel arrangements: </strong><span class="typewritter-font">{{ experience.travel_arrangements }}</span></li>
                             <li class="truncate"><strong>Description: </strong><span class="typewritter-font">{{ experience.description }}</span></li>
                         </ul>
