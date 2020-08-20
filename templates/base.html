@@ -48,8 +48,12 @@
 						</div>
 					</li>
 					<li>
+                        {% if session.user %}
+                        <a href="{{ url_for('add_experience') }}"><img src="static/images/oslo.jpg"></a>
+                        {% else %}
 						<a href="{{ url_for('register') }}"><img src="static/images/oslo.jpg"></a> <!-- random image -->
-						<div class="caption right-align">
+                        {% endif %}
+                        <div class="caption right-align">
 							<h3>Want to contribute?</h3>
 						</div>
 					</li>

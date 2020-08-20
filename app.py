@@ -96,11 +96,28 @@ def logout():
     # remove user from session
     flash("You have been logged out")
     session.pop("user")
-    return redirect (url_for("experiences_home"))
+    return redirect(url_for("experiences_home"))
 
 
-@app.route("/add_experience")
+@app.route("/add_experience", methods=["GET", "POST"])
 def add_experience():
+    if request.method == "POST":
+        experience = {
+            "title": request.form.get("title"),
+            "country_name": request.form.get("country_name"),
+            "location": request.form.get("city"),
+            "recommendation": request.form.get("recommendation"),
+            "duration": request.form.get("duration"),
+            "tips": request.form.get("tips"),
+            "travel_arrangements": request.form.get("traveling"),
+            "description": request.form.get("description"),
+            "created_by": session["user"]
+        }
+        mongo.db.experiences.insert_one(experience)
+        flash("You have succesfully added your experience")
+        return redirect(url_for(
+                        "profile", username=session["user"]))
+    # countries = mongo.db.countries.find().sort("country_name", 1)
     return render_template("add_experience.html")
 
 

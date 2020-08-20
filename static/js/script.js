@@ -5,6 +5,7 @@ $(document).ready(function(){
     $('.fixed-action-btn').floatingActionButton();
     $('.modal').modal();
     $('.tooltipped').tooltip();
+    $('select').formSelect();
   });
 
   $('.carousel.carousel-slider').carousel({

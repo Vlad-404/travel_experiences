@@ -3,88 +3,121 @@
 
     <h3 class="color-orange marker-font center-align">Add New Experience</h3>
 
-    <!-- <input type="text"><input type="submit" value="Submit" class="col s12"> -->
     <div class="container margin-above">
-    <!-- Title -->
-        <div class="row">
-            <div class="col s12 m10 offset-m1 l10 offset-l1 xl10 offset-xl1">
-                <h1 class="typewritter-font"><strong><input id="title" placeholder="Give your experience a short name" type="text" class="validate typewritter-font center-align"></strong></h1>
-            </div>
-        </div>
-    <!-- Input fields -->
-        <!-- Add Image -->
-        <div class="row">
-            <div class="col s3 center-align border-around">
-                <a href="#">                
-                    <p>Add image</p>
-                    <p><i class="far fa-images"></i></p>
-                </a>
+
+        <form class="col s12" method="POST" action="{{ url_for('add_experience') }}">
+    
+        <!-- Title -->
+            <div class="row">
+                <div class="input-field col s12 m10 offset-m1 l10 offset-l1 xl10 offset-xl1">
+                    <strong>
+                        <input id="title" name="title" placeholder="Give your experience a short name" minlength="4" type="text" class="validate typewritter-font center-align" required>
+                    </strong>
+                </div>
             </div>
 
-            <form class="col m6 s8">
+            <!-- Input fields -->
+            <div class="row">
+
+                <!-- Add Image -->
+                <div class="col s3 center-align border-around">
+                    <a href="#">                
+                        <p>Add image</p>
+                        <p><i class="far fa-images"></i></p>
+                    </a>
+                </div>
+
+                <!-- Middle field -->
+                <div class="col s6">
+                    <div class="row">
+
+                        <!-- Add location -->
+                        <div class="input-field col s7">
+                            <i class="fas fa-globe-europe color-orange"></i>
+                            <input id="city" name="city" placeholder="City" minlength="1" maxlength="30" type="text" class="validate typewritter-font" required>
+                        </div>
+
+                        <!-- Add country -->
+                        <div class="col s5 input-field">
+                            <select id="country_name" name="country_name" class="validate" required>
+                                <optgroup label="Europe">
+                                    <option country_id="1">Ireland</option>
+                                    <option country_id="2">United Kingdom</option>
+                                    <option country_id="3">Spain</option>
+                                </optgroup>
+                                <optgroup label="North America">
+                                    <option country_id="4">Canada</option>
+                                    <option country_id="5">USA</option>
+                                </optgroup>
+                                <optgroup label="Asia">
+                                    <option country_id="6">Japan</option>
+                                    <option country_id="7">China</option>
+                                    <option country_id="8">Thailand</option>
+                                    <option country_id="9">India</option>
+                                </optgroup>
+                                <optgroup label="Africa">
+                                    <option country_id="10">Egypt</option>
+                                    <option country_id="11">South African Republic</option>
+                                    <option country_id="12">Nigeria</option>
+                                    <option country_id="13">Somalia</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                    </div>
+
+                <!-- Duration -->
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="duration" name="duration" placeholder="Duration" minlength="1" type="text" class="validate typewritter-font">
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="recommendation" name="recommendation" placeholder="Recommendation" type="text" class="validate" required>
+                        </div>
+                    </div>
+
+                <!-- Tips -->
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="tips" name="tips" placeholder="Brief tips" minlength="3" type="text" class="validate typewritter-font">
+                        </div>
+                    </div>
+            </div>
+            <!-- Map container  -->
+                <div class="col s3 border-around hide-on-med-and-down">
+                    <p>Map container</p>
+                </div>
+            </div>
+        <!-- Bottom fields -->
+            
+                <!-- Travel arrangements -->
                 <div class="row">
-                    <div class="input-field col s12">
-                        <div class="row">
-                            <div class="col s7">
-                                <i class="fas fa-globe-europe color-orange"></i>
-                                <input id="country" name="country" placeholder="Location" type="text" class="validate">
-                            </div>
-                            <div class="col s4">
-                                <p>Country selector</p>
+                    <div class="col s12">
+                        <div class="card">
+                            <div class="input-field card-content">
+                            <span class="marker-font">Travel arrangements</span>
+                            <input id="traveling" name="traveling" placeholder="Describe how you got there" minlength="3" maxlength="200" type="text" class="validate typewritter-font" required>
                             </div>
                         </div>
                     </div>
                 </div>
-
+            
+                <!-- Description -->
                 <div class="row">
-                    <div class="input-field col s6">
-                        <input id="duration" name="duration" placeholder="Duration" type="text" class="validate">
-                    </div>
-                    <div class="input-field col s6">
-                        <input id="recommendation" name="recommendation" placeholder="Recommendation" type="text" class="validate">
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="tips" name="tips" placeholder="Brief tips" type="text" class="validate">
+                    <div class="col s12 card">
+                        <div class="input-field card-content">
+                            <span class="marker-font">Description</span>
+                            <textarea id="description" name="description" minlength="15" class="materialize-textarea typewritter-font" placeholder="Describe your experience here" required></textarea>
+                        </div>
                     </div>
                 </div>
-		    </form>
-
-            <div class="col s3 border-around hide-on-med-and-down">
-                <p>Map container</p>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col s12">
-                <div class="card">
-                    <div class="card-content">
-                    <span class="marker-font">Travel arrangements</span>
-                    <input id="traveling" name="traveling" placeholder="Describe how you got there" type="text"class="validate typewritter-font">
+            <!-- Submit and cancel buttons -->
+            <div class="row">
+                <div class="center-align">
+                    <button  type="submit" class="btn-large green accent-3 button-margin">Save</button>
+                    <button class="btn-large red"><a href="{{ url_for('experiences_home') }}" class="white-text">Cancel</a></button>
                 </div>
             </div>
-        </div>
-
-        <div class="row">
-            <div class="col s12">
-                <div class="card">
-                    <div class="card-content">
-                        <span class="marker-font" >Description</span>
-                        <!--<p><textarea id="myTextArea" class="typewritter-font" rows = "3" cols = "80">Describe your experience</textarea></p>-->
-                        <input id="description" name="description" placeholder="Describe your experience" type="text"class="validate typewritter-font">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <ul class="center-align">
-                <li class="btn-large green accent-3 button-margin"><a href="#" class="white-text">Save</a></li>
-                <li class="btn-large red"><a href="{{ url_for('experiences_home') }}" class="white-text">Cancel</a></li>
-            </ul>
-        </div>
+        </form>
     </div>
 
 {% endblock %}

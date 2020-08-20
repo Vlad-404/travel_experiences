@@ -7,7 +7,9 @@
     <div class="container">
         <div class="row">
             <!--<button class="btn-large red">Green</button>-->
-            <button class="col s2 offset-s10 align-right btn-large green"><a href="{{ url_for('add_experience') }}" class="white-text">New experience</a></button>
+            <a href="{{ url_for('add_experience') }}" class="white-text">
+            <button class="col s2 offset-s10 align-right btn-large green">New experience</button>
+            </a>
         </div>
     </div>
     {% endif %}
@@ -32,6 +34,7 @@
                         <ul>
                             <li><strong>Location: </strong><span class="typewritter-font">{{ experience.location }}, {{ experience.country_name }}</span></li>
                             <li><strong>Recommendation: </strong><span class="typewritter-font">{{ experience.recommendation }}</span></li>
+                            <li><strong>Created by: </strong>{{ experience.created_by }}</li>
                             <li><strong>Duration: </strong><span class="typewritter-font">{{ experience.duration }}</span></li>
                             <li><strong>Tips: </strong><span class="typewritter-font">{{ experience.tips }}</span></li>
                             <li class="truncate"><strong>Travel arrangements: </strong><span class="typewritter-font">{{ experience.travel_arrangements }}</span></li>

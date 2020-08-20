@@ -231,7 +231,10 @@ How it works:
 
 List of bugs found:
 
-
+* wrong country displayed  in home page
+    * after submitting a new experience and comming back to the home page, country name was a number instead of full name
+    * dropdown menu had ``value`` field which overwrote the country name
+    * renamed ``value`` to ``country_id``
 
 ...
 
