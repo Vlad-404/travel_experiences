@@ -147,6 +147,16 @@ def edit_details(experience_id):
     return render_template("edit_details.html", experience=experience)
 
 
+@app.route("/delete_experience/<experience_id>")
+def delete_experience(experience_id):
+    experiences = mongo.db.experiences.find()
+    mongo.db.experiences.remove({"_id": ObjectId(experience_id)})
+    flash("You have succesfully removed your experience")
+
+    return render_template(
+            "profile.html", username=session["user"], experiences=experiences)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
