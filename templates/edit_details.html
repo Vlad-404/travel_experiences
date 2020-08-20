@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="input-field col s12 m10 offset-m1 l10 offset-l1 xl10 offset-xl1">
                     <strong>
-                        <input id="title" name="title" placeholder="Give your experience a short name" minlength="4" type="text" class="validate typewritter-font center-align" required>
+                        <input id="title" name="title" value="{{ experience.title }}" minlength="4" type="text" class="validate typewritter-font center-align" selected required>
                     </strong>
                 </div>
             </div>
@@ -34,13 +34,14 @@
                         <!-- Add location -->
                         <div class="input-field col s12 m7">
                             <i class="fas fa-globe-europe color-orange"></i>
-                            <input id="city" name="city" placeholder="City" minlength="1" maxlength="30" type="text" class="validate typewritter-font" required>
+                            <input id="city" name="city" value="{{ experience.location }}" minlength="1" maxlength="30" type="text" class="validate typewritter-font" required>
                         </div>
 
                         <!-- Add country -->
                         <div class="col s12 m5 input-field">
                             <select id="country_name" name="country_name" class="validate" required>
-                                <option value="" disabled selected>Select Country</option>
+                                <option value="" disabled>Select Country</option>
+                                <option value="{{ experience.country_name }}" class="typewritter-font" disabled selected>{{ experience.country_name }}</option>
                                 <optgroup label="Europe">
                                     <option country_id="1">Ireland</option>
                                     <option country_id="2">United Kingdom</option>
@@ -69,20 +70,20 @@
                 <!-- Duration -->
                     <div class="row">
                         <div class="input-field col s6 m3">
-                            <input id="duration" name="duration" placeholder="Duration" minlength="1" type="text" class="validate typewritter-font">
+                            <input id="duration" name="duration" value="{{ experience.duration }}" minlength="1" maxlength="3" type="text" class="validate typewritter-font">
                         </div>
                         <div class="col s6 m3 valign-wrapper">
                             <p class="left-align">days</p>
                         </div>
                         <div class="input-field col s12 m6">
-                            <input id="recommendation" name="recommendation" placeholder="Recommendation" type="text" patern="^[1-5]{1}$" class="validate" required>
+                            <input id="recommendation" name="recommendation" value="{{ experience.recommendation }}" type="text" patern="^[1-5]{1}$" class="validate" required>
                         </div>
                     </div>
 
                 <!-- Tips -->
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="tips" name="tips" placeholder="Brief tips" minlength="3" type="text" class="validate typewritter-font">
+                            <input id="tips" name="tips" value="{{ experience.tips }}" minlength="3" type="text" class="validate typewritter-font">
                         </div>
                     </div>
             </div>
@@ -99,7 +100,7 @@
                         <div class="card">
                             <div class="input-field card-content">
                             <span class="marker-font">Travel arrangements</span>
-                            <input id="traveling" name="traveling" placeholder="Describe how you got there" minlength="3" maxlength="200" type="text" class="validate typewritter-font" required>
+                            <input id="traveling" name="traveling" value="{{ experience.travel_arrangements }}" minlength="3" maxlength="200" type="text" class="validate typewritter-font" required>
                             </div>
                         </div>
                     </div>
@@ -110,15 +111,17 @@
                     <div class="col s12 card">
                         <div class="input-field card-content">
                             <span class="marker-font">Description</span>
-                            <textarea id="description" name="description" minlength="15" class="materialize-textarea typewritter-font" placeholder="Describe your experience here" required></textarea>
+                            <textarea id="description" name="description" minlength="15" class="materialize-textarea typewritter-font" required>
+                            {{- experience.description -}}
+                            </textarea>
                         </div>
                     </div>
                 </div>
             <!-- Submit and cancel buttons -->
             <div class="row">
                 <div class="center-align">
-                    <button  type="submit" class="btn-large green accent-3 button-margin">Update</button>
-                    <button class="btn-large red"><a href="{{ url_for('profile', username=session['user']) }}" class="white-text">Cancel</a></button>
+                    <button  type="submit" class="btn-large green accent-3 button-margin">Update <i class="fas fa-edit right"></i></button>
+                    <a href="{{ url_for('profile', username=session['user']) }}" class="btn-large red">Cancel <i class="fas fa-times-circle right"></i> </a>
                 </div>
             </div>
         </form>

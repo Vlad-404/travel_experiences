@@ -125,7 +125,25 @@ def add_experience():
 
 @app.route("/edit_details/<experience_id>", methods=["GET", "POST"])
 def edit_details(experience_id):
-    experience = mongo.db.experiences.find_one({"_id": ObjectId(experience_id)})
+    if request.method == "POST":
+        submit = {
+            "title": request.form.get("title"),
+            "country_name": request.form.get("country_name"),
+            "location": request.form.get("city"),
+            "recommendation": request.form.get("recommendation"),
+            "duration": request.form.get("duration"),
+            "tips": request.form.get("tips"),
+            "travel_arrangements": request.form.get("traveling"),
+            "description": request.form.get("description"),
+            "created_by": session["user"]
+        }
+        mongo.db.experiences.update({"_id": ObjectId(experience_id)}, submit)
+        flash("You have succesfully edited details")
+        return redirect(url_for(
+                        "profile", username=session["user"]))
+
+    experience = mongo.db.experiences.find_one(
+        {"_id": ObjectId(experience_id)})
     return render_template("edit_details.html", experience=experience)
 
 
