@@ -1,16 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="row">
-	<div class="col s12 m8 offset-m2">
-		<div class="card-panel">
-        <h3 class="center-align marker-font">
-            {{ username }}'s Experiences
-        </h3>
-		</div>
-	</div>
-</div>
-
+<h1 class="center-align marker-font color-orange">{{ username }}'s Experiences</h1>
 
 <div class="container">
 	<div class="row">
@@ -53,8 +44,8 @@
                     <!-- Update and cancel buttons  -->
 					<div class="row">
 						<div class="center-align margin-below">
-							<button  type="submit" class="btn-large green accent-3 button-margin">Edit</button>
-							<button class="btn-large red"><a href="{{ url_for('experiences_home') }}" class="white-text">Delete</a></button>
+							<a href="{{ url_for('edit_details', experience_id=experience._id)}}" class="white-text"><button  type="submit" class="btn-large green accent-3 button-margin">Edit</button></a>
+							<a href="#" class="white-text"><button class="btn-large red">Delete</button></a>
 						</div>
 					</div>
                 </div>

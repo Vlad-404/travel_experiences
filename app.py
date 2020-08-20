@@ -123,6 +123,12 @@ def add_experience():
     return render_template("add_experience.html")
 
 
+@app.route("/edit_details/<experience_id>", methods=["GET", "POST"])
+def edit_details(experience_id):
+    experience = mongo.db.experiences.find_one({"_id": ObjectId(experience_id)})
+    return render_template("edit_details.html", experience=experience)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

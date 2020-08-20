@@ -42,23 +42,23 @@
 			<div class="slider">
 				<ul class="slides">
 					<li>
-						<a href="{{ url_for('experiences_home') }}"><img src="static/images/glacier.jpg"></a> <!-- random image -->
+						<a href="{{ url_for('experiences_home') }}"><img src="../static/images/glacier.jpg"></a> <!-- random image -->
 						<div class="caption right-align">
 							<h3>Need inspiration?</h3>
 						</div>
 					</li>
 					<li>
                         {% if session.user %}
-                        <a href="{{ url_for('add_experience') }}"><img src="static/images/oslo.jpg"></a>
+                        <a href="{{ url_for('add_experience') }}"><img src="../static/images/oslo.jpg"></a>
                         {% else %}
-						<a href="{{ url_for('register') }}"><img src="static/images/oslo.jpg"></a> <!-- random image -->
+						<a href="{{ url_for('register') }}"><img src="../static/images/oslo.jpg"></a> <!-- random image -->
                         {% endif %}
                         <div class="caption right-align">
 							<h3>Want to contribute?</h3>
 						</div>
 					</li>
 					<li>
-						<a href="#"><img src="static/images/alps.jpg"></a> <!-- random image -->
+						<a href="#"><img src="../static/images/alps.jpg"></a> <!-- random image -->
 						<div class="caption right-align">
 							<h3>Need Travel arrangements?</h3>
 						</div>
