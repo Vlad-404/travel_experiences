@@ -3,51 +3,85 @@
 
 <!-- title, search bar and sort tools -->
 <h1 class="center-align marker-font deep-orange-text text-lighten-1">Welcome to TRAVEL EXPERIENCES!</h1>
-    {% if session.user %}
     <div class="container">
         <div class="row">
-            <!--<button class="btn-large red">Green</button>-->
-            <a href="{{ url_for('add_experience') }}" class="white-text">
-            <button class="col s2 offset-s10 align-right btn-large green">New experience</button>
-            </a>
+            
+            <!-- search box -->
+            <div class="search-wrapper col s8 offset-s2">
+                <i class="fas fa-search"></i><input id="search" placeholder="Search">
+                <div class="search-results"></div>
+            </div>
+        </div>
+
+        <div class="row valign-wrapper">
+            <!-- Sort box -->
+            <span class="col s12">
+                <select class="browser-default align-left">
+                    <option value="" disabled selected>Sort by</option>
+                    <option value="1">Country</option>
+                    <option value="2">User</option>
+                    <option value="3">Recommendation</option>
+                </select>
+            </span>
+
+            {% if session.user %}
+            <span class="col s3 offset-s9">
+                <a href="{{ url_for('add_experience') }}" class="col s12 btn btn-large green white-text">
+                    New experience
+                </a>
+            </span>
+            {% endif %}
         </div>
     </div>
-    {% endif %}
+    
 <!-- Experiences slider -->
 <section class="borders">
     <div class="container">
         <div class="row margin-above">
 
-        {% for experience in experiences %}
-        <!-- Cards slider -->
-            <div class="col s12 m6 xl4">
-                <div class="card card-xl">
-                    <!-- Card image -->
-                    <div class="card-image">
-                            <a href="#">
-                                <img src="static/images/sample-1.jpg" alt="{{ experience.title }} image">
-                            </a>
-                    </div>
-                    <!-- Card content -->
-                    <div class="card-content">
-                        <p class="left-align deep-orange-text text-lighten-1 typewritter-font">{{ experience.title }}</p>
-                        <ul>
-                            <li><strong>Location: </strong><span class="typewritter-font">{{ experience.location }}, {{ experience.country_name }}</span></li>
-                            <li><strong>Recommendation: </strong><span class="typewritter-font">{{ experience.recommendation }}</span></li>
-                            <li><strong>Created by: </strong>{{ experience.created_by }}</li>
-                            <li><strong>Duration: </strong><span class="typewritter-font">{{ experience.duration }}</span></li>
-                            <li class="truncate"><strong>Tips: </strong><span class="typewritter-font">{{ experience.tips }}</span></li>
-                            <li class="truncate"><strong>Travel arrangements: </strong><span class="typewritter-font">{{ experience.travel_arrangements }}</span></li>
-                            <li class="truncate"><strong>Description: </strong><span class="typewritter-font">{{ experience.description }}</span></li>
-                        </ul>
-                    </div>
-                    <!-- Link to read more -->
-                    <div class="card-action center-align">
-                        <a href="#">Read more...</a>
+            {% for experience in experiences %}
+            <!-- Cards slider -->
+                <div class="col s12 m6 xl4">
+                    <div class="card card-xl">
+                        <!-- Card image -->
+                        <div class="card-image">
+                                <a href="#">
+                                    <img src="static/images/sample-1.jpg" alt="{{ experience.title }} image">
+                                </a>
+                        </div>
+                        <!-- Card content -->
+                        <div class="card-content">
+                            <p class="left-align deep-orange-text text-lighten-1 typewritter-font">{{ experience.title }}</p>
+                            <ul>
+                                <li><strong>Location: </strong><span class="typewritter-font">{{ experience.location }}, {{ experience.country_name }}</span></li>
+                                <li><strong>Recommendation: </strong><span class="typewritter-font">{{ experience.recommendation }}</span></li>
+                                <li><strong>Created by: </strong>{{ experience.created_by }}</li>
+                                <li><strong>Duration: </strong><span class="typewritter-font">{{ experience.duration }}</span></li>
+                                <li class="truncate"><strong>Tips: </strong><span class="typewritter-font">{{ experience.tips }}</span></li>
+                                <li class="truncate"><strong>Travel arrangements: </strong><span class="typewritter-font">{{ experience.travel_arrangements }}</span></li>
+                                <li class="truncate"><strong>Description: </strong><span class="typewritter-font">{{ experience.description }}</span></li>
+                            </ul>
+                        </div>
+                        <!-- Link to read more -->
+                        <div class="card-action center-align">
+                            <a href="{{ url_for('data_handling') }}">Read more...</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        {% endfor %}
+            {% endfor %}
+
+            <!-- Pagination for container 
+            <div class="row">
+                <ul class="pagination center-align">
+                    <li class="disabled"><a href="#!"><i class="fas fa-chevron-left"></i></a></li>
+                    <li class="active"><a href="#!">1</a></li>
+                    <li class="waves-effect"><a href="#!">2</a></li>
+                    <li class="waves-effect"><a href="#!">3</a></li>
+                    <li class="waves-effect"><a href="#!">4</a></li>
+                    <li class="waves-effect"><a href="#!">5</a></li>
+                    <li class="waves-effect"><a href="#!"><i class="fas fa-chevron-right"></i></a></li>
+                </ul>
+            </div> -->
         </div>
     </div>
 </section>

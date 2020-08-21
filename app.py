@@ -101,6 +101,11 @@ def logout():
     return redirect(url_for("experiences_home"))
 
 
+@app.route("/data_handling")
+def data_handling():
+    experiences = mongo.db.experiences.find()
+    return render_template("data-handling.html", experiences=experiences)
+
 @app.route("/add_experience", methods=["GET", "POST"])
 def add_experience():
     if request.method == "POST":

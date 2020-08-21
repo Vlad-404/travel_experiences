@@ -36,6 +36,10 @@ body {
       font-family: 'typewritter', 'Oxygen', 'Calibri' !important;
   }
 
+  .text-justify {
+      text-align: justify;
+  }
+
 /* general fomatting */
   .flashes h4 {
       line-height: 2;
