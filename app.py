@@ -86,13 +86,6 @@ def profile(username):
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
 
-    '''for experience in experiences:
-        if experience.created_by == username:
-            return experience
-        else:
-            flash("Couldn't find any of your experiences")
-            return add_experience()'''
-
     if session["user"]:
         return render_template(
             "profile.html", username=username, experiences=experiences)
