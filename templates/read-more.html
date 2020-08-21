@@ -1,33 +1,29 @@
 {% extends "data-handling.html" %}
-
-    {% for experience in experiences %} 
-        
-        {% block title %}
+    
+    {% block title %}
             {{ experience.title }}
-        {% endblock %}
-  
-        {% block image %}
-            <img src="static/images/sample-1.jpg" alt="Experience image" class="responsive-img materialboxed">
-        {% endblock %}
+    {% endblock %}
 
-        {% block short_info %}
-            <p><strong>User: </strong><span class="typewritter-font">{{ experience.created_by }}</span></p><a href="#">See more from this user</a>
-            <p><strong>Location: </strong><span class="typewritter-font">{{ experience.location }} in {{ experience.country_name }}</span></p>
-            <p><strong>Reccomendation: </strong><span class="typewritter-font">{{ experience.recommendation }}</span></p>
-            <p><strong>Duration: </strong><span class="typewritter-font">{{ experience.duration }}</span></p>
-            <p><strong>Tips: </strong><span class="typewritter-font">{{ experience.tips }}</span></p>
-        {% endblock %}
+    {% block image %}
+        <img src="../static/images/sample-1.jpg" alt="Experience image" class="responsive-img materialboxed">
+    {% endblock %}
 
-        {% block description %}
-            <span class="marker-font">Description</span>
-            <p class="typewritter-font text-justify">
-                {{- experience.description -}}
-            </p>
-        {% endblock %}
+    {% block short_info %}
+        <p><strong>User: </strong><span class="typewritter-font">{{ experience.created_by }}</span></p><a href="#">See more from this user</a>
+        <p><strong>Location: </strong><span class="typewritter-font">{{ experience.location }} in {{ experience.country_name }}</span></p>
+        <p><strong>Reccomendation: </strong><span class="typewritter-font">{{ experience.recommendation }}</span></p>
+        <p><strong>Duration: </strong><span class="typewritter-font">{{ experience.duration }}</span></p>
+        <p><strong>Tips: </strong><span class="typewritter-font">{{ experience.tips }}</span></p>
+    {% endblock %}
 
-        {% block travel_arrangements %}
-            <span class="marker-font">Travel arrangements</span>
-            <p class="typewritter-font text-justify">{{- experience.travel_arrangements -}}</p>
-        {% endblock %}
+    {% block description %}
+        <span class="marker-font">Description</span>
+        <p class="typewritter-font text-justify">
+            {{- experience.description -}}
+        </p>
+    {% endblock %}
 
-    {% endfor %}
+    {% block travel_arrangements %}
+        <span class="marker-font">Travel arrangements</span>
+        <p class="typewritter-font text-justify">{{- experience.travel_arrangements -}}</p>
+    {% endblock %}

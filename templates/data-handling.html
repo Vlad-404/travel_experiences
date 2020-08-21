@@ -1,37 +1,33 @@
 {% extends "base.html" %}
-{% block data %}
+{% block content %}
 
-    {% for experience in experiences %}
+    <h3 class="deep-orange-text text-lighten-1 marker-font center-align">
+        {% block title %}
+        {% endblock %}
+    </h3>
 
-        <h3 class="deep-orange-text text-lighten-1 marker-font center-align">
-            {% block title %}
+    <section class="container">
+        <div class="row margin-above">
+            <div class="col s12 m4">
+                {% block image %}
+                {% endblock %}
+            </div>
+
+            <div class="col s12 m8">
+                {% block short_info %}
+                {% endblock %}
+            </div>
+        </div>
+
+        <div class="row">
+            {% block description %}
             {% endblock %}
-        </h3>
+        </div>
 
-        <section class="container">
-            <div class="row margin-above">
-                <div class="col s12 m4">
-                    {% block image %}
-                    {% endblock %}
-                </div>
-
-                <div class="col s12 m8">
-                    {% block short_info %}
-                    {% endblock %}
-                </div>
-            </div>
-
-            <div class="row">
-                {% block description %}
-                {% endblock %}
-            </div>
-
-            <div class="row">
-                {% block travel_arrangements %}
-                {% endblock %}
-            </div>
-        </section>
-    
-    {% endfor %}
-
+        <div class="row">
+            {% block travel_arrangements %}
+            {% endblock %}
+        </div>
+    </section>
+ 
 {% endblock %}
