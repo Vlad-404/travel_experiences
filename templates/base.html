@@ -27,7 +27,7 @@
                     <li><a href="#" class="deep-orange-text text-lighten-1 oxygen-font">Search</a></li>
                     {% if session.user %}
                         <li><a href="{{ url_for('profile', username=session['user']) }}" class="deep-orange-text text-lighten-1 oxygen-font">My Page</a></li>
-                        <li><a href="{{ url_for('add_experience') }}" class="deep-orange-text text-lighten-1 oxygen-font">Add New Experience</a></li>
+                        <li><a href="{{ url_for('add_experience', username=session['user']) }}" class="deep-orange-text text-lighten-1 oxygen-font">Add New Experience</a></li>
                         <li><a href="{{ url_for('logout') }}" class="deep-orange-text text-lighten-1 oxygen-font">Logout</a></li>
                     {% else %}
                         <li><a href="{{ url_for('login') }}" data-target="modal1" class="deep-orange-text text-lighten-1 oxygen-font modal-trigger">Login</a></li>
@@ -75,7 +75,7 @@
 			<li><a href="#" class="deep-orange-text text-lighten-1 oxygen-font">Search</a></li>
             {% if session.user %}
                 <li><a href="{{ url_for('profile', username=session['user']) }}" class="deep-orange-text text-lighten-1 oxygen-font">My Page</a></li>
-                <li><a href="{{ url_for('add_experience') }}" class="deep-orange-text text-lighten-1 oxygen-font">Add New Experience</a></li>
+                <li><a href="{{ url_for('add_experience', username=session['user']) }}" class="deep-orange-text text-lighten-1 oxygen-font">Add New Experience</a></li>
                 <li><a href="{{ url_for('logout') }}" class="deep-orange-text text-lighten-1 oxygen-font">Logout</a></li>
             {% else %}
                 <li><a href="{{ url_for('login') }}" data-target="modal1" class="deep-orange-text text-lighten-1 oxygen-font modal-trigger">Login</a></li>

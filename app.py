@@ -87,7 +87,7 @@ def profile(username):
         {"username": session["user"]})["username"]
 
     '''for experience in experiences:
-        if experience.created_by == :
+        if experience.created_by == username:
             return experience
         else:
             flash("Couldn't find any of your experiences")

@@ -116,7 +116,7 @@
             <div class="row">
                 <div class="center-align">
                     <button  type="submit" class="btn-large green accent-3 button-margin">Save</button>
-                    <button class="btn-large red"><a href="{{ url_for('profile') }}" class="white-text">Cancel</a></button>
+                    <button class="btn-large red"><a href="{{ url_for('profile', username=session['user']) }}" class="white-text">Cancel</a></button>
                 </div>
             </div>
         </form>

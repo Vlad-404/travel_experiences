@@ -236,6 +236,11 @@ List of bugs found:
     * dropdown menu had ``value`` field which overwrote the country name
     * renamed ``value`` to ``country_id``
 
+* Jinja crashed after clicking on ``Add experience`` button
+    * after implementing the filter to show only users experiences in their profile
+    * cancel but, which redirected to profile page, didn't had username to refer to
+    * added user name for the call in the button
+
 ...
 
 [Backt to top](#travel-experiences)

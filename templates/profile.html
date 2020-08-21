@@ -16,6 +16,7 @@
         <div class="row">
 
         {% for experience in experiences %}
+            <!--{% if session.user|lower == experience.created_by|lower %}-->
         <!-- Cards slider -->
             <div class="col s12 m6 l3">
                 <div class="card card-xl">
@@ -50,6 +51,7 @@
 					</div>
                 </div>
             </div>
+            <!--{% endif %}-->
         {% endfor %}
         </div>
     </div>
