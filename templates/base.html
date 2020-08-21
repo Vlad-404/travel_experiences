@@ -19,19 +19,19 @@
         <!-- Top navbar -->
 		<div class="navbar-fixed">
 			<nav class="nav-extended grey darken-3">
-                <a href="{{ url_for('experiences_home') }}" class="color-orange left-align marker-font">TRAVEL EXPERIENCES</a>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger right color-orange"><i class="fas fa-bars"></i></a>
+                <a href="{{ url_for('experiences_home') }}" class="deep-orange-text text-lighten-1 left-align marker-font">TRAVEL EXPERIENCES</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger right deep-orange-text text-lighten-1"><i class="fas fa-bars"></i></a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="#" class="color-orange oxygen-font">About</a></li>
-                    <li><a href="{{ url_for('experiences_home') }}" class="color-orange oxygen-font">Home</a></li>
-                    <li><a href="#" class="color-orange oxygen-font">Search</a></li>
+                    <li><a href="#" class="deep-orange-text text-lighten-1 oxygen-font">About</a></li>
+                    <li><a href="{{ url_for('experiences_home') }}" class="deep-orange-text text-lighten-1 oxygen-font">Home</a></li>
+                    <li><a href="#" class="deep-orange-text text-lighten-1 oxygen-font">Search</a></li>
                     {% if session.user %}
-                        <li><a href="{{ url_for('profile', username=session['user']) }}" class="color-orange oxygen-font">My Page</a></li>
-                        <li><a href="{{ url_for('add_experience') }}" class="color-orange oxygen-font">Add New Experience</a></li>
-                        <li><a href="{{ url_for('logout') }}" class="color-orange oxygen-font">Logout</a></li>
+                        <li><a href="{{ url_for('profile', username=session['user']) }}" class="deep-orange-text text-lighten-1 oxygen-font">My Page</a></li>
+                        <li><a href="{{ url_for('add_experience') }}" class="deep-orange-text text-lighten-1 oxygen-font">Add New Experience</a></li>
+                        <li><a href="{{ url_for('logout') }}" class="deep-orange-text text-lighten-1 oxygen-font">Logout</a></li>
                     {% else %}
-                        <li><a href="{{ url_for('login') }}" data-target="modal1" class="color-orange oxygen-font modal-trigger">Login</a></li>
-                        <li><a href="{{ url_for('register') }}" class="color-orange oxygen-font">Register</a></li>
+                        <li><a href="{{ url_for('login') }}" data-target="modal1" class="deep-orange-text text-lighten-1 oxygen-font modal-trigger">Login</a></li>
+                        <li><a href="{{ url_for('register') }}" class="deep-orange-text text-lighten-1 oxygen-font">Register</a></li>
                     {% endif %}
                 </ul>
 			</nav>
@@ -69,17 +69,17 @@
 
         <!-- Mobile sidenav -->		
 		<ul class="sidenav grey darken-3" id="mobile-demo">
-            <li><h4 class="center-align color-orange marker-font">Travel Experiences</h4></li>
-			<li><a href="#" class="color-orange oxygen-font">About</a></li>
-			<li><a href="{{ url_for('experiences_home') }}" class="color-orange oxygen-font">Home</a></li>
-			<li><a href="#" class="color-orange oxygen-font">Search</a></li>
+            <li><h4 class="center-align deep-orange-text text-lighten-1 marker-font">Travel Experiences</h4></li>
+			<li><a href="#" class="deep-orange-text text-lighten-1 oxygen-font">About</a></li>
+			<li><a href="{{ url_for('experiences_home') }}" class="deep-orange-text text-lighten-1 oxygen-font">Home</a></li>
+			<li><a href="#" class="deep-orange-text text-lighten-1 oxygen-font">Search</a></li>
             {% if session.user %}
-                <li><a href="{{ url_for('profile', username=session['user']) }}" class="color-orange oxygen-font">My Page</a></li>
-                <li><a href="{{ url_for('add_experience') }}" class="color-orange oxygen-font">Add New Experience</a></li>
-                <li><a href="{{ url_for('logout') }}" class="color-orange oxygen-font">Logout</a></li>
+                <li><a href="{{ url_for('profile', username=session['user']) }}" class="deep-orange-text text-lighten-1 oxygen-font">My Page</a></li>
+                <li><a href="{{ url_for('add_experience') }}" class="deep-orange-text text-lighten-1 oxygen-font">Add New Experience</a></li>
+                <li><a href="{{ url_for('logout') }}" class="deep-orange-text text-lighten-1 oxygen-font">Logout</a></li>
             {% else %}
-                <li><a href="{{ url_for('login') }}" data-target="modal1" class="color-orange oxygen-font modal-trigger">Login</a></li>
-                <li><a href="{{ url_for('register') }}" class="color-orange oxygen-font">Register</a></li>
+                <li><a href="{{ url_for('login') }}" data-target="modal1" class="deep-orange-text text-lighten-1 oxygen-font modal-trigger">Login</a></li>
+                <li><a href="{{ url_for('register') }}" class="deep-orange-text text-lighten-1 oxygen-font">Register</a></li>
             {% endif %}
 		</ul>
     </header>
@@ -90,7 +90,7 @@
             {% if messages %}
                 {% for message in messages %}
                 <div class="row flashes ">
-                    <h4 class="center-align color-orange oxygen-font">
+                    <h4 class="center-align deep-orange-text text-lighten-1 oxygen-font">
                         {{ message }}
                     </h4>
                 </div>
@@ -138,7 +138,7 @@
             </form>
 		</div>
 		<div class="modal-footer">
-            <p class="center-align">Not a member? <a href="{{ url_for('register') }}" class="modal-close color-orange oxygen-font">Register here.</a></p>
+            <p class="center-align">Not a member? <a href="{{ url_for('register') }}" class="modal-close deep-orange-text text-lighten-1 oxygen-font">Register here.</a></p>
 		</div>
 	</div>
 
@@ -150,15 +150,15 @@
 			<i class="fas fa-user-alt"></i>
 		</a>
         <p class="center-align green-text text-accent-4">{{session["user"]}}</p>
-		<ul>
+		<ul class="margin-above">
 			{% if session.user %}
                 <li><a href="{{ url_for('add_experience') }}" class="btn-floating tooltipped blue" data-position="left" data-tooltip="Add New Experience"><i class="fas fa-plus"></i></a></li>
                 <li class="oxygen-font"><a href="{{ url_for('profile', username=session['user']) }}" class="btn-floating tooltipped blue" data-position="left" data-tooltip="Your Profile"><i class="far fa-address-card"></i></a></li>
                 <li class="oxygen-font"><a href="{{ url_for('logout') }}" class="btn-floating tooltipped red" data-position="left" data-tooltip="Logout"><i class="fas fa-sign-out-alt"></i></a></li>
             {% else %}
-                <li class="oxygen-font"><a href="{{ url_for('register') }}" class="btn-floating tooltipped color-orange" data-position="left" data-tooltip="Register"><i class="fas fa-user-plus"></i></a></li>
-                <!--<li class="oxygen-font"><a data-target="{{ url_for('login') }}" class="btn-floating color-orange modal-trigger"><i class="fas fa-sign-in-alt"></i></a>Login</li> -->
-                <li class="oxygen-font"><a href="{{ url_for('login') }}" class="btn-floating tooltipped color-orange" data-position="left" data-tooltip="Login"><i class="fas fa-sign-in-alt"></i></a></li>
+                <li class="oxygen-font"><a href="{{ url_for('register') }}" class="btn-floating tooltipped deep-orange-text text-lighten-1" data-position="left" data-tooltip="Register"><i class="fas fa-user-plus"></i></a></li>
+                <!--<li class="oxygen-font"><a data-target="{{ url_for('login') }}" class="btn-floating deep-orange-text text-lighten-1 modal-trigger"><i class="fas fa-sign-in-alt"></i></a>Login</li> -->
+                <li class="oxygen-font"><a href="{{ url_for('login') }}" class="btn-floating tooltipped deep-orange-text text-lighten-1" data-position="left" data-tooltip="Login"><i class="fas fa-sign-in-alt"></i></a></li>
             {% endif %}
 		</ul>
 	</div>
@@ -166,21 +166,21 @@
     <!-- Footer -->
 	<footer class="page-footer grey darken-3 margin-above">
 		<div class="container">
-                <h2 class="white-text marker-font color-orange center-align">Travel Experiences</h2>
-                <p class="color-orange center-align">Check out our social media:</p>
+                <h2 class="white-text marker-font deep-orange-text text-lighten-1 center-align">Travel Experiences</h2>
+                <p class="deep-orange-text text-lighten-1 center-align">Check out our social media:</p>
                 <ul id="horizontal-list" class="center-align">
-                    <li><a class="color-orange larger-icons" href="{{ url_for('experiences_home') }}"><i class="fas fa-home"></i></a></li>
-                    <li><a class="color-orange larger-icons" href="#"><i class="far fa-envelope"></i></a></li> <!-- mail -->
-                    <li><a class="color-orange larger-icons" href="https://youtube.com" target="_blank"><i class="fab fa-youtube-square"></i></a></li>
-                    <li><a class="color-orange larger-icons" href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-square"></i></a></li>
-                    <li><a class="color-orange larger-icons" href="https://twitter.com" target="_blank"><i class="fab fa-twitter-square"></i></a></li>
-                    <li><a class="color-orange larger-icons" href="https://instagram.com" target="_blank"><i class="fab fa-instagram-square"></i></a></li>
+                    <li><a class="deep-orange-text text-lighten-1 larger-icons" href="{{ url_for('experiences_home') }}"><i class="fas fa-home"></i></a></li>
+                    <li><a class="deep-orange-text text-lighten-1 larger-icons" href="#"><i class="far fa-envelope"></i></a></li> <!-- mail -->
+                    <li><a class="deep-orange-text text-lighten-1 larger-icons" href="https://youtube.com" target="_blank"><i class="fab fa-youtube-square"></i></a></li>
+                    <li><a class="deep-orange-text text-lighten-1 larger-icons" href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-square"></i></a></li>
+                    <li><a class="deep-orange-text text-lighten-1 larger-icons" href="https://twitter.com" target="_blank"><i class="fab fa-twitter-square"></i></a></li>
+                    <li><a class="deep-orange-text text-lighten-1 larger-icons" href="https://instagram.com" target="_blank"><i class="fab fa-instagram-square"></i></a></li>
                 </ul>
 		</div>
 		<div class="footer-copyright">
-			<div class="container color-orange">
+			<div class="container deep-orange-text text-lighten-1">
 				© 2020 Copyright Text
-				<a class="right color-orange scrollspy medium-icons" href="#top-of-page">Back to top  <i class="fa fa-chevron-circle-up larger-icons" aria-hidden="true"></i></a>
+				<a class="right deep-orange-text text-lighten-1 scrollspy medium-icons" href="#top-of-page">Back to top  <i class="fa fa-chevron-circle-up larger-icons" aria-hidden="true"></i></a>
 			</div>
 		</div>
 	</footer>

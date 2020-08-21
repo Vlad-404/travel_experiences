@@ -11,7 +11,7 @@
 }
 
 body {
-    /* Materialize class for making footer sticky */
+    /* Materialize class for pushing footer to the bottom of the page */
     display: flex;
     min-height: 100vh;
     flex-direction: column;
@@ -34,19 +34,6 @@ body {
 
   .typewritter-font {
       font-family: 'typewritter', 'Oxygen', 'Calibri' !important;
-  }
-
-/* Colors */
-  .color-orange {
-      color: #ff7043 !important;
-  }
-
-  .color-light-green {
-      color: #00e676;
-  }
-
-  .color-green {
-      color: #66bb6a
   }
 
 /* general fomatting */
@@ -76,10 +63,6 @@ body {
 }
 
 /* Home page and card formatting */
-.card-formatting {
-    min-height: 1000px !important;
-}
-
 .borders {
     border-bottom: 1px solid #424242;
     border-top: 1px solid #424242;

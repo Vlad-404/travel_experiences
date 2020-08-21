@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h3 class="color-orange marker-font center-align">Edit details</h3>
+    <h3 class="deep-orange-text text-lighten-1 marker-font center-align">Edit details</h3>
 
     <div class="container margin-above">
 
@@ -33,7 +33,7 @@
 
                         <!-- Add location -->
                         <div class="input-field col s12 m7">
-                            <i class="fas fa-globe-europe color-orange"></i>
+                            <i class="fas fa-globe-europe deep-orange-text text-lighten-1"></i>
                             <input id="city" name="city" value="{{ experience.location }}" minlength="1" maxlength="30" type="text" class="validate typewritter-font" required>
                         </div>
 
@@ -96,12 +96,10 @@
             
                 <!-- Travel arrangements -->
                 <div class="row">
-                    <div class="col s12">
-                        <div class="card">
-                            <div class="input-field card-content">
+                    <div class="col s12 card">
+                        <div class="input-field card-content">
                             <span class="marker-font">Travel arrangements</span>
                             <input id="traveling" name="traveling" value="{{ experience.travel_arrangements }}" minlength="3" maxlength="200" type="text" class="validate typewritter-font" required>
-                            </div>
                         </div>
                     </div>
                 </div>

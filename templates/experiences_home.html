@@ -2,7 +2,7 @@
 {% block content %}
 
 <!-- title, search bar and sort tools -->
-<h1 class="center-align marker-font color-orange">Welcome to TRAVEL EXPERIENCES!</h1>
+<h1 class="center-align marker-font deep-orange-text text-lighten-1">Welcome to TRAVEL EXPERIENCES!</h1>
     {% if session.user %}
     <div class="container">
         <div class="row">
@@ -30,7 +30,7 @@
                     </div>
                     <!-- Card content -->
                     <div class="card-content">
-                        <p class="left-align color-orange typewritter-font">{{ experience.title }}</p>
+                        <p class="left-align deep-orange-text text-lighten-1 typewritter-font">{{ experience.title }}</p>
                         <ul>
                             <li><strong>Location: </strong><span class="typewritter-font">{{ experience.location }}, {{ experience.country_name }}</span></li>
                             <li><strong>Recommendation: </strong><span class="typewritter-font">{{ experience.recommendation }}</span></li>
