@@ -16,7 +16,16 @@
         {% endblock %}
 
         {% block image %}
-            <img src="../static/images/sample-1.jpg" alt="Experience image" class="responsive-img materialboxed">
+            <div class="card small col s12 valign-wrapper">
+                <div class="row">
+                    <div class="col s12">
+                        <p>Select image...</p>
+                    </div>
+                    <div class="col s12">
+                        <input id="image" name="image" type="file" class="validate center-align">
+                    </div>
+                </div>
+            </div>
         {% endblock %}
 
         {% block short_info %}

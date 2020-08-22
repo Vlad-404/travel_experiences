@@ -5,6 +5,7 @@ from flask import (
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+import cloudinary
 if os.path.exists("env.py"):
     import env
 
@@ -16,7 +17,6 @@ app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
-# username = mongo.db.users.find_one({"username": session["user"]})["username"]
 
 
 @app.route("/")
@@ -118,6 +118,14 @@ def moreinfo(experience_id):
 
 @app.route("/addxp", methods=["GET", "POST"])
 def addxp():
+    # cloudinary image upload
+    # cloudinary.uploader.upload(request.form.get("image"))
+    # result = cloudinary.uploader.unsigned_upload(
+        #(request.form.get("image"), upload_preset)
+
+    # image = cloudinary.utils.cloudinary_url("result")
+
+    # creating dictionary to upload
     if request.method == "POST":
         experience = {
             "title": request.form.get("title"),
@@ -128,7 +136,8 @@ def addxp():
             "tips": request.form.get("tips"),
             "travel_arrangements": request.form.get("traveling"),
             "description": request.form.get("description"),
-            "created_by": session["user"]
+            "created_by": session["user"],
+            # "image": result
         }
         mongo.db.experiences.insert_one(experience)
         flash("You have succesfully added your experience")
@@ -150,6 +159,7 @@ def editxp(experience_id):
             "travel_arrangements": request.form.get("traveling"),
             "description": request.form.get("description"),
             "created_by": session["user"]
+            # "image": request.form.get("image")
         }
         mongo.db.experiences.update_one(
             {"_id": ObjectId(experience_id)}, submit)
