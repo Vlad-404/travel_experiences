@@ -26,7 +26,7 @@
 
             {% if session.user %}
             <span class="col s3 offset-s9">
-                <a href="{{ url_for('add_experience') }}" class="col s12 btn btn-large green white-text">
+                <a href="{{ url_for('addxp', username=session['user']) }}" class="col s12 btn btn-large green white-text">
                     New experience
                 </a>
             </span>

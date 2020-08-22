@@ -1,0 +1,70 @@
+{% extends "datamod.html" %}
+
+    {% block pagetitle %}
+        Add New Experience
+    {% endblock %}
+    
+    <form class="col s12" method="POST" action="{{ url_for('addxp') }}">
+
+        {% block title %}
+            <div class="input-field">
+                <label for="title">Title</label>
+                <input id="title" name="title" placeholder="Give your experience a short name" minlength="4" maxlength="30" type="text" class="validate marker-font center-align" required>
+            </div>
+        {% endblock %}
+
+        {% block image %}
+            <img src="../static/images/sample-1.jpg" alt="Experience image" class="responsive-img materialboxed">
+        {% endblock %}
+
+        {% block short_info %}
+            <label for="city">Enter the City:</label>
+            <input id="city" name="city" placeholder="City" minlength="1" maxlength="30" type="text" class="validate typewritter-font" required>
+            <select id="country_name" name="country_name" class="validate" required>
+                <option value="" disabled selected>Select Country</option>
+                <optgroup label="Europe">
+                    <option country_id="1">Ireland</option>
+                    <option country_id="2">United Kingdom</option>
+                    <option country_id="3">Spain</option>
+                </optgroup>
+                <optgroup label="North America">
+                    <option country_id="4">Canada</option>
+                    <option country_id="5">USA</option>
+                </optgroup>
+                <optgroup label="Asia">
+                    <option country_id="6">Japan</option>
+                    <option country_id="7">China</option>
+                    <option country_id="8">Thailand</option>
+                    <option country_id="9">India</option>
+                </optgroup>
+                <optgroup label="Africa">
+                    <option country_id="10">Egypt</option>
+                    <option country_id="11">South African Republic</option>
+                    <option country_id="12">Nigeria</option>
+                    <option country_id="13">Somalia</option>
+                </optgroup>
+            </select>
+            <label for="duration">Duration in days</label>
+            <input id="duration" name="duration" placeholder="Duration in days" minlength="1" maxlength="3" type="text" pattern="^[0-9]$" class="validate typewritter-font">
+            <label for="recommendation">Recomendation</label>
+            <input id="recommendation" name="recommendation" placeholder="1-5" maxlength="1" type="text" patern="^[1-5]{1}$" class="validate" required>
+            <label for="tips">Tips</label>
+            <input id="tips" name="tips" placeholder="Brief tips" minlength="3" type="text" class="validate typewritter-font">
+        {% endblock %}
+
+        {% block description %}
+            <span class="marker-font">Description</span>
+            <textarea id="description" name="description" minlength="15" class="materialize-textarea typewritter-font" placeholder="Describe your experience here" required></textarea>
+        {% endblock %}
+
+        {% block travel_arrangements %}
+            <span class="marker-font">Travel arrangements</span>
+            <input id="traveling" name="traveling" placeholder="Describe how you got there" minlength="3" maxlength="200" type="text" class="validate typewritter-font" required>
+        {% endblock %}
+
+        {% block buttons %}
+            <button  type="submit" class="btn-large green accent-3 button-margin">Save</button>
+            <button class="btn-large red"><a href="{{ url_for('profile', username=session['user']) }}" class="white-text">Cancel</a></button>
+        {% endblock %}
+
+    </form>

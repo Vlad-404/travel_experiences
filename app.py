@@ -107,8 +107,9 @@ def read_more(experience_id):
         {"_id": ObjectId(experience_id)})
     return render_template("read-more.html", experience=experience)
 
-@app.route("/add_experience", methods=["GET", "POST"])
-def add_experience():
+
+@app.route("/addxp", methods=["GET", "POST"])
+def addxp():
     if request.method == "POST":
         experience = {
             "title": request.form.get("title"),
@@ -125,12 +126,11 @@ def add_experience():
         flash("You have succesfully added your experience")
         return redirect(url_for(
                         "profile", username=session["user"]))
-    # countries = mongo.db.countries.find().sort("country_name", 1)
-    return render_template("add_experience.html")
+    return render_template("addxp.html")
 
 
-@app.route("/edit_details/<experience_id>", methods=["GET", "POST"])
-def edit_details(experience_id):
+@app.route("/editxp/<experience_id>", methods=["GET", "POST"])
+def editxp(experience_id):
     if request.method == "POST":
         submit = {
             "title": request.form.get("title"),
@@ -150,7 +150,7 @@ def edit_details(experience_id):
 
     experience = mongo.db.experiences.find_one(
         {"_id": ObjectId(experience_id)})
-    return render_template("edit_details.html", experience=experience)
+    return render_template("editxp.html", experience=experience)
 
 
 @app.route("/delete_experience/<experience_id>")
