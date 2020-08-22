@@ -1,7 +1,7 @@
-{% extends "data-handling.html" %}
+{% extends "datamod.html" %}
     
     {% block title %}
-            {{ experience.title }}
+        {{ experience.title }}
     {% endblock %}
 
     {% block image %}
@@ -17,13 +17,11 @@
     {% endblock %}
 
     {% block description %}
-        <span class="marker-font">Description</span>
         <p class="typewritter-font text-justify">
             {{- experience.description -}}
         </p>
     {% endblock %}
 
     {% block travel_arrangements %}
-        <span class="marker-font">Travel arrangements</span>
         <p class="typewritter-font text-justify">{{- experience.travel_arrangements -}}</p>
     {% endblock %}

@@ -7,10 +7,20 @@
         <div class="row">
             
             <!-- search box -->
-            <div class="search-wrapper col s8 offset-s2">
-                <i class="fas fa-search"></i><input id="search" placeholder="Search">
-                <div class="search-results"></div>
-            </div>
+                <form action="{{ url_for('search')}}" method="POST" class="col s8 offset-s2">
+                    <div class="row valign-wrapper center-align">
+                        <div class="col s12 m8 offset-m1 input-field">
+                            <i class="fas fa-search prefix deep-orange-text text-lighten-1"></i>
+                            <input type="text" name="query" id="query" minlength="3" class="validate" required>
+                            <label for="query">Search</label>
+                        </div>
+                        <button type="submit" class="btn green white-text">
+                            Search
+                        </button>
+                    </div>
+                </form>
+                <!--<i class="fas fa-search"></i><input id="search" placeholder="Search">
+                <div class="search-results"></div>-->
         </div>
 
         <div class="row valign-wrapper">
@@ -25,9 +35,9 @@
             </span>
 
             {% if session.user %}
-            <span class="col s3 offset-s9">
-                <a href="{{ url_for('addxp', username=session['user']) }}" class="col s12 btn btn-large green white-text">
-                    New experience
+            <span class="col s6">
+                <a href="{{ url_for('addxp', username=session['user']) }}">
+                    <button class="btn btn-large green white-text">New</button>
                 </a>
             </span>
             {% endif %}
@@ -64,7 +74,7 @@
                         </div>
                         <!-- Link to read more -->
                         <div class="card-action center-align">
-                            <a href="{{ url_for('read_more', experience_id=experience._id) }}">Read more...</a>
+                            <a href="{{ url_for('moreinfo', experience_id=experience._id) }}">Read more...</a>
                         </div>
                     </div>
                 </div>

@@ -150,11 +150,11 @@
 			<i class="fas fa-user-alt"></i>
 		</a>
         <p class="center-align green-text text-accent-4">{{session["user"]}}</p>
-		<ul class="margin-above">
+		<ul>
 			{% if session.user %}
                 <li><a href="{{ url_for('addxp', username=session['user']) }}" class="btn-floating tooltipped blue" data-position="left" data-tooltip="Add New Experience"><i class="fas fa-plus"></i></a></li>
                 <li class="oxygen-font"><a href="{{ url_for('profile', username=session['user']) }}" class="btn-floating tooltipped blue" data-position="left" data-tooltip="Your Profile"><i class="far fa-address-card"></i></a></li>
-                <li class="oxygen-font"><a href="{{ url_for('logout') }}" class="btn-floating tooltipped red" data-position="left" data-tooltip="Logout"><i class="fas fa-sign-out-alt"></i></a></li>
+                <li class="oxygen-font"><a href="{{ url_for('logout') }}" style="margin-bottom:3rem;" class="btn-floating tooltipped red" data-position="left" data-tooltip="Logout"><i class="fas fa-sign-out-alt"></i></a></li>
             {% else %}
                 <li class="oxygen-font"><a href="{{ url_for('register') }}" class="btn-floating tooltipped deep-orange-text text-lighten-1" data-position="left" data-tooltip="Register"><i class="fas fa-user-plus"></i></a></li>
                 <!--<li class="oxygen-font"><a data-target="{{ url_for('login') }}" class="btn-floating deep-orange-text text-lighten-1 modal-trigger"><i class="fas fa-sign-in-alt"></i></a>Login</li> -->

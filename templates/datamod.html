@@ -6,12 +6,8 @@
         {% endblock %}
     </h3>
 
-    <!-- Checks to see if experience ID exists -->
-    {% if experience._id %}
-        <form class="col s12" method="POST" action="{{ url_for('editxp', experience_id=experience._id) }}">
-    {% else %}
-        <form class="col s12" method="POST" action="{{ url_for('addxp') }}">
-    {% endif %}
+    {% block formup %}
+    {% endblock %}
         <!-- Title -->
         <section class="container">
             <div class="row">
@@ -42,14 +38,24 @@
 
             <!-- Description field -->
             <div class="row">
-                {% block description %}
-                {% endblock %}
+                <div class="col s12">
+                    <div class="card-panel">
+                        <span class="marker-font">Description</span>
+                    {% block description %}
+                    {% endblock %}
+                    </div>
+                </div>
             </div>
 
             <!-- Travel arrangements -->
             <div class="row">
-                {% block travel_arrangements %}
-                {% endblock %}
+                <div class="col s12">
+                    <div class="card-panel">
+                    <span class="marker-font">Travel arrangements</span>
+                        {% block travel_arrangements %}
+                        {% endblock %}
+                    </div>
+                </div>
             </div>
 
             <!-- Buttons -->
@@ -61,6 +67,7 @@
             </div>
 
         </section>
-    </form>
+    {% block formdown %}
+    {% endblock %}
  
 {% endblock %}

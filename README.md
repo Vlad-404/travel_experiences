@@ -17,6 +17,7 @@ Contents:
     * [Features left to implement](#features-left-to-implement)
 * [Technologies used](#technologies-used)
 * [Testing](#testing)
+    * [Bugs during development](#bugs-during-development)
     * [User stories Testing](#user-stories-testing)
     * [Left out implementations](#left-out-implementations)
 * [Deployment](#deployment)
@@ -218,8 +219,6 @@ Due to time constrains, some of the features were left out so the page can be fu
 
 [Backt to top](#travel-experiences)
 
-### User Testing
-
 ### Bugs during development
 
 How it works:
@@ -241,6 +240,10 @@ List of bugs found:
     * cancel but, which redirected to profile page, didn't had username to refer to
     * added user name for the call in the button
 
+* Odd text appeared on the left side if datamod template was used
+    * found it after clicking on ``Read more...``, ``addxp`` and ``editxp``
+    * ``if/elif/else`` loop
+    * looking for resolution
 ...
 
 [Backt to top](#travel-experiences)

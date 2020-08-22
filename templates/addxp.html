@@ -3,9 +3,11 @@
     {% block pagetitle %}
         Add New Experience
     {% endblock %}
-    
-    <form class="col s12" method="POST" action="{{ url_for('addxp') }}">
 
+    {% block formup %}
+        <form class="col s12" method="POST" action="{{ url_for('addxp', username=session['user']) }}">
+    {% endblock %}
+    
         {% block title %}
             <div class="input-field">
                 <label for="title">Title</label>
@@ -45,7 +47,7 @@
                 </optgroup>
             </select>
             <label for="duration">Duration in days</label>
-            <input id="duration" name="duration" placeholder="Duration in days" minlength="1" maxlength="3" type="text" pattern="^[0-9]$" class="validate typewritter-font">
+            <input id="duration" name="duration" placeholder="Duration in days" minlength="1" maxlength="3" type="text" class="validate typewritter-font">
             <label for="recommendation">Recomendation</label>
             <input id="recommendation" name="recommendation" placeholder="1-5" maxlength="1" type="text" patern="^[1-5]{1}$" class="validate" required>
             <label for="tips">Tips</label>
@@ -53,12 +55,10 @@
         {% endblock %}
 
         {% block description %}
-            <span class="marker-font">Description</span>
             <textarea id="description" name="description" minlength="15" class="materialize-textarea typewritter-font" placeholder="Describe your experience here" required></textarea>
         {% endblock %}
 
         {% block travel_arrangements %}
-            <span class="marker-font">Travel arrangements</span>
             <input id="traveling" name="traveling" placeholder="Describe how you got there" minlength="3" maxlength="200" type="text" class="validate typewritter-font" required>
         {% endblock %}
 
@@ -67,4 +67,6 @@
             <button class="btn-large red"><a href="{{ url_for('profile', username=session['user']) }}" class="white-text">Cancel</a></button>
         {% endblock %}
 
-    </form>
+    {% block formdown %}
+        </form>
+    {% endblock %}

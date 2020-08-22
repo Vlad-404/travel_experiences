@@ -26,6 +26,14 @@ def experiences_home():
     return render_template("experiences_home.html", experiences=experiences)
 
 
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    experiences = mongo.db.experiences.find(
+        {"$text": {"$search": query}})
+    return render_template("experiences_home.html", experiences=experiences)
+
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -101,11 +109,11 @@ def logout():
     return redirect(url_for("experiences_home"))
 
 
-@app.route("/read_more/<experience_id>")
-def read_more(experience_id):
+@app.route("/moreinfo/<experience_id>")
+def moreinfo(experience_id):
     experience = mongo.db.experiences.find_one(
         {"_id": ObjectId(experience_id)})
-    return render_template("read-more.html", experience=experience)
+    return render_template("moreinfo.html", experience=experience)
 
 
 @app.route("/addxp", methods=["GET", "POST"])
@@ -143,7 +151,8 @@ def editxp(experience_id):
             "description": request.form.get("description"),
             "created_by": session["user"]
         }
-        mongo.db.experiences.update({"_id": ObjectId(experience_id)}, submit)
+        mongo.db.experiences.update_one(
+            {"_id": ObjectId(experience_id)}, submit)
         flash("You have succesfully edited details")
         return redirect(url_for(
                         "profile", username=session["user"]))

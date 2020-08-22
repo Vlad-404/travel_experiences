@@ -4,6 +4,10 @@
         Edit details
     {% endblock %}
 
+    {% block formup %}
+        <form class="col s12" method="POST" action="{{ url_for('editxp', experience_id=experience._id) }}">
+    {% endblock %}
+
         {% block title %}
             <div class="input-field">
                 <label for="title">Title</label>
@@ -43,7 +47,7 @@
                 </optgroup>
             </select>
             <label for="duration">Duration in days</label>
-            <input id="duration" name="duration" value="{{ experience.duration }}" minlength="1" maxlength="3" type="text" pattern="^[0-9]$" class="validate typewritter-font">
+            <input id="duration" name="duration" value="{{ experience.duration }}" minlength="1" maxlength="4" type="text" class="validate typewritter-font">
             <label for="recommendation">Recomendation</label>
             <input id="recommendation" name="recommendation" value="{{ experience.recommendation }}" maxlength="1" type="text" patern="^[1-5]{1}$" class="validate" required>
             <label for="tips">Tips</label>
@@ -51,14 +55,12 @@
         {% endblock %}
 
         {% block description %}
-            <span class="marker-font">Description</span>
             <textarea id="description" name="description" minlength="15" class="materialize-textarea typewritter-font" placeholder="Describe your experience here" required>
                 {{- experience.description -}}
             </textarea>
         {% endblock %}
 
         {% block travel_arrangements %}
-            <span class="marker-font">Travel arrangements</span>
             <input id="traveling" name="traveling" value="{{ experience.travel_arrangements }}" minlength="3" maxlength="200" type="text" class="validate typewritter-font" required>
         {% endblock %}
 
@@ -66,3 +68,7 @@
             <button  type="submit" class="btn-large green accent-3 button-margin">Update</button>
             <button class="btn-large red"><a href="{{ url_for('profile', username=session['user']) }}" class="white-text">Cancel</a></button>
         {% endblock %}
+
+    {% block formdown %}
+        </form>
+    {% endblock %}
