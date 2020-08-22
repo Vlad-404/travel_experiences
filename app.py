@@ -29,8 +29,8 @@ def experiences_home():
 @app.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get("query")
-    experiences = mongo.db.experiences.find(
-        {"$text": {"$search": query}})
+    experiences = list(mongo.db.experiences.find(
+        {"$text": {"$search": query}}))
     return render_template("experiences_home.html", experiences=experiences)
 
 

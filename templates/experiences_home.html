@@ -14,9 +14,12 @@
                             <input type="text" name="query" id="query" minlength="3" class="validate" required>
                             <label for="query">Search</label>
                         </div>
-                        <button type="submit" class="btn green white-text">
-                            Search
-                        </button>
+                        <div class="col s12 m4">
+                            <button type="submit" class="btn green white-text">
+                                Search
+                            </button>
+                            <a href="{{ url_for('experiences_home') }}" class="red btn">Reset</a>
+                        </div>
                     </div>
                 </form>
                 <!--<i class="fas fa-search"></i><input id="search" placeholder="Search">
@@ -47,6 +50,8 @@
 <!-- Experiences slider -->
 <section class="borders">
     <div class="container">
+
+        {% if experiences %}
         <div class="row margin-above">
 
             {% for experience in experiences %}
@@ -63,7 +68,7 @@
                         <div class="card-content">
                             <p class="left-align deep-orange-text text-lighten-1 typewritter-font">{{ experience.title }}</p>
                             <ul>
-                                <li><strong>Location: </strong><span class="typewritter-font">{{ experience.location }}, {{ experience.country_name }}</span></li>
+                                <li class="truncate"><strong>Location: </strong><span class="typewritter-font">{{ experience.location }}, {{ experience.country_name }}</span></li>
                                 <li><strong>Recommendation: </strong><span class="typewritter-font">{{ experience.recommendation }}</span></li>
                                 <li><strong>Created by: </strong>{{ experience.created_by }}</li>
                                 <li><strong>Duration: </strong><span class="typewritter-font">{{ experience.duration }}</span></li>
@@ -93,6 +98,13 @@
                 </ul>
             </div> -->
         </div>
+
+        {% else %}
+            <h3 class="center-align deep-orange-text text-lighten-1 oxygen-font">
+                No Results Found
+            </h3>
+        {% endif %}
+
     </div>
 </section>
 
