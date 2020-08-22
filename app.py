@@ -6,6 +6,8 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 import cloudinary
+from cloudinary.uploader import upload, destroy
+
 if os.path.exists("env.py"):
     import env
 
@@ -17,6 +19,13 @@ app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
+
+# cloudinary configs
+cloudinary.config(
+    cloud_name=os.environ.get('CLOUD_NAME'),
+    api_key=os.environ.get('API_KEY'),
+    api_secret=os.environ.get('API_SECRET')
+)
 
 
 @app.route("/")
@@ -119,9 +128,10 @@ def moreinfo(experience_id):
 @app.route("/addxp", methods=["GET", "POST"])
 def addxp():
     # cloudinary image upload
-    # cloudinary.uploader.upload(request.form.get("image"))
+    image = request.form.get("image")
+    cloudinary.uploader.unsigned_upload(image, "ltkfj1po")
     # result = cloudinary.uploader.unsigned_upload(
-        #(request.form.get("image"), upload_preset)
+    #    (request.form.get("image"), upload_preset)
 
     # image = cloudinary.utils.cloudinary_url("result")
 
@@ -171,6 +181,21 @@ def editxp(experience_id):
         {"_id": ObjectId(experience_id)})
     return render_template("editxp.html", experience=experience)
 
+# adding image
+# app.config["IMAGE_UPLOADS"] = cloudinary.uploader.unsigned_upload(
+
+
+@app.route("/addimg", methods=["GET", "POST"])
+def addimg():
+    if request.method == "POST":
+        if request.files:
+            image = request.files["image"]
+            # image.save(os.path.join(
+            # app.config["IMAGE_UPLOADS", image.filename]))
+            flash("Image has been uploaded")
+
+    return image
+
 
 @app.route("/delete_experience/<experience_id>")
 def delete_experience(experience_id):
@@ -185,4 +210,5 @@ def delete_experience(experience_id):
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
+            # cloud_name=os.environ.get("CLOUD_NAME"),
             debug=True)
