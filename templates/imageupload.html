@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h3 class="deep-orange-text text-lighten-1 marker-font center-align">
+        Upload an image
+    </h3>
+
+	<div class="row">
+        <form action="{ url_for('imageupload') }">
+            <div class="col s12 m6 offset-m3">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="static/images/sample-1.jpg">
+                    </div>
+                    <div class="card-action">
+                        <div class="file-field input-field">
+                            <div class="btn deep-orange lighten-1">
+                                <input id="file" name="file" type="file" accept="image/png, image/jpeg" onchange="this.form.submit()">
+                                <span>Submit</span>
+                            </div>
+                                <div class="file-path-wrapper">
+                                    <input class="file-path validate" type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+	</div>
+
+<!--
+    <div class="row margin-above">
+        <form>
+            <div class="col s12 m6 offset-m3">
+                <img src="static/images/sample-1.jpg" id="img-preview" alt="Base image" class="responsive-img">
+            </div>
+            <div class="col s12 m4 offset-s4 deep-orange lighten-1">
+                <span class="card-title white-text">Add image</span>
+                <input id="image" name="image" type="file" accept="image/png, image/jpeg" class="validate" placeholder="Add image">
+            </div>
+        </form>
+    </div>
+-->
+{% endblock %}

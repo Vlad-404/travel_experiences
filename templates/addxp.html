@@ -17,12 +17,11 @@
 
         {% block image %}
             <div class="card small col s12 valign-wrapper">
-				<div class="card-content">
-					<img src="static/images/sample-1.jpg" id="img-preview" alt="Base image" class="responsive-img">
+				<div class="card-content center-align">
+					<img src="#" id="image" name="image" alt="Base image" class="responsive-img">
 				</div>
-				<div class="card-action deep-orange lighten-1">
-                    <span class="card-title white-text">Add image</span>
-					<input id="image" name="image" type="file" accept="image/png, image/jpeg" class="validate" placeholder="Add image">
+				<div class="card-action deep-orange lighten-1 center-align">
+                    <a href="{{ url_for('imageupload') }}" class="white-text">Add image</a>
 				</div>
 
 				<!--<div class="file-field input-field">

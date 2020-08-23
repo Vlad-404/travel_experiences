@@ -49,7 +49,7 @@
             <label for="duration">Duration in days</label>
             <input id="duration" name="duration" value="{{ experience.duration }}" minlength="1" maxlength="4" type="text" class="validate typewritter-font">
             <label for="recommendation">Recomendation</label>
-            <input id="recommendation" name="recommendation" value="{{ experience.recommendation }}" maxlength="1" type="text" patern="^[1-5]{1}$" class="validate" required>
+            <input id="recommendation" name="recommendation" value="{{ experience.recommendation }}" maxlength="1" type="text" class="validate" required>
             <label for="tips">Tips</label>
             <input id="tips" name="tips" value="{{ experience.tips }}" minlength="3" type="text" class="validate typewritter-font">
         {% endblock %}

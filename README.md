@@ -243,7 +243,17 @@ List of bugs found:
 * Odd text appeared on the left side if datamod template was used
     * found it after clicking on ``Read more...``, ``addxp`` and ``editxp``
     * ``if/elif/else`` loop
-    * looking for resolution
+    * removed if/elif/else loop and set ``block form`` in ``datamod``. This way each form serves the function it's on
+
+* Jinja kept crashing because there was no ``cloud_name``
+    * after clicking on New experience
+    * ``cloudinary.config`` wasn't set properly
+    * found a solution from another student
+
+* Jinja kept crashing after clicking on submit button after experience was edited
+    * after submitting changes to experience
+    * in app.py update request had parameter of ``update_one`` instead of ``update``
+    * removed ``_one`` from request
 ...
 
 [Backt to top](#travel-experiences)

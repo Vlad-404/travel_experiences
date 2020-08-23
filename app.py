@@ -127,14 +127,6 @@ def moreinfo(experience_id):
 
 @app.route("/addxp", methods=["GET", "POST"])
 def addxp():
-    # cloudinary image upload
-    image = request.form.get("image")
-    cloudinary.uploader.unsigned_upload(image, "ltkfj1po")
-    # result = cloudinary.uploader.unsigned_upload(
-    #    (request.form.get("image"), upload_preset)
-
-    # image = cloudinary.utils.cloudinary_url("result")
-
     # creating dictionary to upload
     if request.method == "POST":
         experience = {
@@ -146,14 +138,24 @@ def addxp():
             "tips": request.form.get("tips"),
             "travel_arrangements": request.form.get("traveling"),
             "description": request.form.get("description"),
-            "created_by": session["user"],
-            # "image": result
+            "created_by": session["user"]
         }
+
         mongo.db.experiences.insert_one(experience)
         flash("You have succesfully added your experience")
         return redirect(url_for(
                         "profile", username=session["user"]))
     return render_template("addxp.html")
+
+
+@app.route("/imageupload", methods=["GET", "POST"])
+def imageupload():
+    # get the file from the form
+    file_to_upload = request.files.get('image')
+    # cloudinary.uploader.unsigned_upload(file_to_upload, "ltkfj1po")
+    # upload_result = upload(file_to_upload)
+
+    return render_template("imageupload.html")
 
 
 @app.route("/editxp/<experience_id>", methods=["GET", "POST"])
@@ -169,9 +171,8 @@ def editxp(experience_id):
             "travel_arrangements": request.form.get("traveling"),
             "description": request.form.get("description"),
             "created_by": session["user"]
-            # "image": request.form.get("image")
         }
-        mongo.db.experiences.update_one(
+        mongo.db.experiences.update(
             {"_id": ObjectId(experience_id)}, submit)
         flash("You have succesfully edited details")
         return redirect(url_for(

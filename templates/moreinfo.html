@@ -25,3 +25,12 @@
     {% block travel_arrangements %}
         <p class="typewritter-font text-justify">{{- experience.travel_arrangements -}}</p>
     {% endblock %}
+
+    {% block buttons %}
+        <button class="btn-large deep-orange lighten-1"><a href="{{ url_for('experiences_home') }}" class="white-text">Back to home page</a></button>
+        {% if session.user %}
+        <button class="btn-large green"><a href="{{ url_for('addxp', username=session['user']) }}" class="white-text">Add new experience</a></button>
+        {% else %}
+        <button class="btn-large green"><a href="{{ url_for('login') }}" class="white-text">Want to contribute?</a></button>
+        {% endif %}
+    {% endblock %}

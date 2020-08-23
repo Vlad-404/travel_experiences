@@ -43,5 +43,3 @@ $(document).ready(function(){
     fullWidth: true,
     indicators: true
   });
-
-  // image upload script
