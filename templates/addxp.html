@@ -18,7 +18,11 @@
         {% block image %}
             <div class="card small col s12 valign-wrapper">
 				<div class="card-content center-align">
+                    {% if upload_result %}
+                    <img src="{{ upload_result['url'] }}" id="image" name="image" alt="Base image" class="responsive-img">
+                    {% else %}
 					<img src="#" id="image" name="image" alt="Base image" class="responsive-img">
+                    {% endif %}
 				</div>
 				<div class="card-action deep-orange lighten-1 center-align">
                     <a href="{{ url_for('imageupload') }}" class="white-text">Add image</a>

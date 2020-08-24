@@ -6,22 +6,22 @@
     </h3>
 
 	<div class="row">
-        <form action="{ url_for('imageupload') }">
+        <form action="" method="POST" enctype="multipart/form-data">
             <div class="col s12 m6 offset-m3">
                 <div class="card">
                     <div class="card-image">
-                        <img src="static/images/sample-1.jpg">
+                        <div>{{ upload_result }}</div>
                     </div>
                     <div class="card-action">
-                        <div class="file-field input-field">
-                            <div class="btn deep-orange lighten-1">
-                                <input id="file" name="file" type="file" accept="image/png, image/jpeg" onchange="this.form.submit()">
-                                <span>Submit</span>
-                            </div>
-                                <div class="file-path-wrapper">
-                                    <input class="file-path validate" type="text">
-                            </div>
+                        <p><input id="image" name="image" type="file" accept="image/png, image/jpeg"></p>
+                        <p><input type="submit" value="Upload"></p>
+                        <!--<div class="btn deep-orange lighten-1">
+                            <input id="image" name="image" type="submit">
+                            <span>Browse</span>
                         </div>
+                        <div class="file-path-wrapper">
+                            <input class="validate" type="file" accept="image/png, image/jpeg">
+                        </div>-->
                     </div>
                 </div>
             </div>

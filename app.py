@@ -7,6 +7,7 @@ from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 import cloudinary
 from cloudinary.uploader import upload, destroy
+from cloudinary.utils import cloudinary_url
 
 if os.path.exists("env.py"):
     import env
@@ -19,6 +20,8 @@ app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
+
+app.config["CLOUD_NAME"]=os.environ.get("CLOUD_NAME")
 
 # cloudinary configs
 cloudinary.config(
@@ -150,12 +153,15 @@ def addxp():
 
 @app.route("/imageupload", methods=["GET", "POST"])
 def imageupload():
-    # get the file from the form
-    file_to_upload = request.files.get('image')
-    # cloudinary.uploader.unsigned_upload(file_to_upload, "ltkfj1po")
-    # upload_result = upload(file_to_upload)
+    downsized = None
+    if request.method == "POST":
+        file_to_upload = request.files.get("image")
+        if file_to_upload:
+            upload_result = upload(file_to_upload)
 
     return render_template("imageupload.html")
+
+# cloudinary.uploader.unsigned_upload(file_to_upload, "ltkfj1po")
 
 
 @app.route("/editxp/<experience_id>", methods=["GET", "POST"])
@@ -181,21 +187,6 @@ def editxp(experience_id):
     experience = mongo.db.experiences.find_one(
         {"_id": ObjectId(experience_id)})
     return render_template("editxp.html", experience=experience)
-
-# adding image
-# app.config["IMAGE_UPLOADS"] = cloudinary.uploader.unsigned_upload(
-
-
-@app.route("/addimg", methods=["GET", "POST"])
-def addimg():
-    if request.method == "POST":
-        if request.files:
-            image = request.files["image"]
-            # image.save(os.path.join(
-            # app.config["IMAGE_UPLOADS", image.filename]))
-            flash("Image has been uploaded")
-
-    return image
 
 
 @app.route("/delete_experience/<experience_id>")
