@@ -23,7 +23,8 @@
                     <!-- Card image -->
                     <div class="card-image">
                             <a href="#">
-                                <img src="../static/images/sample-1.jpg" alt="{{ experience.title }} image">
+                                <!-- <img src="../static/images/sample-1.jpg" alt="{{ experience.title }} image"> -->
+                                <img src="{% if experience.imagelink %}{{ experience.imagelink }}{% else %}../static/images/sample-1.jpg{% endif %}" alt="{{ experience.title }} image">
                             </a>
                     </div>
                     <!-- Card content -->

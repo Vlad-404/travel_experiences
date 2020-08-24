@@ -28,6 +28,11 @@
         </form>
 	</div>
 
+{% block buttons %}
+    <button class="btn-large red"><a href="{{ url_for('addxp', username=session['user']) }}" class="white-text">Cancel</a></button>
+    <!--<button class="btn-large red"><a href="{{ url_for('addxp', username=session['user']) }}" class="white-text">Cancel</a></button>-->
+{% endblock %}
+
 <!--
     <div class="row margin-above">
         <form>

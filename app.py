@@ -5,9 +5,11 @@ from flask import (
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+# cloudinary imports
 import cloudinary
 from cloudinary.uploader import upload, destroy
-from cloudinary.utils import cloudinary_url
+# Beautiful soup install for parsing HTML
+from bs4 import BeautifulSoup as BSHTML
 
 if os.path.exists("env.py"):
     import env
@@ -20,8 +22,6 @@ app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
-
-app.config["CLOUD_NAME"] = os.environ.get("CLOUD_NAME")
 
 # cloudinary configs
 cloudinary.config(
@@ -130,7 +130,6 @@ def moreinfo(experience_id):
 
 @app.route("/addxp", methods=["GET", "POST"])
 def addxp():
-    # creating dictionary to upload
     if request.method == "POST":
         experience = {
             "title": request.form.get("title"),
@@ -142,7 +141,7 @@ def addxp():
             "travel_arrangements": request.form.get("traveling"),
             "description": request.form.get("description"),
             "created_by": session["user"],
-            "imagelink": imagelink
+            "imagelink": request.form.get("imagelink")
         }
 
         mongo.db.experiences.insert_one(experience)
@@ -162,8 +161,9 @@ def imageupload():
             upload_result = upload(file_to_upload)
 
         imagelink = upload_result['secure_url']
+        session['imagelink'] = 'imagelink'
         flash("Image uploaded succesfully")
-        return render_template("addxp.html", imagelink=imagelink)
+        return render_template('addxp.html', imagelink=imagelink)
 
     return render_template("imageupload.html")
 

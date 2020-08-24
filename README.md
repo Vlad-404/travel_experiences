@@ -366,7 +366,7 @@ Traveling Typewritter font made by [Carl Krull](https://www.onlinewebfonts.com/a
 
 ## Acknowledgments and thank you's
 
-- Huge thank you to tim_ci from Code Institute for redoing flask mini project videos. I used his ``validateMaterializeSelect();`` function to make country field mandatory. You can find it in script.js.
+- Huge thank you to [Tim Nelson (tim_ci)](https://github.com/TravelTimN) from Code Institute for redoing flask mini project videos. I used his ``validateMaterializeSelect();`` function to make country field mandatory. You can find it in script.js.
 - CI student by the name of [Frozenaught](https://github.com/Frozenaught/homechopped) whose site Homechopped served as an inspiration to my project.
 - ...
 
