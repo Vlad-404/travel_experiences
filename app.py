@@ -21,7 +21,7 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
-app.config["CLOUD_NAME"]=os.environ.get("CLOUD_NAME")
+app.config["CLOUD_NAME"] = os.environ.get("CLOUD_NAME")
 
 # cloudinary configs
 cloudinary.config(
@@ -153,15 +153,18 @@ def addxp():
 
 @app.route("/imageupload", methods=["GET", "POST"])
 def imageupload():
-    downsized = None
+    # downsized = None
+    upload_result = None
     if request.method == "POST":
         file_to_upload = request.files.get("image")
         if file_to_upload:
             upload_result = upload(file_to_upload)
 
-    return render_template("imageupload.html")
+        imagelink = upload_result['secure_url']
+        flash("Image uploaded succesfully")
+        return render_template("addxp.html", imagelink=imagelink)
 
-# cloudinary.uploader.unsigned_upload(file_to_upload, "ltkfj1po")
+    return render_template("imageupload.html")
 
 
 @app.route("/editxp/<experience_id>", methods=["GET", "POST"])
