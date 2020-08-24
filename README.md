@@ -252,8 +252,13 @@ List of bugs found:
 
 * Jinja kept crashing after clicking on submit button after experience was edited
     * after submitting changes to experience
-    * in app.py update request had parameter of ``update_one`` instead of ``update``
+    * in ``app.py`` update request had parameter of ``update_one`` instead of ``update``
     * removed ``_one`` from request
+
+* When testing image upload, browser kept notifying about form resubmission. This resulted in repeated image uploads
+    * when working on the image upload function
+    * browser kept uploading the image each time confirm form resubmission displayed
+    * added ``upload_result = None`` to ``imageupload`` function before ``post`` method
 ...
 
 [Backt to top](#travel-experiences)

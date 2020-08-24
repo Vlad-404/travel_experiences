@@ -141,7 +141,8 @@ def addxp():
             "tips": request.form.get("tips"),
             "travel_arrangements": request.form.get("traveling"),
             "description": request.form.get("description"),
-            "created_by": session["user"]
+            "created_by": session["user"],
+            "imagelink": imagelink
         }
 
         mongo.db.experiences.insert_one(experience)
