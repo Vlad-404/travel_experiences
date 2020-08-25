@@ -16,7 +16,21 @@
         {% endblock %}
 
         {% block image %}
-            <img src="../static/images/sample-1.jpg" alt="Experience image" class="responsive-img materialboxed">
+                <div class="card small col s12 valign-wrapper">
+                    <div class="card-content center-align">
+                        <label for="image" class="hide"></label> <!-- required label : but hidden -->
+                        {% if imagelink %}
+                        <input id="imagelink" name="imagelink" value="{{ imagelink }}" type="text" class="hide"> <!-- input field "with" value : hidden -->
+                        <img src="{{ imagelink }}" id="imageSrc" alt="Base image" class="responsive-img">
+                        {% else %}
+                        <input id="imagelink" name="imagelink" type="text" class="hide"> <!-- input field "without" value : hidden -->
+                        <img src="{{ experience.imagelink }}" id="imageSrc" alt="Base image" class="responsive-img">
+                        {% endif %}
+                    </div>
+                    <div class="card-action deep-orange lighten-1 center-align">
+                        <a href="{{ url_for('imageupload') }}" class="white-text">Edit image</a>
+                    </div>
+                </div>
         {% endblock %}
 
         {% block short_info %}
@@ -48,8 +62,15 @@
             </select>
             <label for="duration">Duration in days</label>
             <input id="duration" name="duration" value="{{ experience.duration }}" minlength="1" maxlength="4" type="text" class="validate typewritter-font">
-            <label for="recommendation">Recomendation</label>
-            <input id="recommendation" name="recommendation" value="{{ experience.recommendation }}" maxlength="1" type="text" class="validate" required>
+            <div class="input-field deep-orange-text text-lighten-1">
+                <select id="recommendation" name="recommendation" class="validate">
+                    <option value="" disabled selected>Choose your option</option>
+                    <option value="Amazing experience!">Amazing experience!</option>
+                    <option value="If time alows it">If time alows it</option>
+                    <option value="Don't go there!">Don't go there!</option>
+                </select>
+                <label>Recommendation</label>
+            </div>
             <label for="tips">Tips</label>
             <input id="tips" name="tips" value="{{ experience.tips }}" minlength="3" type="text" class="validate typewritter-font">
         {% endblock %}

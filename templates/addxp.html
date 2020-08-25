@@ -62,8 +62,18 @@
             </select>
             <label for="duration">Duration in days</label>
             <input id="duration" name="duration" placeholder="Duration in days" minlength="1" maxlength="3" type="text" class="validate typewritter-font">
-            <label for="recommendation">Recomendation</label>
-            <input id="recommendation" name="recommendation" placeholder="1-5" maxlength="1" type="text" patern="^[1-5]{1}$" class="validate" required>
+            <!-- Recommendation in stars -->
+            <div class="input-field deep-orange-text text-lighten-1">
+                <select id="recommendation" name="recommendation" class="validate">
+                    <option value="" disabled selected>Choose your option</option>
+                    <option value="Amazing experience!">Amazing experience!</option>
+                    <option value="If time alows it">If time alows it</option>
+                    <option value="Don't go there!">Don't go there!</option>
+                </select>
+                <label>Recommendation</label>
+            </div>
+
+            <!--<input id="recommendation" name="recommendation" placeholder="1-5" maxlength="1" type="text" patern="^[1-5]{1}$" class="validate" required>-->
             <label for="tips">Tips</label>
             <input id="tips" name="tips" placeholder="Brief tips" minlength="3" type="text" class="validate typewritter-font">
         {% endblock %}

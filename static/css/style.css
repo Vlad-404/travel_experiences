@@ -85,3 +85,11 @@ body {
 .button-margin {
     margin-right: 3rem;
 }
+
+/* Rating styling - see readme for acknowledgments */
+.star-rating {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
