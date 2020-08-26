@@ -270,7 +270,9 @@ def deletexp(experience_id):
     flash("You have succesfully removed your experience")
 
     return render_template(
-            "profile.html", username=session["user"])
+            "profile.html",
+            username=session["user"],
+            experiences=experiences)
 
 
 if __name__ == "__main__":

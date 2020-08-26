@@ -4,73 +4,67 @@
 <!-- title, search bar and sort tools -->
 <h1 class="center-align marker-font deep-orange-text text-lighten-1">Welcome to TRAVEL EXPERIENCES!</h1>
     <div class="container">
-        <div class="row">
             
-            <!-- search box -->
-                <form action="{{ url_for('search')}}" method="POST" class="col s8 offset-s2">
-                    <div class="row valign-wrapper center-align">
-                        <div class="col s12 m8 offset-m1 input-field">
-                            <i class="fas fa-search prefix deep-orange-text text-lighten-1"></i>
-                            <input type="text" name="query" id="query" minlength="3" class="validate" required>
-                            <label for="query">Search</label>
-                        </div>
-                        <div class="col s12 m4">
-                            <button type="submit" class="btn green white-text">
-                                Search
-                            </button>
-                            <a href="{{ url_for('experiences_home') }}" class="red btn">Reset</a>
-                        </div>
-                    </div>
-                </form>
-                <!--<i class="fas fa-search"></i><input id="search" placeholder="Search">
-                <div class="search-results"></div>-->
-        </div>
+        <!-- search box -->
+        <form action="{{ url_for('search')}}" method="POST" class="row center-align">
+			<div class="col s12 valign-wrapper">
+				<div class="input-field col s12 m8 offset-m2">
+					<input id="query" name="query" type="text" minlength="3" class="validate" required>
+					<label for="query">Search</label>
+				</div>
+                <button type="submit" class="btn green">
+                        Search
+                </button>
+			</div>
+        </form>
 
+        <!-- Container for experiences -->
         <div class="row valign-wrapper">
-            <!-- Sort box -->
-            <form action="{{ url_for('sorter') }}" method="POST">
-                <span class="col s12">
+
+            <!-- Sorter -->
+            <form action="{{ url_for('sorter') }}" method="POST" class="col s12">
+                <div>
                     <select id="sorter" name="sorter" class="browser-default align-left" onchange="this.form.submit()">
                         <option value="" disabled selected>Sort by</option>
                         <option value="country">Country</option>
                         <option value="user">User</option>
                         <option value="recommendation">Recommendation</option>
                     </select>
-                </span>
+                </div>
             </form>
 
+            <!-- Button for creating new experience if user is logged in -->
             {% if session.user %}
-            <span class="col s6">
-                <a href="{{ url_for('imageupload') }}">
-                    <button class="btn btn-large green white-text">New</button>
-                </a>
-            </span>
+                <button href="{{ url_for('imageupload') }}" class="col s12 m4 offset-m8 btn btn-large green">New</button>
             {% endif %}
         </div>
     </div>
     
-<!-- Experiences slider -->
+<!-- Experiences container -->
 <section class="borders">
     <div class="container">
 
+        <!-- Condition for search  -->
         {% if experiences %}
         <div class="row margin-above">
 
             {% for experience in experiences %}
-            <!-- Cards slider -->
+            <!-- Cards -->
                 <div class="col s12 m6 xl4">
                     <div class="card card-xl">
+
                         <!-- Card image -->
                         <div class="card-image">
                                 <a href="{{ url_for('moreinfo', experience_id=experience._id) }}">
                                     <img src="{% if experience.imagelink %}{{ experience.imagelink }}{% else %}../static/images/sample-1.jpg{% endif %}" alt="{{ experience.title }} image" class="static-height">
                                 </a>
                         </div>
+
                         <!-- Card content -->
                         <div class="card-content">
                             <p class="left-align deep-orange-text text-lighten-1 typewritter-font">{{ experience.title }}</p>
                             <ul>
-                                <li><strong>Location: </strong><span class="typewritter-font truncate">{{ experience.location }}, {{ experience.country_name }}</span></li>
+                                <li class="truncate"><strong>Location: </strong><span class="typewritter-font">{{ experience.location }}, {{ experience.country_name }}</span></li>
                                 <li><strong>Recommendation: </strong><span class="typewritter-font">{{ experience.recommendation }}</span></li>
                                 <li><strong>Created by: </strong>{{ experience.created_by }}</li>
                                 <li><strong>Duration: </strong><span class="typewritter-font">{{ experience.duration }}</span></li>
@@ -79,6 +73,7 @@
                                 <li class="truncate"><strong>Description: </strong><span class="typewritter-font">{{ experience.description }}</span></li>
                             </ul>
                         </div>
+
                         <!-- Link to read more -->
                         <div class="card-action center-align">
                             <a href="{{ url_for('moreinfo', experience_id=experience._id) }}">Read more...</a>
@@ -87,7 +82,7 @@
                 </div>
             {% endfor %}
 
-            <!-- Pagination for container 
+            <!-- Pagination for container - see readme for features left to implement
             <div class="row">
                 <ul class="pagination center-align">
                     <li class="disabled"><a href="#!"><i class="fas fa-chevron-left"></i></a></li>
@@ -102,6 +97,7 @@
         </div>
 
         {% else %}
+            <!-- If nothing is found with search, this container is diplayed -->
             <h3 class="center-align deep-orange-text text-lighten-1 oxygen-font">
                 No Results Found
             </h3>
