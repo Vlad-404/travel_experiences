@@ -5,7 +5,7 @@
 
 <div class="container">
 	<div class="row">
-		<a href="{{ url_for('addxp', username=session['user']) }}" class="white-text">
+		<a href="{{ url_for('imageupload', username=session['user']) }}" class="white-text">
 			<button class="col s2 offset-s10 btn-large green">New experience</button>
 		</a>
 	</div>
@@ -22,8 +22,7 @@
                 <div class="card card-xl">
                     <!-- Card image -->
                     <div class="card-image">
-                            <a href="#">
-                                <!-- <img src="../static/images/sample-1.jpg" alt="{{ experience.title }} image"> -->
+                            <a href="{{ url_for('moreinfo', experience_id=experience._id) }}">
                                 <img src="{% if experience.imagelink %}{{ experience.imagelink }}{% else %}../static/images/sample-1.jpg{% endif %}" alt="{{ experience.title }} image">
                             </a>
                     </div>
@@ -42,8 +41,8 @@
 
                     <!-- Update and cancel buttons - issues between 450px and 601px wide screens -->
                     <div class="card-action center-align">
-                        <a href="{{ url_for('editxp', experience_id=experience._id) }}" class="white-text btn green accent-3" type="submit" >Edit</a>
-						<a href="{{ url_for('delete_experience', experience_id=experience._id) }}" class="btn white-text red">Delete</a>
+                        <a href="{{ url_for('imgedit', experience_id=experience._id) }}" class="white-text btn green accent-3" type="submit" >Edit</a>
+						<a href="{{ url_for('deletexp', experience_id=experience._id) }}" class="btn white-text red">Delete</a>
                     </div>
                 </div>
             </div>

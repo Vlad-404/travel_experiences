@@ -2,21 +2,23 @@
 {% block content %}
 
     <h3 class="deep-orange-text text-lighten-1 marker-font center-align">
-        First, upload an image
+        Edit image
+        <p>{{ experience.experience_id}}</p>
     </h3>
 
 	<div class="row">
         <form action="" method="POST" enctype="multipart/form-data">
             <div class="col s12 m6 offset-m3">
                 <div class="card">
-                    <div class="card-image">
-                        <img src="{{ imagelink }}" id="output">
+                    <div class="card-image" id="image-preview">
+                        <img src="{{ experience.imagelink }}" id="output">
                     </div>
-                    <div class="card-action valign-wrapper">
+                    <div class="card-action">
+                        <p>{{ experience.experience_id}}</p>
                         <input id="image" name="image" type="file" accept="image/*" onchange="loadFile(event)" class="hide">
                         <p><label for="image" style="cursor: pointer;" class="btn deep-orange lighten-1">Browse</label></p>
                         <input id="submit" type="submit" value="Upload" class="hide">
-                        <p><label for="submit" style="cursor: pointer;" class="btn green right-align">Upload Image</label></p>
+                        <p><label for="submit" style="cursor: pointer;" class="btn green right-align">Next</label></p>
                     </div>
                 </div>
             </div>
@@ -24,7 +26,7 @@
 	</div>
 
 {% block buttons %}
-    <button class="btn-large red"><a href="{{ url_for('experiences_home') }}" class="white-text">Cancel</a></button>
+    <button class="btn-large red"><a href="{{ url_for('profile', username=session['user']) }}" class="white-text">Cancel</a></button>
 {% endblock %}
 
 <!--

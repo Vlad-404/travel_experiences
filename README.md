@@ -369,6 +369,7 @@ Traveling Typewritter font made by [Carl Krull](https://www.onlinewebfonts.com/a
 - Huge thank you to [Tim Nelson (tim_ci)](https://github.com/TravelTimN) from Code Institute for redoing flask mini project videos. I used his ``validateMaterializeSelect();`` function to make country field mandatory. You can find it in script.js.
 - CI student by the name of [Frozenaught](https://github.com/Frozenaught/homechopped) whose site Homechopped served as an inspiration to my project.
 - Code for coutry selector dropdown in ``addxp.html`` and ``editxp.html`` used from mrmarkfrench and his Country selector project. More info [here](https://github.com/mrmarkfrench/country-select-js).
+- code for dynamic image preview for image upload taken from [Webtrickshome](https://www.webtrickshome.com/faq/how-to-display-uploaded-image-in-html-using-javascript)
 
 [Backt to top](#travel-experiences)
 

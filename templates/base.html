@@ -7,9 +7,9 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
-	{% block styles %}
+    {% block styles %}
     {% endblock %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
 	<title>Travel Experiences</title>
 </head>
 
@@ -27,7 +27,7 @@
                     <li><a href="#" class="deep-orange-text text-lighten-1 oxygen-font">Search</a></li>
                     {% if session.user %}
                         <li><a href="{{ url_for('profile', username=session['user']) }}" class="deep-orange-text text-lighten-1 oxygen-font">My Page</a></li>
-                        <li><a href="{{ url_for('addxp', username=session['user']) }}" class="deep-orange-text text-lighten-1 oxygen-font">Add New Experience</a></li>
+                        <li><a href="{{ url_for('imageupload', username=session['user']) }}" class="deep-orange-text text-lighten-1 oxygen-font">Add New Experience</a></li>
                         <li><a href="{{ url_for('logout') }}" class="deep-orange-text text-lighten-1 oxygen-font">Logout</a></li>
                     {% else %}
                         <li><a href="{{ url_for('login') }}" data-target="modal1" class="deep-orange-text text-lighten-1 oxygen-font modal-trigger">Login</a></li>
@@ -75,7 +75,7 @@
 			<li><a href="#" class="deep-orange-text text-lighten-1 oxygen-font">Search</a></li>
             {% if session.user %}
                 <li><a href="{{ url_for('profile', username=session['user']) }}" class="deep-orange-text text-lighten-1 oxygen-font">My Page</a></li>
-                <li><a href="{{ url_for('addxp', username=session['user']) }}" class="deep-orange-text text-lighten-1 oxygen-font">Add New Experience</a></li>
+                <li><a href="{{ url_for('imageupload', username=session['user']) }}" class="deep-orange-text text-lighten-1 oxygen-font">Add New Experience</a></li>
                 <li><a href="{{ url_for('logout') }}" class="deep-orange-text text-lighten-1 oxygen-font">Logout</a></li>
             {% else %}
                 <li><a href="{{ url_for('login') }}" data-target="modal1" class="deep-orange-text text-lighten-1 oxygen-font modal-trigger">Login</a></li>
@@ -152,7 +152,7 @@
         <p class="center-align green-text text-accent-4">{{session["user"]}}</p>
 		<ul>
 			{% if session.user %}
-                <li><a href="{{ url_for('addxp', username=session['user']) }}" class="btn-floating tooltipped blue" data-position="left" data-tooltip="Add New Experience"><i class="fas fa-plus"></i></a></li>
+                <li><a href="{{ url_for('imageupload', username=session['user']) }}" class="btn-floating tooltipped blue" data-position="left" data-tooltip="Add New Experience"><i class="fas fa-plus"></i></a></li>
                 <li class="oxygen-font"><a href="{{ url_for('profile', username=session['user']) }}" class="btn-floating tooltipped blue" data-position="left" data-tooltip="Your Profile"><i class="far fa-address-card"></i></a></li>
                 <li class="oxygen-font"><a href="{{ url_for('logout') }}" style="margin-bottom:3rem;" class="btn-floating tooltipped red" data-position="left" data-tooltip="Logout"><i class="fas fa-sign-out-alt"></i></a></li>
             {% else %}
@@ -187,9 +187,9 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
     {% block scripts %}
     {% endblock %}
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 
 </body>
 

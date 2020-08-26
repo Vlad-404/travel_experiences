@@ -8,8 +8,6 @@ from werkzeug.security import generate_password_hash, check_password_hash
 # cloudinary imports
 import cloudinary
 from cloudinary.uploader import upload, destroy
-# Beautiful soup install for parsing HTML
-from bs4 import BeautifulSoup as BSHTML
 
 if os.path.exists("env.py"):
     import env
@@ -128,6 +126,26 @@ def moreinfo(experience_id):
     return render_template("moreinfo.html", experience=experience)
 
 
+@app.route("/imageupload", methods=["GET", "POST"])
+def imageupload():
+    # downsized = None
+    upload_result = None
+    if request.method == "POST":
+        file_to_upload = request.files.get("image")
+        if file_to_upload:
+            upload_result = upload(file_to_upload)
+        else:
+            flash("You have to upload an image first to create experience")
+            return redirect(url_for('imageupload'))
+
+        imagelink = upload_result['secure_url']
+        public_id = upload_result['public_id']
+        return render_template(
+            'addxp.html', imagelink=imagelink, public_id=public_id)
+
+    return render_template("imageupload.html")
+
+
 @app.route("/addxp", methods=["GET", "POST"])
 def addxp():
     if request.method == "POST":
@@ -141,7 +159,8 @@ def addxp():
             "travel_arrangements": request.form.get("traveling"),
             "description": request.form.get("description"),
             "created_by": session["user"],
-            "imagelink": request.form.get("imagelink")
+            "imagelink": request.form.get("imagelink"),
+            "public_id": request.form.get("public-id")
         }
 
         mongo.db.experiences.insert_one(experience)
@@ -151,25 +170,53 @@ def addxp():
     return render_template("addxp.html")
 
 
-@app.route("/imageupload", methods=["GET", "POST"])
-def imageupload():
-    # downsized = None
+@app.route("/imgedit/<experience_id>", methods=["GET", "POST"])
+def imgedit(experience_id):
     upload_result = None
+    experience_id = experience_id
+    experience = mongo.db.experiences.find_one(
+        {"_id": ObjectId(experience_id)})
+    # public_id = experience.public_id
+
     if request.method == "POST":
         file_to_upload = request.files.get("image")
         if file_to_upload:
             upload_result = upload(file_to_upload)
+            imagelink = upload_result['secure_url']
+            public_id = experience['public_id']
+            # if upload_result['public_id'] != public_id:
+                # cloudinary.uploader.destroy(
+                    # experience['public_id'], invalidate=True)
 
-        imagelink = upload_result['secure_url']
-        session['imagelink'] = 'imagelink'
-        flash("Image uploaded succesfully")
-        return render_template('addxp.html', imagelink=imagelink)
+            flash("Image updated succesfully")
+            return render_template(
+                'editxp.html',
+                imagelink=imagelink,
+                experience_id=experience_id)
 
-    return render_template("imageupload.html")
+        else:
+            imagelink = experience['imagelink']
+            return render_template(
+                'editxp.html',
+                experience=experience,
+                imagelink=imagelink,
+                experience_id=experience_id)
+
+        return render_template(
+            'editxp.html',
+            imagelink=imagelink,
+            experience=experience,
+            experience_id=experience_id)
+
+    return render_template(
+        "imgedit.html", experience=experience, experience_id=experience_id)
 
 
 @app.route("/editxp/<experience_id>", methods=["GET", "POST"])
 def editxp(experience_id):
+    experience_id = experience_id
+    experience = mongo.db.experiences.find_one(
+        {"_id": ObjectId(experience_id)})
     if request.method == "POST":
         submit = {
             "title": request.form.get("title"),
@@ -180,7 +227,9 @@ def editxp(experience_id):
             "tips": request.form.get("tips"),
             "travel_arrangements": request.form.get("traveling"),
             "description": request.form.get("description"),
-            "created_by": session["user"]
+            "created_by": session["user"],
+            "imagelink": request.form.get("imagelink"),
+            "public_id": request.form.get("public-id")
         }
         mongo.db.experiences.update(
             {"_id": ObjectId(experience_id)}, submit)
@@ -190,17 +239,21 @@ def editxp(experience_id):
 
     experience = mongo.db.experiences.find_one(
         {"_id": ObjectId(experience_id)})
-    return render_template("editxp.html", experience=experience)
+    return render_template(
+        "editxp.html",
+        experience=experience,
+        experience_id=experience_id)
 
 
-@app.route("/delete_experience/<experience_id>")
-def delete_experience(experience_id):
+@app.route("/deletexp/<experience_id>")
+def deletexp(experience_id):
     experiences = mongo.db.experiences.find()
     mongo.db.experiences.remove({"_id": ObjectId(experience_id)})
+    # destroy(experience['public_id'], invalidate=True)
     flash("You have succesfully removed your experience")
 
     return render_template(
-            "profile.html", username=session["user"], experiences=experiences)
+            "profile.html", username=session["user"])
 
 
 if __name__ == "__main__":

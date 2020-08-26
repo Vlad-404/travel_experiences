@@ -9,7 +9,7 @@
     {% endblock %}
 
     {% block formup %}
-        <form class="col s12" method="POST" action="{{ url_for('editxp', experience_id=experience._id) }}">
+        <form class="col s12" method="POST" action="{{ url_for('editxp', experience=experience, experience_id=experience._id) }}">
     {% endblock %}
 
         {% block title %}
@@ -24,15 +24,17 @@
                     <div class="card-content center-align">
                         <label for="image" class="hide"></label> <!-- required label : but hidden -->
                         {% if imagelink %}
-                        <input id="imagelink" name="imagelink" value="{{ imagelink }}" type="text" class="hide"> <!-- input field "with" value : hidden -->
-                        <img src="{{ imagelink }}" id="imageSrc" alt="Base image" class="responsive-img">
+                        <!-- input field to store imagelink -->
+                        <input id="imagelink" name="imagelink" value="{{ imagelink }}" type="text" class="hide">
+                        <!-- input field to store public id -->
+                        <input id="public-id" name="public-id" value="{{ public_id }}" type="text" class ="hide">
                         {% else %}
                         <input id="imagelink" name="imagelink" type="text" class="hide"> <!-- input field "without" value : hidden -->
                         <img src="{{ experience.imagelink }}" id="imageSrc" alt="Base image" class="responsive-img">
                         {% endif %}
                     </div>
                     <div class="card-action deep-orange lighten-1 center-align">
-                        <a href="{{ url_for('imageupload') }}" class="white-text">Edit image</a>
+                        <a href="{{ url_for('imgedit', experience_id=experience._id) }}" class="white-text">Edit image</a>
                     </div>
                 </div>
         {% endblock %}
