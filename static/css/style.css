@@ -76,6 +76,10 @@ body {
     max-height: 600px;
 }
 
+.static-height {
+    height: 250px;
+}
+
 /* Adding new experience */
 .border-around {
     border: 1px solid #424242;
@@ -84,12 +88,4 @@ body {
 
 .button-margin {
     margin-right: 3rem;
-}
-
-/* Rating styling - see readme for acknowledgments */
-.star-rating {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 }
