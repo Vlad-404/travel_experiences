@@ -39,11 +39,12 @@ $(document).ready(function(){
 
   });
 
-  $('.carousel.carousel-slider').carousel({
+ /* $('.carousel.carousel-slider').carousel({
     fullWidth: true,
     indicators: true
-  });
+  }); */
 
+// changes the image preview before uploading it
 var loadFile = function(event) {
 	var image = document.getElementById('output');
 	image.src = URL.createObjectURL(event.target.files[0]);

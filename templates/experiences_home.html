@@ -28,14 +28,16 @@
 
         <div class="row valign-wrapper">
             <!-- Sort box -->
-            <span class="col s12">
-                <select class="browser-default align-left">
-                    <option value="" disabled selected>Sort by</option>
-                    <option value="1">Country</option>
-                    <option value="2">User</option>
-                    <option value="3">Recommendation</option>
-                </select>
-            </span>
+            <form action="{{ url_for('sorter') }}" method="POST">
+                <span class="col s12">
+                    <select id="sorter" name="sorter" class="browser-default align-left" onchange="this.form.submit()">
+                        <option value="" disabled selected>Sort by</option>
+                        <option value="country">Country</option>
+                        <option value="user">User</option>
+                        <option value="recommendation">Recommendation</option>
+                    </select>
+                </span>
+            </form>
 
             {% if session.user %}
             <span class="col s6">
@@ -61,14 +63,14 @@
                         <!-- Card image -->
                         <div class="card-image">
                                 <a href="{{ url_for('moreinfo', experience_id=experience._id) }}">
-                                    <img src="{{ experience.imagelink }}" alt="{{ experience.title }} image" class="static-height">
+                                    <img src="{% if experience.imagelink %}{{ experience.imagelink }}{% else %}../static/images/sample-1.jpg{% endif %}" alt="{{ experience.title }} image" class="static-height">
                                 </a>
                         </div>
                         <!-- Card content -->
                         <div class="card-content">
                             <p class="left-align deep-orange-text text-lighten-1 typewritter-font">{{ experience.title }}</p>
                             <ul>
-                                <li class="truncate"><strong>Location: </strong><span class="typewritter-font">{{ experience.location }}, {{ experience.country_name }}</span></li>
+                                <li><strong>Location: </strong><span class="typewritter-font truncate">{{ experience.location }}, {{ experience.country_name }}</span></li>
                                 <li><strong>Recommendation: </strong><span class="typewritter-font">{{ experience.recommendation }}</span></li>
                                 <li><strong>Created by: </strong>{{ experience.created_by }}</li>
                                 <li><strong>Duration: </strong><span class="typewritter-font">{{ experience.duration }}</span></li>

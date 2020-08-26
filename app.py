@@ -44,6 +44,21 @@ def search():
     return render_template("experiences_home.html", experiences=experiences)
 
 
+@app.route("/sorter", methods=["GET", "POST"])
+def sorter():
+    sorter = request.form.get("sorter")
+    experiences = mongo.db.experiences.find()
+    if sorter == "country":
+        experiences = mongo.db.experiences.find().sort("country_name", 1)
+    elif sorter == "user":
+        experiences = mongo.db.experiences.find().sort("created_by", 1)
+    else:
+        experiences = mongo.db.experiences.find().sort("recommendation", 1)
+
+    return render_template(
+        "experiences_home.html", experiences=experiences)
+
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -187,6 +202,8 @@ def imgedit(experience_id):
             # if upload_result['public_id'] != public_id:
                 # cloudinary.uploader.destroy(
                     # experience['public_id'], invalidate=True)
+            # else:
+                # experience['imagelink']
 
             flash("Image updated succesfully")
             return render_template(
