@@ -39,8 +39,6 @@ Purpose of this page is to be as an extension of a future project called Portals
 •	travel agency can sort through the user input and decide which travel arrangements to set up and advertise.
 Thanks to a modern looking and inviting page which uses Materialize, users are drawn to contribute to the growing base of user experiences.
 
-**There is a chat functionality which is available once user logs in (how difficult is this?) and they can discuss things in real time or as a forum board. **
-**optional: creating a tempUser so the visitors can contribute to the travel experiences to test the page and see how it looks without creating a permanent account (difficulty in implementing this?). Plus side is that users can get into the community very quickly. **
 The first view on the page reveals experiences from random users to showcase the page and give the users idea how the page works. From there on, page is intuitive and simple to use. Even if a visitor has trouble with the page, an about link is accessible from the always visible header.
 There's a floating icon where visitors can login, and if they are already logged in, it expands on click and gives them option to log out, access their own profile or add a new experience in 2 clicks.
 
@@ -74,7 +72,12 @@ Before starting this project, some research and these steps were taken:
 ### Wireframes
 
 After the initial idea, I decided to make a couple of sketches and make wireframes for different platforms to have an idea how will the page look like on different platforms. Software used for generating mockups was [Balsamiq](https://balsamiq.com/?gclid=EAIaIQobChMIzK-ozrWk6QIVF-vtCh1l-woMEAAYASAAEgJ_vvD_BwE). 
-You can find all the wireframes in the [wireframes](https://github.com/Vlad-404/...) folder.
+You can find all the wireframes in the [wireframes](https://github.com/Vlad-404/travel_experiences/tree/master/wireframes) folder.
+
+After finishing the project, some of the design and features were changed:
+* *show x entries* dropdown with *pagination* for card container has been removed. The center part was imagined as a scroll container where only 6 experiences was supposed to be shown. Due to time constrains, I decided to leave it as a feature left to implement.
+* from experiences, map container was removed as it would take too long to implement it. It was also left for future features.
+
 
 [Backt to top](#travel-experiences)
 
@@ -109,42 +112,46 @@ The following fonts were chosen:
 
 ### Colours
 I decided to go with minimalism and few colours. Only thing that will have accents in colour is text in navbars, floating icons  and icons at the bottom of the page. Also, pictures posted by users will add some colour.
-* orange #ff7043 deep-orange lighten-1 - navbar header and footer text
-* dark grey #424242 grey darken-3 - navbar header and footer background
-* bright green #00e676 green accent-3 - for floating Icons
-* green #00e676 green accent-3 - buttons for confirmation, home, add new experience, log in, log out(confirm), update, save, register
-* red #f44336 red - for log out(initiate), cancel, delete
+
+| Colours       | Hex           | Materialize value  | Used in         |
+| :------------- |:-------------:| :-----:| :-----:|
+| orange      | #ff7043 | deep-orange lighten-1 | titles, neutral buttons|
+| dark grey      | #424242 | grey darken-3 |navbar, header and footer background|
+| bright green      | #00e676 | green accent-3 |for floating Icon and some buttons|
+| green      | #00e676 | green |buttons|
+| red      | #f44336 | red |buttons|
+| blue      | #42a5f5 | blue lighten-1 |ad for Portals to Paradise|
+
 
 ### Icons
 
-Icons were used from a FontAwesome page. 
+Icons were used from a [FontAwesome page](https://fontawesome.com/). 
 
 [Backt to top](#travel-experiences)
 
 # Features
 As per initial idea, UI has to have uniform and appealing look, be easy to navigate and control your own content. For this reason, multi-page concept was implemented. Thanks to Flask framework, I used templates to cut down on repetitive tasks like header and footer for the page with links to travel agency page. 
-* first look at the page needs to invoke intuitiveness. Looking at some examples from #peer-code-review, I found examples of what I want to achieve: 
+* first look at the page needs to invoke intuitiveness. Looking at some examples, I found some features I want to achieve: 
 	- not to overburden the first look with too much information.
 	- present the core of the page and when new visitor scrolls down the page, it reveals more features.
 	- ease of navigation as more info for each experience has "Read more..." link. 
 	- all of the links in the header (navbar) are always accessible (fixed position), user tools are always accessible.
 	- search bar is on the home page
-*  About page that explains the UI and features
-* a choice to show different number of experiences
+*  *About page* that explains the UI and features
 * search bar
 * ability to sort the experiences by country, user and recommendation
 * page dedicated to a single experience where people can read about it in more detail
 * CRUD functionality: all registered users can Create, Read, Update and Delete content they created
-* Google maps API to show the location of the travel
 * admin account to remove content that is not suitable for the page and users who are violating the rules acceptable behaviour. Admin will not have the option to modify the users content at any point - only to delete.
 * on every page there is a link to a travel agency page so people can get travel arrangements whenever they choose.
 * header image is offering different features while slides change and lead to respectable addresses
 * floating icon that gives direct access to user tools
 * Users can create and delete their account
-* Image hosting will be handled by a third-party provider. Users will have to provide the URL to have their pictures displayed as current storage capacities aren't adequate for large number of images. 
+* Image hosting will be handled by a third-party provider. Users will have option to upload pictures to that service as current storage capacities aren't adequate for large number of images. 
 
 ## Features left to implement
 Due to time constrains, some of the features were left out so the page can be fully functional within the deadline. Afterwards, features can be added:
+* A container that displays the location of the experience. DUe to time constrains, this was left out
 * Voting system - registered users will be able to add their vote to the experience they find motivating, inspiring, well written, ... This can be used for users to filter out best and worst experiences other people had and either look for a travel arrangement for ones they like, or change their plans. Travel company can use this system to make travel arrangements based on the highest voted experiences.
 * Communication between users - On each experience description there will be an option to contact the user who created the experience. Only registered users will have this option. Also, this will also be used if admin has to delete some content and let the user know what they did wrong. 
 
@@ -160,7 +167,7 @@ Due to time constrains, some of the features were left out so the page can be fu
 * JSON
 * Python
 
-## Frameworks, Libraries and Services
+## Others
 - [JQuerry](https://jquery.com/)
 - [Flask 1.1.2](https://palletsprojects.com/p/flask/)
 - [Pymongo 3.10.1](https://docs.mongodb.com/drivers/pymongo)
@@ -173,14 +180,11 @@ Due to time constrains, some of the features were left out so the page can be fu
 - [Heroku](https://www.heroku.com/)
 - [GitHub](https://github.com/)
 - [MongoDB](https://www.mongodb.com/cloud/atlas)
-## Other tools:
 - [Balsamiq](https://balsamiq.com/) 
 - [VS Code](https://code.visualstudio.com/) 
 - [W3C Markup](https://validator.w3.org/)
 - [W3C CSS](https://jigsaw.w3.org/css-validator/)
 - [jshint](https://jshint.com/)
-- [Google maps API](https://developers.google.com/maps/documentation)
-- [Autoprefixer](https://autoprefixer.github.io/)
 
 [Backt to top](#travel-experiences)
 
@@ -189,18 +193,17 @@ Due to time constrains, some of the features were left out so the page can be fu
 #### Browser and Device Testing
 
 | **Browser**      | **Device** | **Compatibility**                                            | **Version**            |
-| :--------------- | :--------- | :----------------------------------------------------------- | :--------------------- |
-| Google Chrome    | PC         |                                                     | Version   |
+| :--------------- | :---------: | :-----------------------------------------------------------: | :--------------------- |
+| Google Chrome    | PC         |                                                      | Version |
 | Firefox          | PC         |                                                     | Version        |
-| Microsoft Edge   | PC         |                                                     | Version    |
-| IE 11            | PC         |  | Version  |
+| Opera            | PC         |  | Version  70|
 | Brave            | PC         |                                                     | Version        |
 | Google Chrome | OnePlus 3t  |                                                     |        |
 | Opera Touch | OnePlus 3t  |                                                     |        |
 | Safari           | iPad   |                                                     | Version           |
 
-- [] Test links to all pages
-- [] Test errors by typing in random page redirects
+- [x] Test links to all pages
+- [x] Test errors by typing in random page redirects
 - [x] Try to access the user area without signing in
 - [x] Test filtering dropdowns
 - [x] Test searching
@@ -209,7 +212,7 @@ Due to time constrains, some of the features were left out so the page can be fu
 - [x] Test create new experience forms
 - [x] Test add / del experiences
 - [x] Test add image
-- [] Test update experience
+- [x] Test update experience
 - [x] Test delete experience 
 - [x] Test log out 
 - [x] Test sign in
@@ -220,19 +223,12 @@ Due to time constrains, some of the features were left out so the page can be fu
 
 ### Bugs during development
 
-How it works:
-
-* This is a description of the bug
-    * how I found it
-    * what went wrong
-    * resolution
-
-List of bugs found:
+**List of bugs found:**
 
 * **Description:** wrong country displayed  in home page
     * **How I found it:** after submitting a new experience and comming back to the home page, country name was a number instead of full name
     * **What went wrong:** dropdown menu had ``value`` field which overwrote the country name
-    * **Resolution:** renamed ``value`` to ``country_id``
+    * **Resolution:** renamed ``value`` to ``country_id`` later replaced the country dropdown menu with Country selector with flags (see [credits](#credits) below)
 
 * **Description:** Jinja crashed after clicking on ``Add experience`` button
     * **How I found it:** after implementing the filter to show only users experiences in their profile
@@ -242,7 +238,7 @@ List of bugs found:
 * **Description:** Odd text appeared on the left side if datamod template was used
     * **How I found it:** found it after clicking on ``Read more...``, ``addxp`` and ``editxp``
     * **What went wrong:** ``if/elif/else`` loop
-    * **Resolution:** removed if/elif/else loop and set ``block form`` in ``datamod``. This way each form serves the function it's on
+    * **Resolution:** removed if/elif/else loop and set ``block form`` in ``datamod``. This way each page that has to add, edit and show experiences has it's own form
 
 * **Description:** Jinja kept crashing because there was no ``cloud_name``
     * **How I found it:** after clicking on New experience
@@ -257,12 +253,12 @@ List of bugs found:
 * **Description:** When testing image upload, browser kept notifying about form resubmission. This resulted in repeated image uploads
     * **How I found it:** when working on the image upload function
     * **What went wrong:** browser kept uploading the image each time confirm form resubmission displayed
-    * **Resolution:** added ``upload_result = None`` to ``imageupload`` function before ``post`` method
+    * **Resolution:** added ``upload_result = None`` to function``imageupload`` function before ``post`` method
 
 * **Description:** Button for ``New`` didn't work on homepage
     * **How I found it:** After editing image processing pages
-    * **What went wrong:** What went wrong: element of type button had an anchor link which didn't work
-    * **Resolution:** converted button element into anchor element with btn class
+    * **What went wrong:** element of type ``button`` had an anchor link which didn't work
+    * **Resolution:** converted button element into anchor element with class of ``btn``
 
 ...
 
@@ -270,7 +266,7 @@ List of bugs found:
 
 ## User stories Testing
 
-For users:
+**For users:**
 1. As a new visitor to the page, I want to be able to find an inspiration for my next holiday.
 	* This is fulfilled with just arriving on this page as there are experiences from people presented right on the 	home page. If this isn't enough, there is a search bar right below the banner image.
 2. As a person who wants to travel to Spain in the Summer, I want to find more information on Barcelona so I can plan with what kind of clothes to wear (going to the beach and to the fancy restaurant is not the same).
@@ -282,9 +278,9 @@ For users:
 5. As a special needs person, I want to be able to contact the user who has been to Mt. Rushmore so I can find out how wheelchair accessible the place is.
 	* User story 2 answer applies here too: after registering/ logging in, user can contact another user and ask a 	direct question.
 
-For business:
+**For business:**
 1. As a company who owns the travel agency, I want to find places where people want to travel the most so I can make more popular travel arrangements
-	* There isn't yet a filter that can sort the countries by most visited, but one of the future implementations is 	a voting system. Subsequently, there will be a feature to sort the experiences by how much votes they have.
+	* There isn't yet a filter that can sort the countries by most visited, but one of the future implementations is a voting system. Subsequently, there will be a feature to sort the experiences by how much votes they have.
 2. As a Hotel owner, I want to know if my Hotel was mentioned, so I can improve on my services or add new ones.
 	* Using the search tool, anyone can search through the data base and find the term they are looking for.
 3.  As a tourist information centre of the city of Zadar, I want to know if anyone has mentioned the city of Zadar, so we can improve on our event offers and advertising.
@@ -293,7 +289,7 @@ For business:
 [Backt to top](#travel-experiences)
 
 # Deployment
-The repository for this project is hosted on [GitHub](https://github.com/) and uses Heroku](https://www.heroku.com/) to serve the site to the world wide web. If you would like to contribute to this project you would need to first have some sort of online code editor like [Gitpod](https://www.gitpod.io/) or local such as [VS Code](https://code.visualstudio.com/)] and also some version control software like [Git](https://git-scm.com/), you will also need a GitHub account.
+The repository for this project is hosted on [GitHub](https://github.com/) and uses [Heroku](https://www.heroku.com/) to serve the site to the world wide web. If you would like to contribute to this project you would need to first have some sort of online code editor like [Gitpod](https://www.gitpod.io/) or local such as [VS Code](https://code.visualstudio.com/). Also you will some version control software like [Git](https://git-scm.com/). For Git, you will also need a GitHub account.
 
 #### Prerequisites
 
@@ -309,14 +305,14 @@ There are a number of steps required to deploy a local version of this project.
 
 ##### Local copy
 
-- At the top of the repository click on the "Clone or download button"
-- Copy the path to the repo "https://github.com/Vlad-404/..."
-- Navigate to the folder where you would like to make a copy of this repository -"c:\My Documents\MyRepo\..." and save.
-- Start VS Code and click on "File -> Open Folder..."
-- Navigate to the downloaded files "c:\My Documents\MyRepo\..." and click on "Select Folder"
+- At the top of the repository click on the **Code** button and select *Download zip*
+- Copy the path to the repo "https://github.com/Vlad-404/travel_experiences"
+- Navigate to the folder where you would like to make a copy of this repository - *"c:\My Documents\MyRepo\..."* and save.
+- Start VS Code and click on *"File -> Open Folder..."*
+- Navigate to the downloaded files *"c:\My Documents\MyRepo\..."* and click on "Select Folder"
 - If you don't have your environment set up, please refer to the VS Code documentation
-- Install all the dependencies by typing in the terminal: "pip3 install -r requirements.txt"
-- If you add or update any new packages to the project use "pip freeze --local > requirements.txt" to update the [requirements.txt](requirements.txt) file with the new dependencies.
+- Install all the dependencies by typing in the terminal: ``pip3 install -r requirements.txt``
+- If you add or update any new packages to the project use ``pip freeze --local > requirements.txt`` to update the [requirements.txt](requirements.txt) file with the new dependencies.
 
 ##### Environment Variables
 
@@ -343,7 +339,8 @@ You will need to setup the following environment variables on your system.
 
 The easiest way to deploy the project to Heroku is to set your connect method to GitHub and link the repository master branch. If you set the project up for automatic deploys it will deploy once the master branch is updated.
 
-[Back to top](# Travel-Experiences)
+[Back to top](#travel-Experiences)
+
 Travel Experiences site was developed on GitPod and VS code, using GitHub and Heroku to host the repository. As GitHub pages cannot host dynamic pages, for this purpose I used Heroku.
 
 When deploying Travel Experiences using Heroku, the following steps were made:
@@ -366,12 +363,11 @@ Linking the Heroku and GitHub:
 Traveling Typewritter font made by [Carl Krull](https://www.onlinewebfonts.com/author/Carl_Krull) from http://www.onlinewebfonts.com oNline Web Fonts is licensed by CC BY 3.0.
 
 ## Content
-
-## Media 
+ During development, you will notice users of name test01,test02,... These were my test accounts with which I tested the functionality of the site. Images in these experiences belong to me. Images from other users belong to their respective owners.
 
 ## Acknowledgments and thank you's
 
-- Huge thank you to [Tim Nelson (tim_ci)](https://github.com/TravelTimN) from Code Institute for redoing flask mini project videos. I used his ``validateMaterializeSelect();`` function to make country field mandatory. You can find it in script.js.
+- Huge thank you to [Tim Nelson (tim_ci)](https://github.com/TravelTimN) from Code Institute for redoing flask mini project videos. I used his ``validateMaterializeSelect();`` function to make country field mandatory. You can find it in ``script.js``.
 - CI student by the name of [Frozenaught](https://github.com/Frozenaught/homechopped) whose site Homechopped served as an inspiration to my project.
 - Code for coutry selector dropdown in ``addxp.html`` and ``editxp.html`` used from mrmarkfrench and his Country selector project. More info [here](https://github.com/mrmarkfrench/country-select-js).
 - code for dynamic image preview for image upload taken from [Webtrickshome](https://www.webtrickshome.com/faq/how-to-display-uploaded-image-in-html-using-javascript)
