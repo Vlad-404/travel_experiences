@@ -1,9 +1,13 @@
 import os
 from flask import (
     Flask, flash, render_template,
-    redirect, request, session, url_for)
+    redirect, request, session, url_for, json)
 from flask_pymongo import PyMongo
+# Import error handler
+from werkzeug.exceptions import HTTPException, NotFound
+# import object ID
 from bson.objectid import ObjectId
+# import password security
 from werkzeug.security import generate_password_hash, check_password_hash
 # cloudinary imports
 import cloudinary
@@ -193,7 +197,6 @@ def addxp():
 @app.route("/imgedit/<experience_id>", methods=["GET", "POST"])
 def imgedit(experience_id):
     upload_result = None
-    experience_id = experience_id
     experience = mongo.db.experiences.find_one(
         {"_id": ObjectId(experience_id)})
     # public_id = experience.public_id
@@ -201,18 +204,15 @@ def imgedit(experience_id):
     if request.method == "POST":
         file_to_upload = request.files.get("image")
         if file_to_upload:
+            # public_id = experience['public_id']
+            imgdelete(experience['public_id'])
             upload_result = upload(file_to_upload)
             imagelink = upload_result['secure_url']
-            public_id = experience['public_id']
-            # if upload_result['public_id'] != public_id:
-                # cloudinary.uploader.destroy(
-                    # experience['public_id'], invalidate=True)
-            # else:
-                # experience['imagelink']
 
             flash("Image updated succesfully")
             return render_template(
                 'editxp.html',
+                experience=experience,
                 imagelink=imagelink,
                 experience_id=experience_id)
 
@@ -231,7 +231,13 @@ def imgedit(experience_id):
             experience_id=experience_id)
 
     return render_template(
-        "imgedit.html", experience=experience, experience_id=experience_id)
+        "imgedit.html", experience_id=experience_id, experience=experience)
+
+
+@app.route("/imgdelete/<public_id>", methods=["GET", "POST"])
+def imgdelete(public_id):
+    public_id = public_id
+    cloudinary.uploader.destroy(public_id, invalidate=True)
 
 
 @app.route("/editxp/<experience_id>", methods=["GET", "POST"])
@@ -262,9 +268,10 @@ def editxp(experience_id):
     experience = mongo.db.experiences.find_one(
         {"_id": ObjectId(experience_id)})
     return render_template(
-        "editxp.html",
-        experience=experience,
-        experience_id=experience_id)
+                'editxp.html',
+                experience=experience,
+                imagelink=imagelink,
+                experience_id=experience_id)
 
 
 @app.route("/deletexp/<experience_id>")
@@ -278,6 +285,11 @@ def deletexp(experience_id):
             "profile.html",
             username=session["user"],
             experiences=experiences)
+
+# Error handling
+@app.errorhandler(HTTPException)
+def handle_exception(e):
+    return render_template("error.html")
 
 
 if __name__ == "__main__":

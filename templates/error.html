@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <div class="row valign-wrapper">
+        <img src="" alt="">
+        <h4>Uh oh, seems like an error</h4>
+        <p>Content you requested isn't here</p>
+        <p>This looks like a bad experience</p>
+        <p>For now, you better go <a href="{{ url_for('experiences_home') }}">home.</a></p>
+
+    </div>
+</div>
+{% endblock %}

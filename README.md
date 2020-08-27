@@ -247,7 +247,7 @@ List of bugs found:
 * **Description:** Jinja kept crashing because there was no ``cloud_name``
     * **How I found it:** after clicking on New experience
     * **What went wrong:** ``cloudinary.config`` wasn't set properly
-    * **Resolution:** found a solution from another student
+    * **Resolution:** added ``clodinary.config`` to ``app.py``
 
 * **Description:** Jinja kept crashing after clicking on submit button after experience was edited
     * **How I found it:** after submitting changes to experience

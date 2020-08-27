@@ -23,15 +23,13 @@
                 <div class="card small col s12 valign-wrapper">
                     <div class="card-content center-align">
                         <label for="image" class="hide"></label> <!-- required label : but hidden -->
-                        {% if imagelink %}
+                        
                         <!-- input field to store imagelink -->
+                        <img src="{{ imagelink }}" id="imageSrc" alt="Base image" class="responsive-img">
                         <input id="imagelink" name="imagelink" value="{{ imagelink }}" type="text" class="hide">
                         <!-- input field to store public id -->
                         <input id="public-id" name="public-id" value="{{ public_id }}" type="text" class ="hide">
-                        {% else %}
-                        <input id="imagelink" name="imagelink" type="text" class="hide"> <!-- input field "without" value : hidden -->
-                        <img src="{{ experience.imagelink }}" id="imageSrc" alt="Base image" class="responsive-img">
-                        {% endif %}
+                        
                     </div>
                 </div>
         {% endblock %}
