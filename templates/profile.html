@@ -23,7 +23,7 @@
                     <!-- Card image -->
                     <div class="card-image static-height">
                             <a href="{{ url_for('moreinfo', experience_id=experience._id) }}">
-                                <img src="{% if experience.imagelink %}{{ experience.imagelink }}{% else %}../static/images/sample-1.jpg{% endif %}" alt="{{ experience.title }} image" class="static-height">
+                                <img src="{{ experience.imagelink }}" alt="{{ experience.title }} image" class="static-height">
                             </a>
                     </div>
                     <!-- Card content -->

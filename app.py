@@ -36,6 +36,11 @@ def experiences_home():
     return render_template("experiences_home.html", experiences=experiences)
 
 
+@app.route("/about")
+def about():
+    return render_template("about.html")
+
+
 @app.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get("query")

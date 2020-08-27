@@ -5,6 +5,10 @@
     src: url('/static/fonts/typewritter.woff') format("woff");
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 /* base */
 * {
     font-family: 'Oxygen', Calibri;

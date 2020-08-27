@@ -48,7 +48,7 @@
 
             <!-- Duration -->
             <label for="duration">Duration in days</label>
-            <input id="duration" name="duration" value="{{ experience.duration }}" minlength="1" maxlength="4" type="text" class="validate typewritter-font">
+            <input id="duration" name="duration" value="{{ experience.duration }}" minlength="1" maxlength="4" patern="^[0-9]{1,3}$" type="text" class="validate typewritter-font">
 
             <!-- Recommendation -->
             <div class="input-field deep-orange-text text-lighten-1">
@@ -75,7 +75,7 @@
 
         {% block travel_arrangements %}
             <!-- Travel arrangements -->
-            <input id="traveling" name="traveling" value="{{ experience.travel_arrangements }}" minlength="3" maxlength="200" type="text" class="validate typewritter-font" required>
+            <input id="traveling" name="traveling" value="{{- experience.travel_arrangements -}}" minlength="3" maxlength="100" type="text" class="validate typewritter-font" required>
         {% endblock %}
 
         {% block buttons %}

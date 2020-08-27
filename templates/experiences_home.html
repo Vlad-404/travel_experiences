@@ -35,7 +35,7 @@
 
             <!-- Button for creating new experience if user is logged in -->
             {% if session.user %}
-                <button href="{{ url_for('imageupload') }}" class="col s12 m4 offset-m8 btn btn-large green">New</button>
+                <a href="{{ url_for('imageupload', username=session['user']) }}" class="col s12 m4 offset-m8 btn btn-large green">New</a>
             {% endif %}
         </div>
     </div>
@@ -56,7 +56,7 @@
                         <!-- Card image -->
                         <div class="card-image">
                                 <a href="{{ url_for('moreinfo', experience_id=experience._id) }}">
-                                    <img src="{% if experience.imagelink %}{{ experience.imagelink }}{% else %}../static/images/sample-1.jpg{% endif %}" alt="{{ experience.title }} image" class="static-height">
+                                    <img src="{{ experience.imagelink }}" alt="{{ experience.title }} image" class="static-height">
                                 </a>
                         </div>
 
@@ -101,6 +101,7 @@
             <h4 class="center-align deep-orange-text text-lighten-1 oxygen-font">
                 No Results Found
             </h4>
+            <button class="btn-large red center-align"><a href="{{ url_for('experiences_home' )}}" class="white-text">Back</a></button>
         {% endif %}
 
     </div>

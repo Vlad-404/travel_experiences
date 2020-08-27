@@ -1,48 +1,16 @@
-{% extends "base.html" %}
-{% block content %}
-
-    <h3 class="deep-orange-text text-lighten-1 marker-font center-align">
+{% extends "imgprocess.html" %}
+    
+    {% block imgtitle %}
         Edit image
         <p>{{ experience.experience_id}}</p>
-    </h3>
+    {% endblock %}
 
-	<div class="row">
-        <form action="" method="POST" enctype="multipart/form-data">
-            <div class="col s12 m6 offset-m3">
-                <div class="card">
-                    <div class="card-image" id="image-preview">
-                        <img src="{{ experience.imagelink }}" id="output">
-                    </div>
-                    <!--<p>{{ experience.experience_id}}</p>-->
-                    <div class="card-action">
-                        <input id="image" name="image" type="file" accept="image/*" onchange="loadFile(event)" class="hide">
-                        <label for="image" style="cursor: pointer;" class="btn btn-large deep-orange lighten-1 margin-below left">Browse</label>
-                    
-                        <input id="submit" type="submit" value="Upload" class="hide">
-                        <label for="submit" style="cursor: pointer;" class="btn btn-large green margin-below right">Next</label>
-                    </div>
-                </div>
-            </div>
-        </form>
-	</div>
+    {% block imgsrc %}
+        <img src="{{ experience.imagelink }}" id="output">
+    {% endblock %}
 
-{% block buttons %}
-    <div class="center-align">
-        <a href="{{ url_for('profile', username=session['user']) }}" class="btn btn-large red">Cancel</a>
-    </div>
-{% endblock %}
-
-<!--
-    <div class="row margin-above">
-        <form>
-            <div class="col s12 m6 offset-m3">
-                <img src="static/images/sample-1.jpg" id="img-preview" alt="Base image" class="responsive-img">
-            </div>
-            <div class="col s12 m4 offset-s4 deep-orange lighten-1">
-                <span class="card-title white-text">Add image</span>
-                <input id="image" name="image" type="file" accept="image/png, image/jpeg" class="validate" placeholder="Add image">
-            </div>
-        </form>
-    </div>
--->
-{% endblock %}
+    {% block buttons %}
+        <div class="center-align">
+            <a href="{{ url_for('profile', username=session['user']) }}" class="btn btn-large red">Cancel</a>
+        </div>
+    {% endblock %}

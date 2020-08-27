@@ -19,12 +19,11 @@
         <!-- Top navbar -->
 		<div class="navbar-fixed">
 			<nav class="nav-extended grey darken-3">
-                <a href="{{ url_for('experiences_home') }}" class="deep-orange-text text-lighten-1 left-align marker-font">TRAVEL EXPERIENCES</a>
+                <a href="{{ url_for('experiences_home') }}" class="deep-orange-text text-lighten-1 left-align marker-font" style="margin-left: 2rem;">TRAVEL EXPERIENCES</a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right deep-orange-text text-lighten-1"><i class="fas fa-bars"></i></a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="#" class="deep-orange-text text-lighten-1 oxygen-font">About</a></li>
+                    <li><a href="{{ url_for('about') }}" class="deep-orange-text text-lighten-1 oxygen-font">About</a></li>
                     <li><a href="{{ url_for('experiences_home') }}" class="deep-orange-text text-lighten-1 oxygen-font">Home</a></li>
-                    <li><a href="#" class="deep-orange-text text-lighten-1 oxygen-font">Search</a></li>
                     {% if session.user %}
                         <li><a href="{{ url_for('profile', username=session['user']) }}" class="deep-orange-text text-lighten-1 oxygen-font">My Page</a></li>
                         <li><a href="{{ url_for('imageupload', username=session['user']) }}" class="deep-orange-text text-lighten-1 oxygen-font">Add New Experience</a></li>
@@ -70,9 +69,8 @@
         <!-- Mobile sidenav -->		
 		<ul class="sidenav grey darken-3" id="mobile-demo">
             <li><h4 class="center-align deep-orange-text text-lighten-1 marker-font">Travel Experiences</h4></li>
-			<li><a href="#" class="deep-orange-text text-lighten-1 oxygen-font">About</a></li>
+			<li><a href="{{ url_for('about') }}" class="deep-orange-text text-lighten-1 oxygen-font">About</a></li>
 			<li><a href="{{ url_for('experiences_home') }}" class="deep-orange-text text-lighten-1 oxygen-font">Home</a></li>
-			<li><a href="#" class="deep-orange-text text-lighten-1 oxygen-font">Search</a></li>
             {% if session.user %}
                 <li><a href="{{ url_for('profile', username=session['user']) }}" class="deep-orange-text text-lighten-1 oxygen-font">My Page</a></li>
                 <li><a href="{{ url_for('imageupload', username=session['user']) }}" class="deep-orange-text text-lighten-1 oxygen-font">Add New Experience</a></li>
@@ -90,9 +88,9 @@
             {% if messages %}
                 {% for message in messages %}
                 <div class="row flashes ">
-                    <h3 class="center-align deep-orange-text text-lighten-1 oxygen-font">
+                    <h5 class="center-align deep-orange-text text-lighten-1 oxygen-font">
                         {{ message }}
-                    </h3>
+                    </h5>
                 </div>
                 {% endfor %}
             {% endif %}

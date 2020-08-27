@@ -201,19 +201,18 @@ Due to time constrains, some of the features were left out so the page can be fu
 
 - [] Test links to all pages
 - [] Test errors by typing in random page redirects
-- [] Try to access the user area without signing in
-- [] Test filtering dropdowns
-- [] Test searching
-- [] Test clear search
-- [] Tests Read more...
-- [] Test account registration
-- [] Test create new experience forms
-- [] Test add / del experiences
-- [] Test add image
+- [x] Try to access the user area without signing in
+- [x] Test filtering dropdowns
+- [x] Test searching
+- [x] Tests Read more...
+- [x] Test account registration
+- [x] Test create new experience forms
+- [x] Test add / del experiences
+- [x] Test add image
 - [] Test update experience
-- [] Test delete experience 
-- [] Test log out 
-- [] Test sign in
+- [x] Test delete experience 
+- [x] Test log out 
+- [x] Test sign in
 - [] Test delete profile
 - [] Test admin functionalities
 
@@ -230,35 +229,41 @@ How it works:
 
 List of bugs found:
 
-* wrong country displayed  in home page
-    * after submitting a new experience and comming back to the home page, country name was a number instead of full name
-    * dropdown menu had ``value`` field which overwrote the country name
-    * renamed ``value`` to ``country_id``
+* **Description:** wrong country displayed  in home page
+    * **How I found it:** after submitting a new experience and comming back to the home page, country name was a number instead of full name
+    * **What went wrong:** dropdown menu had ``value`` field which overwrote the country name
+    * **Resolution:** renamed ``value`` to ``country_id``
 
-* Jinja crashed after clicking on ``Add experience`` button
-    * after implementing the filter to show only users experiences in their profile
-    * cancel but, which redirected to profile page, didn't had username to refer to
-    * added user name for the call in the button
+* **Description:** Jinja crashed after clicking on ``Add experience`` button
+    * **How I found it:** after implementing the filter to show only users experiences in their profile
+    * **What went wrong:** cancel button which redirected to profile page, didn't had username to refer to
+    * **Resolution:** added user name for the call in the button
 
-* Odd text appeared on the left side if datamod template was used
-    * found it after clicking on ``Read more...``, ``addxp`` and ``editxp``
-    * ``if/elif/else`` loop
-    * removed if/elif/else loop and set ``block form`` in ``datamod``. This way each form serves the function it's on
+* **Description:** Odd text appeared on the left side if datamod template was used
+    * **How I found it:** found it after clicking on ``Read more...``, ``addxp`` and ``editxp``
+    * **What went wrong:** ``if/elif/else`` loop
+    * **Resolution:** removed if/elif/else loop and set ``block form`` in ``datamod``. This way each form serves the function it's on
 
-* Jinja kept crashing because there was no ``cloud_name``
-    * after clicking on New experience
-    * ``cloudinary.config`` wasn't set properly
-    * found a solution from another student
+* **Description:** Jinja kept crashing because there was no ``cloud_name``
+    * **How I found it:** after clicking on New experience
+    * **What went wrong:** ``cloudinary.config`` wasn't set properly
+    * **Resolution:** found a solution from another student
 
-* Jinja kept crashing after clicking on submit button after experience was edited
-    * after submitting changes to experience
-    * in ``app.py`` update request had parameter of ``update_one`` instead of ``update``
-    * removed ``_one`` from request
+* **Description:** Jinja kept crashing after clicking on submit button after experience was edited
+    * **How I found it:** after submitting changes to experience
+    * **What went wrong:** in ``app.py`` update request had parameter of ``update_one`` instead of ``update``
+    * **Resolution:** removed ``_one`` from request
 
-* When testing image upload, browser kept notifying about form resubmission. This resulted in repeated image uploads
-    * when working on the image upload function
-    * browser kept uploading the image each time confirm form resubmission displayed
-    * added ``upload_result = None`` to ``imageupload`` function before ``post`` method
+* **Description:** When testing image upload, browser kept notifying about form resubmission. This resulted in repeated image uploads
+    * **How I found it:** when working on the image upload function
+    * **What went wrong:** browser kept uploading the image each time confirm form resubmission displayed
+    * **Resolution:** added ``upload_result = None`` to ``imageupload`` function before ``post`` method
+
+* **Description:** Button for ``New`` didn't work on homepage
+    * **How I found it:** After editing image processing pages
+    * **What went wrong:** What went wrong: element of type button had an anchor link which didn't work
+    * **Resolution:** converted button element into anchor element with btn class
+
 ...
 
 [Backt to top](#travel-experiences)

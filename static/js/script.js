@@ -6,6 +6,7 @@ $(document).ready(function(){
     $('.modal').modal();
     $('.tooltipped').tooltip();
     $('select').formSelect();
+    $('.materialboxed').materialbox();
 
     // makes country select a mandatory entry
     // (see Acknowledgments and thank you's in readme.md)
