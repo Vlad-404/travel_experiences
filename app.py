@@ -204,8 +204,7 @@ def imgedit(experience_id):
     if request.method == "POST":
         file_to_upload = request.files.get("image")
         if file_to_upload:
-            # public_id = experience['public_id']
-            imgdelete(experience['public_id'])
+            destroy(experience['public_id'], invalidate=True)
             upload_result = upload(file_to_upload)
             imagelink = upload_result['secure_url']
 
@@ -276,9 +275,13 @@ def editxp(experience_id):
 
 @app.route("/deletexp/<experience_id>")
 def deletexp(experience_id):
+    # find public_id of experience and delete the image on cloudinary
+    experience = mongo.db.experiences.find_one(
+        {"_id": ObjectId(experience_id)})
+    destroy(experience['public_id'], invalidate=True)
+    # then delete the experience from DB
     experiences = mongo.db.experiences.find()
     mongo.db.experiences.remove({"_id": ObjectId(experience_id)})
-    # destroy(experience['public_id'], invalidate=True)
     flash("You have succesfully removed your experience")
 
     return render_template(
