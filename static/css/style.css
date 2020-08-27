@@ -44,6 +44,10 @@ body {
       text-align: justify;
   }
 
+  .shadow-text {
+      text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.75);
+  }
+
 /* general fomatting */
   .flashes h4 {
       line-height: 2;
@@ -52,6 +56,10 @@ body {
   ul#horizontal-list li {
 		display: inline;
 	}
+
+.padding-around {
+    margin: 1rem !important;
+}
 
 .margin-above {
     margin-top: 2rem;
@@ -92,4 +100,15 @@ body {
 
 .button-margin {
     margin-right: 3rem;
+}
+
+/* Error backgrounds */
+.background404 {
+    background-image: url("https://res.cloudinary.com/drtxn8d5t/image/upload/v1598551538/lost_mcoemk.jpg");
+    background-size: cover;
+}
+
+/* Height for error container */
+.error-height {
+    height: 30rem;
 }

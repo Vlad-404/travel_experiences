@@ -32,19 +32,20 @@ cloudinary.config(
     api_secret=os.environ.get('API_SECRET')
 )
 
-
+# Home page
 @app.route("/")
 @app.route("/experiences_home")
 def experiences_home():
     experiences = mongo.db.experiences.find()
     return render_template("experiences_home.html", experiences=experiences)
 
-
+# About page
 @app.route("/about")
 def about():
     return render_template("about.html")
 
 
+# Search function
 @app.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get("query")
@@ -53,6 +54,7 @@ def search():
     return render_template("experiences_home.html", experiences=experiences)
 
 
+# Sorter
 @app.route("/sorter", methods=["GET", "POST"])
 def sorter():
     sorter = request.form.get("sorter")
@@ -68,6 +70,7 @@ def sorter():
         "experiences_home.html", experiences=experiences)
 
 
+# Register user
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -93,6 +96,7 @@ def register():
     return render_template("register.html")
 
 
+# Log in functionality
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -121,6 +125,7 @@ def login():
     return render_template("login.html")
 
 
+# Users experience page
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     # gets the session username from db
@@ -135,6 +140,7 @@ def profile(username):
     return redirect(url_for("login"))
 
 
+# Log out
 @app.route("/logout")
 def logout():
     # remove user from session
@@ -143,6 +149,7 @@ def logout():
     return redirect(url_for("experiences_home"))
 
 
+# More info about experience
 @app.route("/moreinfo/<experience_id>")
 def moreinfo(experience_id):
     experience = mongo.db.experiences.find_one(
@@ -150,9 +157,9 @@ def moreinfo(experience_id):
     return render_template("moreinfo.html", experience=experience)
 
 
+# Image upload
 @app.route("/imageupload", methods=["GET", "POST"])
 def imageupload():
-    # downsized = None
     upload_result = None
     if request.method == "POST":
         file_to_upload = request.files.get("image")
@@ -170,6 +177,7 @@ def imageupload():
     return render_template("imageupload.html")
 
 
+# Add experience
 @app.route("/addxp", methods=["GET", "POST"])
 def addxp():
     if request.method == "POST":
@@ -194,17 +202,21 @@ def addxp():
     return render_template("addxp.html")
 
 
+# Edit image experience
 @app.route("/imgedit/<experience_id>", methods=["GET", "POST"])
 def imgedit(experience_id):
     upload_result = None
     experience = mongo.db.experiences.find_one(
         {"_id": ObjectId(experience_id)})
-    # public_id = experience.public_id
 
     if request.method == "POST":
+        # Gets the image for upload
         file_to_upload = request.files.get("image")
+        # If there's a new image
         if file_to_upload:
+            # Delete the previous one
             destroy(experience['public_id'], invalidate=True)
+            # And continue with the new one
             upload_result = upload(file_to_upload)
             imagelink = upload_result['secure_url']
 
@@ -214,7 +226,7 @@ def imgedit(experience_id):
                 experience=experience,
                 imagelink=imagelink,
                 experience_id=experience_id)
-
+        # If user didn't change the image
         else:
             imagelink = experience['imagelink']
             return render_template(
@@ -233,12 +245,7 @@ def imgedit(experience_id):
         "imgedit.html", experience_id=experience_id, experience=experience)
 
 
-@app.route("/imgdelete/<public_id>", methods=["GET", "POST"])
-def imgdelete(public_id):
-    public_id = public_id
-    cloudinary.uploader.destroy(public_id, invalidate=True)
-
-
+# Edit experience details
 @app.route("/editxp/<experience_id>", methods=["GET", "POST"])
 def editxp(experience_id):
     experience_id = experience_id
@@ -273,6 +280,7 @@ def editxp(experience_id):
                 experience_id=experience_id)
 
 
+# Delete experience
 @app.route("/deletexp/<experience_id>")
 def deletexp(experience_id):
     # find public_id of experience and delete the image on cloudinary
@@ -289,14 +297,25 @@ def deletexp(experience_id):
             username=session["user"],
             experiences=experiences)
 
+
 # Error handling
-@app.errorhandler(HTTPException)
-def handle_exception(e):
-    return render_template("error.html")
+# Good old Page not found
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
+
+# Forbidden - when pressing back after logged out
+@app.errorhandler(403)
+def forbidden(e):
+    return render_template('403.html'), 403
+
+
+@app.errorhandler(500)
+def server_err(e):
+    return render_template('500.html'), 500
 
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            # cloud_name=os.environ.get("CLOUD_NAME"),
             debug=True)
