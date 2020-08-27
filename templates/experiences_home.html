@@ -12,7 +12,7 @@
 					<input id="query" name="query" type="text" minlength="3" class="validate" required>
 					<label for="query">Search</label>
 				</div>
-                <button type="submit" class="btn green">
+                <button type="submit" class="btn green shadow-text">
                         Search
                 </button>
 			</div>
@@ -24,7 +24,7 @@
             <!-- Sorter -->
             <form action="{{ url_for('sorter') }}" method="POST" class="col s12">
                 <div>
-                    <select id="sorter" name="sorter" class="browser-default align-left" onchange="this.form.submit()">
+                    <select id="sorter" name="sorter" class="browser-default align-left blue-grey lighten-5" onchange="this.form.submit()">
                         <option value="" disabled selected>Sort by</option>
                         <option value="country">Country</option>
                         <option value="user">User</option>
@@ -35,7 +35,7 @@
 
             <!-- Button for creating new experience if user is logged in -->
             {% if session.user %}
-                <a href="{{ url_for('imageupload', username=session['user']) }}" class="col s12 m4 offset-m8 btn btn-large green">New</a>
+                <a href="{{ url_for('imageupload', username=session['user']) }}" class="col s12 m4 offset-m8 btn btn-large green shadow-text">New</a>
             {% endif %}
         </div>
     </div>
@@ -67,10 +67,10 @@
                                 <li class="truncate"><strong>Location: </strong><span class="typewritter-font">{{ experience.location }}, {{ experience.country_name }}</span></li>
                                 <li><strong>Recommendation: </strong><span class="typewritter-font">{{ experience.recommendation }}</span></li>
                                 <li><strong>Created by: </strong>{{ experience.created_by }}</li>
-                                <li><strong>Duration: </strong><span class="typewritter-font">{{ experience.duration }}</span></li>
+                                <li><strong>Duration: </strong><span class="typewritter-font">{{ experience.duration }} day(s)</span></li>
                                 <li class="truncate"><strong>Tips: </strong><span class="typewritter-font">{{ experience.tips }}</span></li>
-                                <li class="truncate"><strong>Travel arrangements: </strong><span class="typewritter-font">{{ experience.travel_arrangements }}</span></li>
-                                <li class="truncate"><strong>Description: </strong><span class="typewritter-font">{{ experience.description }}</span></li>
+                                <li class="truncate"><strong>Travel arrangements: </strong><span class="typewritter-font">{{- experience.travel_arrangements -}}</span></li>
+                                <li class="truncate"><strong>Description: </strong><span class="typewritter-font">{{- experience.description -}}</span></li>
                             </ul>
                         </div>
 

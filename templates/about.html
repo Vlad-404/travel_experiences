@@ -15,7 +15,7 @@
             </div>
         </div>
         <div id="contents" class="row">
-            <h4>Table of contents:</h4>
+            <h4 class="shadow-text">Table of contents:</h4>
             <ul>
                 <li><a href="#homepage">Home page</a></li>
                 <li><a href="#search">Search</a></li>
@@ -37,11 +37,11 @@
             </aside>
             <div class="col s12 m7">
                 <div id="homepage">
-                    <h5 class="marker-font">Home page:</h5>
+                    <h5 class="marker-font shadow-text">Home page:</h5>
                     <p>This where you started. This is the main page that represents other peoples experiences. On top, you can find useful links that are always available to you, no matter where you find your self on the page. If you are on a smaller screen, you wil notice three horizontal bars. Tap them and you will be able to see the links.</p>
                 </div>
                 <div id="search">
-                    <h5 class="marker-font">Search</h5>
+                    <h5 class="marker-font shadow-text">Search</h5>
                     <p>If you want to find any specific term, this is the place to go. Write on the line what you are looking for, and tap/click on <strong>Search</strong>. Your search query will give you results for all entries in each experience except recommendation and user. Those can be selected by a dropdown filter below.</p>
                 </div>
             </div>
@@ -49,20 +49,20 @@
         <a href="#abouthome">Back to top</a>
         <div class="row">
             <div id="sort">
-                <h5 class="marker-font">Sort by</h5>
+                <h5 class="marker-font shadow-text">Sort by</h5>
                 <p>Here you can sort the experiences by user, recommendation and country. Just click/tap on the dropdown menu and select your filter.</p>
             </div>
             <div id="fab">
-                <h5 class="marker-font">Floating icon</h5>
+                <h5 class="marker-font shadow-text">Floating icon</h5>
                 <p>Click/tap on the green icon in lower right corner. If you are not logged in, it will offer you to <a href="{{ url_for('login') }}">login</a> or <a href="{{ url_for('register') }}">register</a>. Once you log in, this icon will be your best friend on this page. When you are logged in, it expands into add new experience, your profile page and log out.</p>
             </div>
         </div>
         <a href="#abouthome">Back to top</a>
         <div class="row">
-            <h3 class="marker-font">Card info</h3>
+            <h3 class="marker-font shadow-text">Card info</h3>
             <div class="col s12 m7">
                 <div id="cardinfo">
-                    <h5 class="marker-font">Card display</h5>
+                    <h5 class="marker-font shadow-text">Card display</h5>
                     <p>Here you can find the short info about the experience with the image. If you want to know more about the experience, click/tap on the read more, or on the image. It will lead you to a new page where you can read moe about it. If you wish to contribute, you can do that from these locations:</p>
                     <ul>
                         <li><i class="far fa-hand-point-right"></i> by clicking/tapping on <strong>New experience</strong> in the top navbar</li>
@@ -76,7 +76,6 @@
                 <img src="https://res.cloudinary.com/drtxn8d5t/image/upload/v1598483007/Sombor-info_evwkc4.jpg" alt="Card image" class="responsive-img materialboxed">
             </aside>
         </div>
-        <a href="#abouthome">Back to top</a>
 
         <p>Once you log, in you will have more options at your disposal
         {% if not session.user %}
@@ -95,7 +94,7 @@
         <h3 id="profilepage" class="marker-font">Your profile page</h3>
         <p>Once you log in, your profile page will open. Form there, you will be able to add experiences, edit your experiences and delete them</p>
 
-        <h3 id="xpcreate" class="marker-font">Create experience</h3>
+        <h3 id="xpcreate" class="marker-font shadow-text">Create experience</h3>
 
         <p>To add experience, click/tap <a href="{{ url_for('imageupload', username=session['user']) }}" target="_blank" class="btn deep-orange lighten-1">here</a> and a new window will open.</p>
 
@@ -111,10 +110,10 @@
             </ol>
         <p>After you have added your experience, it will lead you to your profile page where you can see all of your experiences. You can edit or delete them.</p>
 
-        <h3 id="xpedit" class="marker-font">Edit details</h3>
+        <h3 id="xpedit" class="marker-font shadow-text">Edit details</h3>
         <p>If you want to edit details of your experience, find the one you want, click on <strong>Edit</strong> and follow the steps for creating the experience.</p>
 
-        <h3 id="xpdelete" class="marker-font">Delete experience</h3>
+        <h3 id="xpdelete" class="marker-font shadow-text">Delete experience</h3>
         <p>To delete your experience, go to your page (if you are not already there), and click/tap on delete. Be carefull, because once you delete it, there is no way to restore it.</p>
 
         <a href="#abouthome">Back to top</a>

@@ -9,16 +9,16 @@
     {% endblock %}
 
     {% block short_info %}
-        <p><strong>User: </strong><span class="typewritter-font">{{ experience.created_by }}</span></p><a href="#">See more from this user</a>
+        <p><strong>User: </strong><span class="typewritter-font">{{ experience.created_by }}</span></p>
         <p><strong>Location: </strong><span class="typewritter-font">{{ experience.location }} in {{ experience.country_name }}</span></p>
         <p><strong>Reccomendation: </strong><span class="typewritter-font">{{ experience.recommendation }}</span></p>
-        <p><strong>Duration: </strong><span class="typewritter-font">{{ experience.duration }}</span></p>
+        <p><strong>Duration: </strong><span class="typewritter-font">{{ experience.duration }} day(s)</span></p>
         <p><strong>Tips: </strong><span class="typewritter-font">{{ experience.tips }}</span></p>
     {% endblock %}
 
     {% block description %}
         <p class="typewritter-font text-justify">
-            {{- experience.description -}}
+            {{ experience.description }}
         </p>
     {% endblock %}
 
