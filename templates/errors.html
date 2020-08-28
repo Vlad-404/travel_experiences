@@ -8,18 +8,18 @@
             <div class="card background404">
 				<div class="card-content error-height shadow-text valign-wrapper">
                     <div class="row">
-                        <div class="card-title col s12 blue-grey lighten-5 transparent">Ooops - it's a {% block error %}{% endblock %}</div>
+                        <div class="card-title col s12 blue-grey lighten-5 transparent">Ooops - it's a 
+                        <!-- Type of error inject -->
+                        {% block error %}
+                        {% endblock %}
+                        </div>
                         <div class="col s12 blue-grey lighten-5 transparent">Whatever it is, it's a bad experience</div>
                         
                         
                     </div>
 				</div>
-                <!--<div class="card-content error-height shadow-text valign-wrapper">
-                    <span class="card-title marker-font margin-below">Ooops - it's a 404</span>
-                    <p>Whatever it is, it's a bad experience</p>
-                </div>-->
                 <div class="card-action deep-orange lighten-1 white-text shadow-text ">
-                    <p>For now, you better go <a href="{{ url_for('experiences_home') }}">home.</a></p>
+                    <p>For now, you better go <a href="{{ url_for('experiences_home') }} " aria-label="Experiences home page">home.</a></p>
                 </div>
             </div>
         </div>

@@ -1,15 +1,22 @@
 $(document).ready(function(){
+    // Materialize sidenav
     $(".sidenav").sidenav({edge: "right"});
+    // Materialize slider for the hero image
     $('.slider').slider({indicators: "true"});
+    // Materialize smooth scrolling
     $('.scrollspy').scrollSpy();
+    // Materialize floating action button
     $('.fixed-action-btn').floatingActionButton();
+    // Materialize modal
     $('.modal').modal();
+    // Materialize tooltips
     $('.tooltipped').tooltip();
+    // Materialize dropdown selection (sorter)
     $('select').formSelect();
+    // Materialize image enlargement
     $('.materialboxed').materialbox();
-    $('.modal').modal();
 
-    // makes country select a mandatory entry
+    // makes country select a mandatory entry by Tim Nelson
     // (see Acknowledgments and thank you's in readme.md)
     validateMaterializeSelect();
     function validateMaterializeSelect() {
@@ -40,11 +47,6 @@ $(document).ready(function(){
     }
 
   });
-
- /* $('.carousel.carousel-slider').carousel({
-    fullWidth: true,
-    indicators: true
-  }); */
 
 // changes the image preview before uploading it
 var loadFile = function(event) {

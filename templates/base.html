@@ -19,18 +19,28 @@
         <!-- Top navbar -->
 		<div class="navbar-fixed">
 			<nav class="nav-extended grey darken-3">
-                <a href="{{ url_for('experiences_home') }}" class="deep-orange-text text-lighten-1 left-align marker-font shadow-text" style="margin-left: 2rem;">TRAVEL EXPERIENCES</a>
+                <!-- Title -->
+                <a href="{{ url_for('experiences_home') }}" class="deep-orange-text text-lighten-1 left-align marker-font shadow-text" style="margin-left: 2rem;" aria-label="Experiences home page">TRAVEL EXPERIENCES</a>
+
+                <!-- Icon for mobile sidenav -->
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right deep-orange-text text-lighten-1"><i class="fas fa-bars"></i></a>
+
+                <!-- Navbar links -->
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="{{ url_for('about') }}" class="deep-orange-text text-lighten-1 oxygen-font">About</a></li>
-                    <li><a href="{{ url_for('experiences_home') }}" class="deep-orange-text text-lighten-1 oxygen-font">Home</a></li>
+                    <!-- Show these links for everyone -->
+                    <li><a href="{{ url_for('about') }}" class="deep-orange-text text-lighten-1 oxygen-font" aria-label="About page">About</a></li>
+                    <li><a href="{{ url_for('experiences_home') }}" class="deep-orange-text text-lighten-1 oxygen-font" aria-label="Experiences home page">Home</a></li>
+
+                    <!-- If there's a user logged in show these -->
                     {% if session.user %}
-                        <li><a href="{{ url_for('profile', username=session['user']) }}" class="deep-orange-text text-lighten-1 oxygen-font">My Page</a></li>
-                        <li><a href="{{ url_for('imageupload', username=session['user']) }}" class="deep-orange-text text-lighten-1 oxygen-font">Add New Experience</a></li>
-                        <li><a href="{{ url_for('logout') }}" class="deep-orange-text text-lighten-1 oxygen-font">Logout</a></li>
+                        <li><a href="{{ url_for('profile', username=session['user']) }}" class="deep-orange-text text-lighten-1 oxygen-font" aria-label="Your page">My Page</a></li>
+                        <li><a href="{{ url_for('imageupload', username=session['user']) }}" class="deep-orange-text text-lighten-1 oxygen-font" aria-label="Add new experience">Add New Experience</a></li>
+                        <li><a href="{{ url_for('logout') }}" class="deep-orange-text text-lighten-1 oxygen-font" aria-label="Log out">Logout</a></li>
+
+                    <!-- Otherwise if no one is logged in show these-->
                     {% else %}
-                        <li><a href="{{ url_for('login') }}" data-target="modal1" class="deep-orange-text text-lighten-1 oxygen-font modal-trigger">Login</a></li>
-                        <li><a href="{{ url_for('register') }}" class="deep-orange-text text-lighten-1 oxygen-font">Register</a></li>
+                        <li><a href="{{ url_for('login') }}" data-target="modal1" class="deep-orange-text text-lighten-1 oxygen-font modal-trigger" aria-label="Log in">Login</a></li>
+                        <li><a href="{{ url_for('register') }}" class="deep-orange-text text-lighten-1 oxygen-font" aria-label="Register">Register</a></li>
                     {% endif %}
                 </ul>
 			</nav>
@@ -40,24 +50,28 @@
         <section>
 			<div class="slider">
 				<ul class="slides">
+                    <!-- Slider images ("pages") -->
 					<li>
-						<a href="{{ url_for('experiences_home') }}"><img src="../static/images/glacier.jpg"></a> <!-- random image -->
+						<a href="{{ url_for('experiences_home') }}" aria-label="Experiences home page"><img src="../static/images/glacier.jpg" alt="Image of a Glacier"></a> <!-- random image -->
 						<div class="caption shadow-text right-align">
 							<h3>Need inspiration?</h3>
 						</div>
 					</li>
 					<li>
+                        <!-- If user is logged in, go to addxp.html -->
                         {% if session.user %}
-                        <a href="{{ url_for('addxp') }}"><img src="../static/images/oslo.jpg"></a>
+                        <a href="{{ url_for('addxp') }}" aria-label="Add experience"><img src="../static/images/oslo.jpg" alt="Image of Oslo harbour"></a>
+                        <!-- Otherwise, redirect to register -->
                         {% else %}
-						<a href="{{ url_for('register') }}"><img src="../static/images/oslo.jpg"></a> <!-- random image -->
+						<a href="{{ url_for('register') }}" aria-label="Register"><img src="../static/images/oslo.jpg" alt="Image of Oslo harbour"></a> <!-- random image -->
                         {% endif %}
                         <div class="caption right-align shadow-text">
 							<h3>Want to contribute?</h3>
 						</div>
 					</li>
+                    <!-- Link for future page -->
 					<li>
-						<a href="#"><img src="../static/images/alps.jpg"></a> <!-- random image -->
+						<a href="#" aria-label="Empty link"><img src="../static/images/alps.jpg" alt="Swiss alps in summer"></a> <!-- random image -->
 						<div class="caption right-align shadow-text">
 							<h3>Need Travel arrangements?</h3>
 						</div>
@@ -68,16 +82,19 @@
 
         <!-- Mobile sidenav -->		
 		<ul class="sidenav grey darken-3" id="mobile-demo">
+            <!-- Show these for everyone -->
             <li><h4 class="center-align deep-orange-text text-lighten-1 marker-font">Travel Experiences</h4></li>
-			<li><a href="{{ url_for('about') }}" class="deep-orange-text text-lighten-1 oxygen-font">About</a></li>
-			<li><a href="{{ url_for('experiences_home') }}" class="deep-orange-text text-lighten-1 oxygen-font">Home</a></li>
+			<li><a href="{{ url_for('about') }}" class="deep-orange-text text-lighten-1 oxygen-font" aria-label="About this page">About</a></li>
+			<li><a href="{{ url_for('experiences_home') }}" class="deep-orange-text text-lighten-1 oxygen-font" aria-label="Experiences home page">Home</a></li>
+            <!-- If there's a user logged in show these -->
             {% if session.user %}
-                <li><a href="{{ url_for('profile', username=session['user']) }}" class="deep-orange-text text-lighten-1 oxygen-font">My Page</a></li>
-                <li><a href="{{ url_for('imageupload', username=session['user']) }}" class="deep-orange-text text-lighten-1 oxygen-font">Add New Experience</a></li>
-                <li><a href="{{ url_for('logout') }}" class="deep-orange-text text-lighten-1 oxygen-font">Logout</a></li>
+                <li><a href="{{ url_for('profile', username=session['user']) }}" class="deep-orange-text text-lighten-1 oxygen-font" aria-label="Your page">My Page</a></li>
+                <li><a href="{{ url_for('imageupload', username=session['user']) }}" class="deep-orange-text text-lighten-1 oxygen-font" aria-label="Add new experience">Add New Experience</a></li>
+                <li><a href="{{ url_for('logout') }}" class="deep-orange-text text-lighten-1 oxygen-font" aria-label="Log out">Logout</a></li>
+            <!-- Otherwise if no one is logged in -->
             {% else %}
-                <li><a href="{{ url_for('login') }}" data-target="modal1" class="deep-orange-text text-lighten-1 oxygen-font modal-trigger">Login</a></li>
-                <li><a href="{{ url_for('register') }}" class="deep-orange-text text-lighten-1 oxygen-font">Register</a></li>
+                <li><a href="{{ url_for('login') }}" data-target="modal1" class="deep-orange-text text-lighten-1 oxygen-font modal-trigger" aria-label="Log in">Login</a></li>
+                <li><a href="{{ url_for('register') }}" class="deep-orange-text text-lighten-1 oxygen-font" aria-label="Register">Register</a></li>
             {% endif %}
 		</ul>
     </header>
@@ -109,9 +126,10 @@
 			<h4 class="marker-font shadow-text">Log out?</h4>
 			<p>Are you sure you want to log out?</p>
 		</div>
+        <!-- Buttons -->
 		<div class="center-align margin-below">
-			<a href="{{ url_for('logout') }}" class="btn green modal-close waves-effect waves-green button-margin shadow-text button-margin">Log out</a>
-            <a href="#!" class="btn red modal-close waves-effect waves-green shadow-text">Cancel</a>
+			<a href="{{ url_for('logout') }}" class="btn green modal-close waves-effect waves-green button-margin shadow-text button-margin" aria-label="Log out">Log out</a>
+            <a href="#!" class="btn red modal-close waves-effect waves-green shadow-text" aria-label="Cancel">Cancel</a>
 		</div>
 	</div>
 
@@ -121,12 +139,12 @@
                 <h2 class="white-text marker-font deep-orange-text text-lighten-1 center-align shadow-text">Portals to Paradise</h2>
                 <p class="center-align">We are but a click away</p>
                 <ul id="horizontal-list" class="center-align">
-                    <li><a class="blue-text text-lighten-1 larger-icons" href="#"><i class="fas fa-home"></i></a></li>
-                    <li><a class="blue-text text-lighten-1 larger-icons" href="#"><i class="far fa-envelope"></i></a></li> <!-- mail -->
-                    <li><a class="blue-text text-lighten-1 larger-icons" href="https://youtube.com" target="_blank"><i class="fab fa-youtube-square"></i></a></li>
-                    <li><a class="blue-text text-lighten-1 larger-icons" href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-square"></i></a></li>
-                    <li><a class="blue-text text-lighten-1 larger-icons" href="https://twitter.com" target="_blank"><i class="fab fa-twitter-square"></i></a></li>
-                    <li><a class="blue-text text-lighten-1 larger-icons" href="https://instagram.com" target="_blank"><i class="fab fa-instagram-square"></i></a></li>
+                    <li><a class="blue-text text-lighten-1 larger-icons" href="#" aria-label="Empty link"><i class="fas fa-home"></i></a></li>
+                    <li><a class="blue-text text-lighten-1 larger-icons" href="#" aria-label="Empty link"><i class="far fa-envelope"></i></a></li> <!-- mail -->
+                    <li><a class="blue-text text-lighten-1 larger-icons" href="https://youtube.com" aria-label="Go to Youtube" target="_blank" rel="noopener"><i class="fab fa-youtube-square"></i></a></li>
+                    <li><a class="blue-text text-lighten-1 larger-icons" href="https://www.facebook.com" aria-label="Go to Facebook" target="_blank" rel="noopener"><i class="fab fa-facebook-square"></i></a></li>
+                    <li><a class="blue-text text-lighten-1 larger-icons" href="https://twitter.com" aria-label="GO to Twitter" target="_blank" rel="noopener"><i class="fab fa-twitter-square"></i></a></li>
+                    <li><a class="blue-text text-lighten-1 larger-icons" href="https://instagram.com" aria-label="Go to instagram" target="_blank" rel="noopener"><i class="fab fa-instagram-square"></i></a></li>
                 </ul>
 		</div>
 
@@ -141,22 +159,22 @@
 			{% if session.user %}
 
                 <!-- Add experience -->
-                <li><a href="{{ url_for('imageupload', username=session['user']) }}" class="btn-floating tooltipped blue" data-position="left" data-tooltip="Add New Experience"><i class="fas fa-plus"></i></a></li>
+                <li><a href="{{ url_for('imageupload', username=session['user']) }}" class="btn-floating tooltipped blue" aria-label="Add experience" data-position="left" data-tooltip="Add New Experience"><i class="fas fa-plus"></i></a></li>
 
                 <!-- Go to users profile -->
-                <li class="oxygen-font"><a href="{{ url_for('profile', username=session['user']) }}" class="btn-floating tooltipped blue" data-position="left" data-tooltip="Your Profile"><i class="far fa-address-card"></i></a></li>
+                <li class="oxygen-font"><a href="{{ url_for('profile', username=session['user']) }}" aria-label="Your profile" class="btn-floating tooltipped blue" data-position="left" data-tooltip="Your Profile"><i class="far fa-address-card"></i></a></li>
 
                 <!-- Log out -->
-                <li class="oxygen-font"><a href="#logoutmodal" style="margin-bottom:3rem;" class="btn-floating modal-trigger tooltipped red" data-position="left" data-tooltip="Logout"><i class="fas fa-sign-out-alt"></i></a></li>
+                <li class="oxygen-font"><a href="#logoutmodal" aria-label="Log out" style="margin-bottom:3rem;" class="btn-floating modal-trigger tooltipped red" data-position="left" data-tooltip="Logout"><i class="fas fa-sign-out-alt"></i></a></li>
 
             <!-- If there's no one logged in -->
             {% else %}
 
                 <!-- Register page link -->
-                <li class="oxygen-font"><a href="{{ url_for('register') }}" class="btn-floating tooltipped deep-orange-text text-lighten-1" data-position="left" data-tooltip="Register"><i class="fas fa-user-plus"></i></a></li>
+                <li class="oxygen-font"><a href="{{ url_for('register') }}" aria-label="Register" class="btn-floating tooltipped deep-orange-text text-lighten-1" data-position="left" data-tooltip="Register"><i class="fas fa-user-plus"></i></a></li>
 
                 <!-- Log in link -->
-                <li class="oxygen-font"><a href="{{ url_for('login') }}" class="btn-floating tooltipped deep-orange-text text-lighten-1" data-position="left" data-tooltip="Login"><i class="fas fa-sign-in-alt"></i></a></li>
+                <li class="oxygen-font"><a href="{{ url_for('login') }}" aria-label="Log in" class="btn-floating tooltipped deep-orange-text text-lighten-1" data-position="left" data-tooltip="Login"><i class="fas fa-sign-in-alt"></i></a></li>
 
             {% endif %}
 		</ul>
@@ -170,18 +188,18 @@
 
                 <!-- Links for Portals to Paradise -->
                 <ul id="horizontal-list" class="center-align">
-                    <li><a class="deep-orange-text text-lighten-1 larger-icons" href="{{ url_for('experiences_home') }}"><i class="fas fa-home"></i></a></li>
-                    <li><a class="deep-orange-text text-lighten-1 larger-icons" href="#"><i class="far fa-envelope"></i></a></li> <!-- mail -->
-                    <li><a class="deep-orange-text text-lighten-1 larger-icons" href="https://youtube.com" target="_blank"><i class="fab fa-youtube-square"></i></a></li>
-                    <li><a class="deep-orange-text text-lighten-1 larger-icons" href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-square"></i></a></li>
-                    <li><a class="deep-orange-text text-lighten-1 larger-icons" href="https://twitter.com" target="_blank"><i class="fab fa-twitter-square"></i></a></li>
-                    <li><a class="deep-orange-text text-lighten-1 larger-icons" href="https://instagram.com" target="_blank"><i class="fab fa-instagram-square"></i></a></li>
+                    <li><a class="deep-orange-text text-lighten-1 larger-icons" href="{{ url_for('experiences_home') }}" aria-label="Experiences home page"><i class="fas fa-home"></i></a></li>
+                    <li><a class="deep-orange-text text-lighten-1 larger-icons" href="#" aria-label="Empty link"><i class="far fa-envelope"></i></a></li> <!-- mail -->
+                    <li><a class="deep-orange-text text-lighten-1 larger-icons" href="https://youtube.com" aria-label="Go to Youtube" target="_blank" rel="noopener"><i class="fab fa-youtube-square"></i></a></li>
+                    <li><a class="deep-orange-text text-lighten-1 larger-icons" href="https://www.facebook.com" aria-label="Go to Facebook" target="_blank" rel="noopener"><i class="fab fa-facebook-square"></i></a></li>
+                    <li><a class="deep-orange-text text-lighten-1 larger-icons" href="https://twitter.com" aria-label="Go to Twitter" target="_blank" rel="noopener"><i class="fab fa-twitter-square"></i></a></li>
+                    <li><a class="deep-orange-text text-lighten-1 larger-icons" href="https://instagram.com" aria-label="Go to Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram-square"></i></a></li>
                 </ul>
 		</div>
 		<div class="footer-copyright">
 			<div class="container deep-orange-text text-lighten-1">
 				© 2020 Copyright Vlad-404/for educational purposes
-				<a class="right deep-orange-text text-lighten-1 scrollspy medium-icons" href="#top-of-page">Back to top  <i class="fa fa-chevron-circle-up larger-icons" aria-hidden="true"></i></a>
+				<a class="right deep-orange-text text-lighten-1 scrollspy medium-icons" href="#top-of-page" aria-label="Back to top">Back to top  <i class="fa fa-chevron-circle-up larger-icons" aria-hidden="true"></i></a>
 			</div>
 		</div>
 	</footer>

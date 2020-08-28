@@ -54,7 +54,7 @@
             </div>
             <div id="fab">
                 <h5 class="marker-font shadow-text">Floating icon</h5>
-                <p>Click/tap on the green icon in lower right corner. If you are not logged in, it will offer you to <a href="{{ url_for('login') }}">login</a> or <a href="{{ url_for('register') }}">register</a>. Once you log in, this icon will be your best friend on this page. When you are logged in, it expands into add new experience, your profile page and log out.</p>
+                <p>Click/tap on the green icon in lower right corner. If you are not logged in, it will offer you to <a href="{{ url_for('login') }}" aria-label="Log in">login</a> or <a href="{{ url_for('register') }}" aria-label="Register">register</a>. Once you log in, this icon will be your best friend on this page. When you are logged in, it expands into add new experience, your profile page and log out.</p>
             </div>
         </div>
         <a href="#abouthome">Back to top</a>
@@ -69,7 +69,7 @@
                         <li><i class="far fa-hand-point-right"></i> by clicking/taping on <strong>New</strong> in home page or your profile page</li>
                         <li><i class="far fa-hand-point-right"></i> or by clicking/tapping on the floating icon and selecting "+" - create new experience</li>
                     </ul>
-                    <p>To contribute with your experiences, you have to be <a href="{{ url_for('login') }}">logged in</a>.</p>
+                    <p>To contribute with your experiences, you have to be <a href="{{ url_for('login') }}" aria-label="Log in">logged in</a>.</p>
                 </div>
             </div>
             <aside class="col s12 m5">
@@ -82,8 +82,8 @@
         so come and join us:</p>
         <div class="row">
             <div class="center-align">
-                <a href="{{ url_for('login') }}" class="btn-large deep-orange lighten-1 button-margin"><i class="fas fa-sign-in-alt"></i>  Log in</a>
-                <a href="{{ url_for('register') }}" class="btn-large deep-orange lighten-1"><i class="fas fa-user-plus"></i>  Register</a>
+                <a href="{{ url_for('login') }}" class="btn-large deep-orange lighten-1 button-margin" aria-label="Log in"><i class="fas fa-sign-in-alt"></i>  Log in</a>
+                <a href="{{ url_for('register') }}" class="btn-large deep-orange lighten-1" aria-label="Register"><i class="fas fa-user-plus"></i>  Register</a>
             </div>
         </div>
 
@@ -96,7 +96,7 @@
 
         <h3 id="xpcreate" class="marker-font shadow-text">Create experience</h3>
 
-        <p>To add experience, click/tap <a href="{{ url_for('imageupload', username=session['user']) }}" target="_blank" class="btn deep-orange lighten-1">here</a> and a new window will open.</p>
+        <p>To add experience, click/tap <a href="{{ url_for('imageupload', username=session['user']) }}" target="_blank" class="btn deep-orange lighten-1" aria-label="Add experience">here</a> and a new window will open.</p>
 
         <p>From there follow these steps:</p>
             <ol>

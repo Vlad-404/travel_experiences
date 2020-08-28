@@ -1,5 +1,6 @@
 {% extends "datamod.html" %}
     
+<!-- Based on datamod.html -->
     {% block title %}
         {{ experience.title }}
     {% endblock %}
@@ -27,10 +28,10 @@
     {% endblock %}
 
     {% block buttons %}
-        <button class="btn-large deep-orange lighten-1"><a href="{{ url_for('experiences_home') }}" class="white-text">Back to home page</a></button>
+        <button class="btn-large deep-orange lighten-1"><a href="{{ url_for('experiences_home') }}" class="white-text" aria-label="Experiences home page">Back to home page</a></button>
         {% if session.user %}
-        <button class="btn-large green"><a href="{{ url_for('addxp', username=session['user']) }}" class="white-text">Add new experience</a></button>
+        <button class="btn-large green"><a href="{{ url_for('addxp', username=session['user']) }}" class="white-text" aria-label="Add new experience">Add new experience</a></button>
         {% else %}
-        <button class="btn-large green"><a href="{{ url_for('login') }}" class="white-text">Want to contribute?</a></button>
+        <button class="btn-large green"><a href="{{ url_for('login') }}" class="white-text" aria-label="Log in">Want to contribute?</a></button>
         {% endif %}
     {% endblock %}

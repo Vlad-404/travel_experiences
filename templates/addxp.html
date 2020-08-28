@@ -9,6 +9,7 @@
     {% endblock %}
 
     {% block formup %}
+        <!-- Start of the form -->
         <form class="col s12" method="POST" enctype="multipart/form-data" action="{{ url_for('addxp', username=session['user']) }}">
     {% endblock %}
     
@@ -25,6 +26,8 @@
 				<div class="card-content center-align">
                     <!-- required label : but hidden -->
                     <label for="image" class="hide"></label> 
+
+                    <!-- Checks if there's an image uploaded -->
                     {% if imagelink %}
 
                     <!-- input field to store imagelink -->
@@ -33,6 +36,7 @@
                     <input id="public-id" name="public-id" value="{{ public_id }}" type="text" class ="hide">
                     <img src="{{ imagelink }}" id="imageSrc" alt="Base image" class="responsive-img">
                     
+                    <!-- If image hasn't been uploaded, diplays a message -->
                     {% else %}
                     <input id="imagelink" name="imagelink" type="text" class="hide"> <!-- input field "without" value : hidden -->
 					<img src="#" id="imageSrc" alt="Base image" class="responsive-img">
@@ -84,10 +88,11 @@
         {% block buttons %}
             <!-- Submit and cancel buttons -->
             <button  type="submit" class="btn-large green accent-3 button-margin">Save</button>
-            <button class="btn-large red"><a href="{{ url_for('profile', username=session['user']) }}" class="white-text">Cancel</a></button>
+            <button class="btn-large red"><a href="{{ url_for('profile', username=session['user']) }}" class="white-text" aria-label="Back to profile">Cancel</a></button>
         {% endblock %}
 
     {% block formdown %}
+        <!-- Form end -->
         </form>
     {% endblock %}
 

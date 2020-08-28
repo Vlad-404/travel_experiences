@@ -9,6 +9,7 @@
     {% endblock %}
 
     {% block formup %}
+        <!-- Start of the form -->
         <form class="col s12" method="POST" enctype="multipart/form-data" action="{{ url_for('editxp', experience_id=experience._id) }}">
     {% endblock %}
 
@@ -83,7 +84,7 @@
         {% block buttons %}
             <!-- Buttons for submit and cancel -->
             <button  type="submit" class="btn-large green accent-3 button-margin">Update</button>
-            <button class="btn-large red"><a href="{{ url_for('profile', username=session['user']) }}" class="white-text">Cancel</a></button>
+            <button class="btn-large red"><a href="{{ url_for('profile', username=session['user']) }}" class="white-text" aria-label="Go to your profile">Cancel</a></button>
         {% endblock %}
 
     {% block formdown %}

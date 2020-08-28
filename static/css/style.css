@@ -1,10 +1,13 @@
+/* Import fonts Oxygen and permanent marker from Google fonts */
 @import url('https://fonts.googleapis.com/css2?family=Oxygen&family=Oxygen:wght@700&family=Permanent+Marker&display=swap');
 
+/* Importing and storing Traveling typewritter locally */
 @font-face {
     font-family: 'typewritter';
     src: url('/static/fonts/typewritter.woff') format("woff");
 }
 
+/* Smooth scrolling through the page */
 html {
     scroll-behavior: smooth;
 }
@@ -26,7 +29,7 @@ body {
   }
     /* end of Materialize class */
 
-/* custom fonts */
+/* custom fonts and formatting */
   .marker-font {
       font-family: 'Permanent Marker', 'Oxygen', Calibri;
       font-size: 2.1rem;
