@@ -152,7 +152,8 @@ Due to time constrains, some of the features were left out so the page can be fu
 * More in-depth user profile page: email, date of birth, location,... This was left out as GDPR requires to inform the users how the data is handled. Incorporating GDPR compliance would take more time, so the users are defined only by user name and password.
 * A container that displays the location of the experience.
 * Voting system - registered users will be able to add their vote to the experience they find motivating, inspiring, well written, ... This can be used for users to filter out best and worst experiences other people had and either look for a travel arrangement for ones they like, or change their plans. Travel company can use this system to make travel arrangements based on the highest voted experiences.
-* Communication between users - On each experience description there will be an option to contact the user who created the experience. Only registered users will have this option. Also, this will also be used if admin has to delete some content and let the user know what they did wrong. 
+* Communication between users - On each experience description there will be an option to contact the user who created the experience. Only registered users will have this option. Also, this will also be used if admin has to delete some content and let the user know what they did wrong.
+* Admin page is left for future implementations as is delete user. Later one is just a small inconvenience as most people just forget about their profile all together. However, it is a useful feature that needs to be implemented in the future.
 
 [Backt to top](#travel-experiences)
 
@@ -218,6 +219,8 @@ Due to time constrains, some of the features were left out so the page can be fu
 - [] Test delete profile
 - [] Test admin functionalities
 
+While testing on various screen sizes, I noticed that close to screen size breaks, some elements don't look visually appealing. For that reason, I removed certain elements you can see in wireframes. 
+
 [Backt to top](#travel-experiences)
 
 ### Bugs during development
@@ -229,7 +232,7 @@ Due to time constrains, some of the features were left out so the page can be fu
     * **What went wrong:** dropdown menu had ``value`` field which overwrote the country name
     * **Resolution:** renamed ``value`` to ``country_id`` later replaced the country dropdown menu with Country selector with flags (see [credits](#credits) below)
 
-* **Description:** Jinja crashed after clicking on ``Add experience`` button
+* **Description:** Page crashed after clicking on ``Add experience`` button
     * **How I found it:** after implementing the filter to show only users experiences in their profile
     * **What went wrong:** cancel button which redirected to profile page, didn't had username to refer to
     * **Resolution:** added user name for the call in the button
@@ -239,32 +242,35 @@ Due to time constrains, some of the features were left out so the page can be fu
     * **What went wrong:** ``if/elif/else`` loop
     * **Resolution:** removed if/elif/else loop and set ``block form`` in ``datamod``. This way each page that has to add, edit and show experiences has it's own form
 
-* **Description:** Jinja kept crashing because there was no ``cloud_name``
-    * **How I found it:** after clicking on New experience
+* **Description:** Page kept crashing because there was no ``cloud_name``
+    * **How I found it:** after clicking on *New experience*
     * **What went wrong:** ``cloudinary.config`` wasn't set properly
     * **Resolution:** added ``clodinary.config`` to ``app.py``
 
-* **Description:** Jinja kept crashing after clicking on submit button after experience was edited
+* **Description:** Page kept crashing after clicking on submit button after experience was edited
     * **How I found it:** after submitting changes to experience
     * **What went wrong:** in ``app.py`` update request had parameter of ``update_one`` instead of ``update``
     * **Resolution:** removed ``_one`` from request
 
 * **Description:** When testing image upload, browser kept notifying about form resubmission. This resulted in repeated image uploads
     * **How I found it:** when working on the image upload function
-    * **What went wrong:** browser kept uploading the image each time confirm form resubmission displayed
-    * **Resolution:** added ``upload_result = None`` to function``imageupload`` function before ``post`` method
+    * **What went wrong:** browser kept uploading the image each time *Confirm form resubmission* displayed
+    * **Resolution:** added ``upload_result = None`` to ``imageupload`` function before ``post`` method
 
 * **Description:** Button for ``New`` didn't work on homepage
     * **How I found it:** After editing image processing pages
     * **What went wrong:** element of type ``button`` had an anchor link which didn't work
     * **Resolution:** converted button element into anchor element with class of ``btn``
 
-* **Description:** Error after updating the experience image
-    * **How I found it:** After editing image for experience
-    * **What went wrong:** image ``public_id`` wasn't handled correctly
-    * **Resolution:** added ``public_id`` variable to ``imgedit``, and to requests
+* **Description:** Error after updating the experience
+    * **How I found it:** After editing the experience and submitting it
+    * **What went wrong:** ``editxp()`` function had unnecessary variables in brackets
+    * **Resolution:** Removed ``imagelink`` and ``public_id`` from brackets and also variables of the same name within the function. Also added ``enctype="multipart/form-data"`` to the form in ``editxp.html``
 
-...
+* **Description:** After loging in and going to ``My Profile`` page, experiences were shown from all users with ability to add and delete them
+    * **How I found it:** By loging in and going to ``My profile`` page
+    * **What went wrong:** While deleting commented out code, I accidentally deleted ``for`` loop in ``profile.html`` that filters experiences by user ``{% if session.user|lower == experience.created_by|lower %}``
+    * **Resolution:** Went back to Github to compare the code and restored the missing parts. Learned that Flask ignores comment markers for its own code.
 
 [Backt to top](#travel-experiences)
 

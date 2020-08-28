@@ -97,53 +97,25 @@
 		{% endwith %}
 	</section>
 
+    <!-- Page content -->
     <main>
         {% block content %}
         {% endblock %}
     </main>
-<!--
-     ** Modal for loging in ** 
-	<div id="modal1" class="modal">
-		<div class="modal-content">
-			<h4 class="center-align marker-font">Log in</h4>
-            <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('login')}}">
-                <div class="card-panel">
-            ** User name **
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <i class="fas fa-user-plus prefix deep-orange-text text-lighten-1"></i>
-                            <input id="username" name="username" type="text" minlength="4" maxlength="18" patern="^[a-zA-Z0-9]{4,18}$" class="validate" required>
-                            <label for="username">User name</label>
-                        </div>
-                    </div>
-            ** Password **
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <i class="fas fa-user-lock prefix deep-orange-text text-lighten-1"></i>
-                            <input id="password" name="password" type="password" minlength="4" maxlength="18" patern="^[a-zA-Z0-9]{4,18}$" class="validate" required>
-                            <label for="password">Password</label>
-                        </div>
-                    </div>
 
-            ** Log in button **
-                    <div type="submit" class="btn-large green accent-4 modal-close oxygen-font"><a href="{{ url_for('login') }}">
-                        Log in <i class="fas fa-sign-in-alt"></i></a>
-                    </div>
-                    <div type="submit" class="btn-large red accent-4 modal-close oxygen-font">
-                                Cancel <i class="far fa-times-circle"></i>
-                    </div>  
-                </div>
-            </form>
+    <!-- Log out modal -->
+	<div id="logoutmodal" class="modal">
+		<div class="modal-content center-align">
+			<h4 class="marker-font shadow-text">Log out?</h4>
+			<p>Are you sure you want to log out?</p>
 		</div>
-		<div class="modal-footer">
-            <p class="center-align">Not a member? <a href="{{ url_for('register') }}" class="modal-close deep-orange-text text-lighten-1 oxygen-font">Register here.</a></p>
+		<div class="center-align margin-below">
+			<a href="{{ url_for('logout') }}" class="btn green modal-close waves-effect waves-green button-margin shadow-text button-margin">Log out</a>
+            <a href="#!" class="btn red modal-close waves-effect waves-green shadow-text">Cancel</a>
 		</div>
 	</div>
 
--->
-
     <!-- Add for Portals to Paradise -->
-
     <div class="container">
                 <p class="center-align">For all your travel arrangements</p>
                 <h2 class="white-text marker-font deep-orange-text text-lighten-1 center-align shadow-text">Portals to Paradise</h2>
@@ -165,14 +137,27 @@
 		</a>
         <p class="center-align green-text text-accent-4">{{session["user"]}}</p>
 		<ul>
+            <!-- If the user is logged in -->
 			{% if session.user %}
+
+                <!-- Add experience -->
                 <li><a href="{{ url_for('imageupload', username=session['user']) }}" class="btn-floating tooltipped blue" data-position="left" data-tooltip="Add New Experience"><i class="fas fa-plus"></i></a></li>
+
+                <!-- Go to users profile -->
                 <li class="oxygen-font"><a href="{{ url_for('profile', username=session['user']) }}" class="btn-floating tooltipped blue" data-position="left" data-tooltip="Your Profile"><i class="far fa-address-card"></i></a></li>
-                <li class="oxygen-font"><a href="{{ url_for('logout') }}" style="margin-bottom:3rem;" class="btn-floating tooltipped red" data-position="left" data-tooltip="Logout"><i class="fas fa-sign-out-alt"></i></a></li>
+
+                <!-- Log out -->
+                <li class="oxygen-font"><a href="#logoutmodal" style="margin-bottom:3rem;" class="btn-floating modal-trigger tooltipped red" data-position="left" data-tooltip="Logout"><i class="fas fa-sign-out-alt"></i></a></li>
+
+            <!-- If there's no one logged in -->
             {% else %}
+
+                <!-- Register page link -->
                 <li class="oxygen-font"><a href="{{ url_for('register') }}" class="btn-floating tooltipped deep-orange-text text-lighten-1" data-position="left" data-tooltip="Register"><i class="fas fa-user-plus"></i></a></li>
-                <!--<li class="oxygen-font"><a data-target="{{ url_for('login') }}" class="btn-floating deep-orange-text text-lighten-1 modal-trigger"><i class="fas fa-sign-in-alt"></i></a>Login</li> -->
+
+                <!-- Log in link -->
                 <li class="oxygen-font"><a href="{{ url_for('login') }}" class="btn-floating tooltipped deep-orange-text text-lighten-1" data-position="left" data-tooltip="Login"><i class="fas fa-sign-in-alt"></i></a></li>
+
             {% endif %}
 		</ul>
 	</div>
@@ -182,6 +167,8 @@
 		<div class="container">
                 <h2 class="white-text marker-font deep-orange-text text-lighten-1 center-align">Travel Experiences</h2>
                 <p class="deep-orange-text text-lighten-1 center-align">Check out our social media:</p>
+
+                <!-- Links for Portals to Paradise -->
                 <ul id="horizontal-list" class="center-align">
                     <li><a class="deep-orange-text text-lighten-1 larger-icons" href="{{ url_for('experiences_home') }}"><i class="fas fa-home"></i></a></li>
                     <li><a class="deep-orange-text text-lighten-1 larger-icons" href="#"><i class="far fa-envelope"></i></a></li> <!-- mail -->
@@ -199,10 +186,15 @@
 		</div>
 	</footer>
 
+    <!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+
+    <!-- Materialize -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     {% block scripts %}
     {% endblock %}
+
+    <!-- Page script -->
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 
 </body>

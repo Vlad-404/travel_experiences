@@ -1,10 +1,8 @@
 import os
 from flask import (
     Flask, flash, render_template,
-    redirect, request, session, url_for, json)
+    redirect, request, session, url_for)
 from flask_pymongo import PyMongo
-# Import error handler
-from werkzeug.exceptions import HTTPException, NotFound
 # import object ID
 from bson.objectid import ObjectId
 # import password security
@@ -32,12 +30,14 @@ cloudinary.config(
     api_secret=os.environ.get('API_SECRET')
 )
 
+
 # Home page
 @app.route("/")
 @app.route("/experiences_home")
 def experiences_home():
     experiences = mongo.db.experiences.find()
     return render_template("experiences_home.html", experiences=experiences)
+
 
 # About page
 @app.route("/about")
@@ -202,7 +202,7 @@ def addxp():
     return render_template("addxp.html")
 
 
-# Edit experience image 
+# Edit experience image
 @app.route("/imgedit/<experience_id>", methods=["GET", "POST"])
 def imgedit(experience_id):
     upload_result = None
@@ -301,6 +301,7 @@ def deletexp(experience_id):
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
+
 
 # Forbidden - when pressing back after logged out
 @app.errorhandler(403)

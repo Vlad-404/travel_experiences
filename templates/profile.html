@@ -6,7 +6,7 @@
 <div class="container">
 	<div class="row">
 		<a href="{{ url_for('imageupload', username=session['user']) }}" class="white-text">
-			<button class="col s2 offset-s10 btn-large green shadow-text">New experience</button>
+			<button class="col s2 offset-s10 btn-large green shadow-text">New</button>
 		</a>
 	</div>
 </div>
@@ -14,10 +14,10 @@
 <section class="borders">
     <div class="container">
         <div class="row margin-above">
-
         {% for experience in experiences %}
-            <!--{% if session.user|lower == experience.created_by|lower %}-->
-        <!-- Cards slider -->
+            <!-- Shows only experiences from user in session -->
+            {% if session.user|lower == experience.created_by|lower %}
+            <!-- Cards slider -->
             <div class="col s12 m6 xl4">
                 <div class="card card-xl">
                     <!-- Card image -->
@@ -30,7 +30,7 @@
                     <div class="card-content">
                         <p class="left-align deep-orange-text text-lighten-1 typewritter-font">{{ experience.title }}</p>
                         <ul>
-                            <li><strong>Location: </strong><span class="typewritter-font">{{ experience.location }}, {{ experience.country_name }}</span></li>
+                            <li class="truncate"><strong>Location: </strong><span class="typewritter-font">{{ experience.location }}, {{ experience.country_name }}</span></li>
                             <li><strong>Recommendation: </strong><span class="typewritter-font">{{ experience.recommendation }}</span></li>
                             <li><strong>Duration: </strong><span class="typewritter-font">{{ experience.duration }} day(s)</span></li>
                             <li class="truncate"><strong>Tips: </strong><span class="typewritter-font">{{ experience.tips }}</span></li>
@@ -41,23 +41,42 @@
 
                     <!-- Update and cancel buttons - issues between 450px and 601px wide screens -->
                     <div class="card-action center-align">
-                        <a href="{{ url_for('imgedit', experience_id=experience._id) }}" class="btn green accent-3 shadow-text" type="submit">Edit</a>
-						<a href="{{ url_for('deletexp', experience_id=experience._id) }}" class="btn white-text red shadow-text">Delete</a>
+                        <!-- Edit details -->
+                        <a href="{{ url_for('imgedit', experience_id=experience._id) }}" class="btn green accent-3 shadow-text button-margin" type="submit">Edit</a>
+
+                        <!-- Delete experience -->
+                        <a href="#deletexpmodal" class="btn white-text red shadow-text modal-trigger">Delete</a>
+						<!--<a href="{{ url_for('deletexp', experience_id=experience._id) }}" class="btn white-text red shadow-text">Delete</a>-->
                     </div>
                 </div>
             </div>
-            <!--{% endif %}-->
+
+            <!-- Delete experience modal -->
+            <div id="deletexpmodal" class="modal center-align">
+                <div class="modal-content center-align">
+                    <h4 class="marker-font shadow-text">Remove experience?</h4>
+                    <p>Are you sure you want to remove your experience?</p>
+                    <p class="red-text"><strong>You will not be able to restore it once it is removed!</strong></p>
+                </div>
+                <div class="center-align margin-below">
+                    <a href="{{ url_for('deletexp', experience_id=experience._id) }}" class="btn white-text red shadow-text button-margin">Delete</a>
+                    <a href="#!" class="btn green modal-close waves-effect waves-green shadow-text">Cancel</a>
+                </div>
+            </div>
+            {% endif %}
         {% endfor %}
         </div>
     </div>
 </section>
 
+<!-- New experience button -->
 <div class="container margin-above">
 	<div class="row">
 		<a href="{{ url_for('imageupload', username=session['user']) }}" class="white-text">
-			<button class="col s2 offset-s10 btn-large green shadow-text">New experience</button>
+			<button class="col s2 offset-s10 btn-large green shadow-text">New</button>
 		</a>
 	</div>
 </div>
+
 
 {% endblock %}
