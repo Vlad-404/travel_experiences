@@ -202,10 +202,11 @@ def addxp():
     return render_template("addxp.html")
 
 
-# Edit image experience
+# Edit experience image 
 @app.route("/imgedit/<experience_id>", methods=["GET", "POST"])
 def imgedit(experience_id):
     upload_result = None
+    experience_id = experience_id
     experience = mongo.db.experiences.find_one(
         {"_id": ObjectId(experience_id)})
 
@@ -219,27 +220,25 @@ def imgedit(experience_id):
             # And continue with the new one
             upload_result = upload(file_to_upload)
             imagelink = upload_result['secure_url']
+            public_id = upload_result['public_id']
 
             flash("Image updated succesfully")
             return render_template(
                 'editxp.html',
                 experience=experience,
                 imagelink=imagelink,
-                experience_id=experience_id)
+                experience_id=experience_id,
+                public_id=public_id)
         # If user didn't change the image
         else:
             imagelink = experience['imagelink']
+            public_id = experience['public_id']
             return render_template(
                 'editxp.html',
                 experience=experience,
                 imagelink=imagelink,
-                experience_id=experience_id)
-
-        return render_template(
-            'editxp.html',
-            imagelink=imagelink,
-            experience=experience,
-            experience_id=experience_id)
+                experience_id=experience_id,
+                public_id=public_id)
 
     return render_template(
         "imgedit.html", experience_id=experience_id, experience=experience)
@@ -271,13 +270,12 @@ def editxp(experience_id):
         return redirect(url_for(
                         "profile", username=session["user"]))
 
-    experience = mongo.db.experiences.find_one(
-        {"_id": ObjectId(experience_id)})
     return render_template(
                 'editxp.html',
                 experience=experience,
                 imagelink=imagelink,
-                experience_id=experience_id)
+                experience_id=experience_id,
+                public_id=public_id)
 
 
 # Delete experience

@@ -9,7 +9,7 @@
     {% endblock %}
 
     {% block formup %}
-        <form class="col s12" method="POST" action="{{ url_for('editxp', experience=experience, experience_id=experience._id) }}">
+        <form class="col s12" method="POST" enctype="multipart/form-data" action="{{ url_for('editxp', experience_id=experience._id) }}">
     {% endblock %}
 
         {% block title %}
@@ -22,11 +22,15 @@
         {% block image %}
                 <div class="card small col s12 valign-wrapper">
                     <div class="card-content center-align">
-                        <label for="image" class="hide"></label> <!-- required label : but hidden -->
+                        <!-- required label : but hidden -->
+                        <label for="image" class="hide"></label> 
                         
                         <!-- input field to store imagelink -->
-                        <img src="{{ imagelink }}" id="imageSrc" alt="Base image" class="responsive-img">
                         <input id="imagelink" name="imagelink" value="{{ imagelink }}" type="text" class="hide">
+
+                        <!-- Image display -->
+                        <img src="{{ imagelink }}" id="imageSrc" alt="Base image" class="responsive-img">
+
                         <!-- input field to store public id -->
                         <input id="public-id" name="public-id" value="{{ public_id }}" type="text" class ="hide">
                         

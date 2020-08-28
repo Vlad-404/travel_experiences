@@ -1,30 +1,28 @@
 # TRAVEL EXPERIENCES
 
-Welcome to TRAVEL EXPERIENCES! Have you ever visited a place you just have to tell everyone about? Or maybe you just want some inspiration on where to travel? Travel Experiences page is just for you. On this page you have the bragging rights and you are welcome to explore others experiences.
+Welcome to **TRAVEL EXPERIENCES!** Have you ever visited a place you just have to tell everyone about? Or maybe you just want some inspiration on where to travel? Travel Experiences page is just for you. On this page you have the bragging rights and you are welcome to explore others experiences.
 
 
 Contents:
 * UX (user experience)
   * [Idea](#idea)
   * [Research and preparations](#research-and-preparations)
-    * [Wireframes](#wireframes)
+  * [Wireframes](#wireframes)
   * [User stories](#user-stories)
   * [Design choices](#design-choices)
     * [Fonts](#fonts)
     * [Colours](#colours)
     * [Icons](#icons)
 * [Features](#features)
-    * [Features left to implement](#features-left-to-implement)
+* [Features left to implement](#features-left-to-implement)
 * [Technologies used](#technologies-used)
 * [Testing](#testing)
     * [Bugs during development](#bugs-during-development)
     * [User stories Testing](#user-stories-testing)
-    * [Left out implementations](#left-out-implementations)
 * [Deployment](#deployment)
 * [Credits](#credits)
     * [Content](#content)
-    * [Media](#media)
-    * Acknowledgments and thank you's
+    * [Acknowledgments and thank you's](#acknowledgments-and-thank-you's)
 * [Disclaimer](#disclaimer)
 
 # UX 
@@ -151,7 +149,8 @@ As per initial idea, UI has to have uniform and appealing look, be easy to navig
 
 ## Features left to implement
 Due to time constrains, some of the features were left out so the page can be fully functional within the deadline. Afterwards, features can be added:
-* A container that displays the location of the experience. DUe to time constrains, this was left out
+* More in-depth user profile page: email, date of birth, location,... This was left out as GDPR requires to inform the users how the data is handled. Incorporating GDPR compliance would take more time, so the users are defined only by user name and password.
+* A container that displays the location of the experience.
 * Voting system - registered users will be able to add their vote to the experience they find motivating, inspiring, well written, ... This can be used for users to filter out best and worst experiences other people had and either look for a travel arrangement for ones they like, or change their plans. Travel company can use this system to make travel arrangements based on the highest voted experiences.
 * Communication between users - On each experience description there will be an option to contact the user who created the experience. Only registered users will have this option. Also, this will also be used if admin has to delete some content and let the user know what they did wrong. 
 
@@ -194,9 +193,9 @@ Due to time constrains, some of the features were left out so the page can be fu
 
 | **Browser**      | **Device** | **Compatibility**                                            | **Version**            |
 | :--------------- | :---------: | :-----------------------------------------------------------: | :--------------------- |
-| Google Chrome    | PC         |                                                      | Version |
-| Firefox          | PC         |                                                     | Version        |
-| Opera            | PC         |  | Version  70|
+| Google Chrome    | PC         |         Excellent                                             | Version |
+| Firefox          | PC         |          Excellent                                           | Version        |
+| Opera            | PC         | Excellent | Version  70|
 | Brave            | PC         |                                                     | Version        |
 | Google Chrome | OnePlus 3t  |                                                     |        |
 | Opera Touch | OnePlus 3t  |                                                     |        |
@@ -259,6 +258,11 @@ Due to time constrains, some of the features were left out so the page can be fu
     * **How I found it:** After editing image processing pages
     * **What went wrong:** element of type ``button`` had an anchor link which didn't work
     * **Resolution:** converted button element into anchor element with class of ``btn``
+
+* **Description:** Error after updating the experience image
+    * **How I found it:** After editing image for experience
+    * **What went wrong:** image ``public_id`` wasn't handled correctly
+    * **Resolution:** added ``public_id`` variable to ``imgedit``, and to requests
 
 ...
 
