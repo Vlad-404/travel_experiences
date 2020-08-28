@@ -17,6 +17,7 @@ if os.path.exists("env.py"):
 
 app = Flask(__name__)
 
+# Environmental variables
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
@@ -59,6 +60,7 @@ def search():
 def sorter():
     sorter = request.form.get("sorter")
     experiences = mongo.db.experiences.find()
+    # Sorting criteria
     if sorter == "country":
         experiences = mongo.db.experiences.find().sort("country_name", 1)
     elif sorter == "user":
@@ -163,12 +165,14 @@ def imageupload():
     upload_result = None
     if request.method == "POST":
         file_to_upload = request.files.get("image")
+        # Checks if user added the image
         if file_to_upload:
             upload_result = upload(file_to_upload)
         else:
             flash("You have to upload an image first to create experience")
             return redirect(url_for('imageupload'))
 
+        # Sets the variables for the next step
         imagelink = upload_result['secure_url']
         public_id = upload_result['public_id']
         return render_template(
@@ -273,9 +277,7 @@ def editxp(experience_id):
     return render_template(
                 'editxp.html',
                 experience=experience,
-                imagelink=imagelink,
-                experience_id=experience_id,
-                public_id=public_id)
+                experience_id=experience_id)
 
 
 # Delete experience
