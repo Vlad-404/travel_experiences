@@ -192,16 +192,15 @@ Due to time constrains, some of the features were left out so the page can be fu
 
 # Testing
 
-#### Browser and Device Testing
+#### Browser and Device Testing on Heroku page
 
 | **Browser**      | **Device** | **Compatibility**                                            | **Version**            |
 | :--------------- | :---------: | :-----------------------------------------------------------: | :--------------------- |
-| Google Chrome    | PC         |         Excellent                                             | Version |
-| Firefox          | PC         |          Excellent                                           | Version        |
+| Google Chrome    | PC         |         Excellent                                             | Version 84 (x64)|
+| Firefox          | PC         |          Excellent                                           | Version 80      | 
 | Opera            | PC         | Excellent | Version  70|
-| Brave            | PC         |                                                     | Version        |
-| Google Chrome | OnePlus 3t  |                                                     |        |
-| Opera Touch | OnePlus 3t  |                                                     |        |
+| Google Chrome | OnePlus 3t  |      Mostly ok, user icon sometimes gets in the way, only in certain cases                                               |      Version 85  |
+| Opera Touch | OnePlus 3t  | Country selector isn't showing flags                                                    | Version 2.6.1       |
 | Safari           | iPad   |                                                     | Version           |
 
 - [x] Test links to all pages
@@ -218,8 +217,6 @@ Due to time constrains, some of the features were left out so the page can be fu
 - [x] Test delete experience 
 - [x] Test log out 
 - [x] Test sign in
-- [] Test delete profile
-- [] Test admin functionalities
 
 While testing on various screen sizes, I noticed that close to screen size breaks, some elements don't look visually appealing. For that reason, I removed certain elements you can see in wireframes. 
 
