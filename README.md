@@ -2,7 +2,7 @@
 
 ![Desktop Demo](https://res.cloudinary.com/drtxn8d5t/image/upload/v1598650877/multisite_cre0ej.png "Desktop Demo")
 
-Welcome to **TRAVEL EXPERIENCES!** Have you ever visited a place you just have to tell everyone about? Or maybe you just want some inspiration on where to travel? Travel Experiences page is just for you. On this page you have the bragging rights and you are welcome to explore others experiences.
+Welcome to **TRAVEL EXPERIENCES!** Have you ever visited a place you just have to tell everyone about? Or maybe you just want some inspiration on where to travel? Travel Experiences page is just for you. On this page you have the bragging rights and you are welcome to explore others' experiences.
 
 
 Contents:
@@ -30,25 +30,25 @@ Contents:
 # UX 
 
 ## Idea
-Idea behind this project was to create a page where people can exchange their travel experiences. From grand adventures to little tips and tricks on where to dine or a hidden spot that's not so crowded and yet a must visit. 
-Scope of this project is to introduce the visitors to the new locations for travel, and let registered users to contribute to the ever-growing base of reviews. 
+The idea behind this project was to create a page where people can exchange their travel experiences. From grand adventures to little tips and tricks on where to dine, or a hidden spot that's not so crowded and yet a must visit. 
+The scope of this project is to introduce the visitors to new locations for travel, and let registered users contribute to the ever-growing base of reviews. 
 
-Purpose of this page is to be as an extension of a future project called Portals to Paradise, which is a page for a travel agency. On Travel experiences, any person can post a review of a place they visited as long as they are registered on the page. This way, visitors and registered users can get an inside view of a place they want to visit. Benefits of this page are:
-•	visitors and users can get hands on  recommendations from people who already visited the place.
-•	by separating the two pages, it doesn't look like an ad; people are more drawn to social networks than a company trying to push their product. Even as a link, relation to the Portals to Paradise is perfectly placed.
-•	travel agency can sort through the user input and decide which travel arrangements to set up and advertise.
-Thanks to a modern looking and inviting page which uses Materialize, users are drawn to contribute to the growing base of user experiences.
+The purpose of this page is to be an extension of a future project called Portals to Paradise, which is a page for a travel agency. On Travel experiences, any person can post a review of a place they visited as long as they are registered on the page. This way, visitors and registered users can get an inside view of a place they want to visit. The benefits of this page are:
+* visitors and users can get hands on  recommendations from people who already visited the place.
+* by separating the two pages, it doesn't look like an ad. People are more drawn to social networks than a company trying to push its product. Even as a link, the connection to the Portals to Paradise is perfectly placed.
+* a travel agency can sort through the user input and decide which travel arrangements to set up and advertise.
+* thanks to a modern looking and inviting page which uses Materialize, users are drawn to contribute to the growing base of user experiences.
 
-The first view on the page reveals experiences from random users to showcase the page and give the users idea how the page works. From there on, page is intuitive and simple to use. Even if a visitor has trouble with the page, an about link is accessible from the always visible header.
-There's a floating icon where visitors can login, and if they are already logged in, it expands on click and gives them option to log out, access their own profile or add a new experience in 2 clicks.
+The first view on the page reveals experiences from random users to showcase the page and give the users an idea of how the page works. From there on, the page is intuitive and simple to use. Even if a visitor has trouble with the page, an about link is accessible from the always visible header.
+There's a floating icon where visitors can login, and if they are already logged in, it expands on click and gives them the option to log out, access their own profile or add a new experience in 2 clicks.
 
 I chose to make this project because of the following:
 * I like to travel.
-* By separating this page from travel agency page, people are more comfortable sharing their experiences than on some private company page.
-* It creates a feeling of a social network seeing other people and exchanging experiences.
-* sense of satisfaction when contributing to the community and having control over your content.
-* Making an advertising page that isn't an advert and is actually giving to the users and visitors.
-* Useful data for the agency so they can have info on which arrangements to work on.
+* by separating this page from the travel agency page, people are more comfortable sharing their experiences than on some private company page.
+* it creates a feeling of a social network seeing other people and exchanging experiences.
+* the sense of satisfaction when contributing to the community and having control over your content.
+* making an advertising page that isn't an advert and is actually giving to the users and visitors.
+* useful data for the agency so they can have info on which arrangements to work on.
 
 After visiting this page, users will be encouraged to join the community, have a better idea about the place they want to visit or maybe they would like to contribute.
 
@@ -58,25 +58,25 @@ After visiting this page, users will be encouraged to join the community, have a
 
 Before starting this project, some research and these steps were taken:
 * looking for a topic and inspiration on the internet, starting with Code Institute's peer-code-review on Slack
-* Pages I came across on the internet were sites of companies that payed a professional to write them an article. There's nothing wrong with that, but they give me an impression of an advert which I'm trying to avoid. Ads are becoming more and more intrusive and aggressive. Another reason is, if something's "ad shaped", it was payed to present information in a certain way so there's a bit of scepticism for me. However, these sites gave me some ideas how to structure my own.
-* Other sites were either a blog from individuals or a group within a bigger social media page.
-* Blogs - as they are sites of individuals, small number of people have a decent exposure while others have to fight for it. Not to mention variety of styles found on different pages. On Travel experiences, everyone is a part of the community and it's easier to find info as everything is uniformed. Users have the liberty to create and modify their own content.
-* Social media pages - they have uniform look, nice UI, sense of community but their UI is suited for general purpose. On my page, all the information is about traveling and the UI is tailored for it.
-* from this, I decided for the following:
-	- page has to have a sense of community
+* pages I came across on the internet were sites of companies that paid a professional to write them an article. There's nothing wrong with that, but they give me an impression of an advert which I'm trying to avoid. Ads are becoming more and more intrusive and aggressive. Another reason is, if something's "ad shaped", it was paid to present information in a certain way so there's a bit of scepticism for me. However, these sites gave me some ideas how to structure my own.
+* other sites were either a blog from individuals or a group within a bigger social media page.
+* blogs - as they are sites of individuals. A small number of people have a decent exposure while others have to fight for it. Not to mention the variety of styles found on different pages. On Travel Experiences, everyone is a part of the community and it's easier to find info as everything is uniformed. Users have the liberty to create and modify their own content.
+* Social media pages - they have a uniform look, nice UI, a sense of community, but their UI is suited for a general purpose. On my page, all the information is about traveling and the UI is tailored for it.
+* from this, I decided on the following:
+	- the page has to have a sense of community
 	- the UI needs to serve the purpose of traveling
 	- uniform and appealing look
 	- ease of navigation and control of your own content
-* next, mockups were generated to have an idea how the page will look like on different platforms. You can find them in folder [Wireframes](https://github.com/Vlad-404/...)
+* next, mockups were generated to have an idea of how the page will look like on different platforms. You can find them in the folder [Wireframes](https://github.com/Vlad-404/...)
 
 ### Wireframes
 
-After the initial idea, I decided to make a couple of sketches and make wireframes for different platforms to have an idea how will the page look like on different platforms. Software used for generating mockups was [Balsamiq](https://balsamiq.com/?gclid=EAIaIQobChMIzK-ozrWk6QIVF-vtCh1l-woMEAAYASAAEgJ_vvD_BwE). 
+After the initial idea, I decided to make a couple of sketches and make wireframes for different platforms to have an idea of how the page will look like on different platforms. Software used for generating mockups was [Balsamiq](https://balsamiq.com/?gclid=EAIaIQobChMIzK-ozrWk6QIVF-vtCh1l-woMEAAYASAAEgJ_vvD_BwE). 
 You can find all the wireframes in the [wireframes](https://github.com/Vlad-404/travel_experiences/tree/master/wireframes) folder.
 
 After finishing the project, some of the design and features were changed:
-* *show x entries* dropdown with *pagination* for card container has been removed. The center part was imagined as a scroll container where only 6 experiences was supposed to be shown. Due to time constrains, I decided to leave it as a feature left to implement.
-* from experiences, map container was removed as it would take too long to implement it. It was also left for future features.
+* *show x entries* dropdown with *pagination* for card container has been removed. The center part was imagined as a scroll container where only 6 experiences were supposed to be shown. Due to time constrains, I decided to leave it as a feature left to implement.
+* from experiences, the map container was removed as it would take too long to implement. It was also left for future features.
 
 
 [Backt to top](#travel-experiences)
@@ -84,10 +84,10 @@ After finishing the project, some of the design and features were changed:
 ## User stories
 
 For users:
-1. As a new visitor to the page, I want to be able to find an inspiration for my next holiday.
+1. As a new visitor to the page, I want to be able to find inspiration for my next holiday.
 2. As a person who wants to travel to Spain in the Summer, I want to find more information on Barcelona so I can plan with what kind of clothes to wear (going to the beach and to the fancy restaurant is not the same).
-3 As a person who is interested in traveling to Mumbai, I want to read more from someone who has already been there.
-4. As a user of this page, I want to be able to add and modify my own content so I can present it to the others.
+3. As a person who is interested in traveling to Mumbai, I want to read more from someone who has already been there.
+4. As a user of this page, I want to be able to add and modify my own content so I can present it to others.
 5. As a special needs person, I want to be able to contact the user who has been to Mt. Rushmore so I can find out how wheelchair accessible the place is.
 
 For business:
@@ -97,21 +97,21 @@ For business:
 
 [Backt to top](#travel-experiences)
 
-## Design choices
+## Design Choices
 
-As I haven't found many examples of what I'm trying to accomplish, I decided to go with subtle colours with small touches of intense ones for certain focus areas. These focus areas are usually navigational elements. For inspirations, I used milestone projects from Code Institutes Slack channel #peer-code-review.
+As I haven't found many examples of what I'm trying to accomplish, I decided to go with subtle colours with small touches of intense ones for certain focus areas. These focus areas are usually navigational elements. For inspiration, I used milestone projects from Code Institute's Slack channel #peer-code-review.
 
 ### Fonts
 
 The following fonts were chosen:
 
 - [Permanent Marker](https://fonts.google.com/specimen/Permanent+Marker) - this font is used for titles only (h1). I wanted to use a smooth, curvy, italic font that associated with the feeling of being relaxed as this page is about relaxation and having a good time. It may look a bit rough around the edges, but it's supposed to be leisurely and like it's had enough of rules - at least for a duration of holidays.
-- [Oxygen](https://fonts.google.com/specimen/Oxygen) - this font was used for everything else. It's lightness, as name suggests, should give a light note to the whole page. Combining bold and regular styles with different sizes, I can differentiate accents from plain text.
+- [Oxygen](https://fonts.google.com/specimen/Oxygen) - this font was used for everything else. Its lightness, as the name suggests, should give a light note to the whole page. Combining bold and regular styles with different sizes, I can differentiate accents from plain text.
 - [Traveling Typewriter](https://www.1001fonts.com/traveling-typewriter-font.html#styles) - used only as names for form entries (Location, Travel arrangements,...) to associate with writing a diary. For credits, see [credits](#credits)
 - Calibri - a backup font if others fail to load.
 
 ### Colours
-I decided to go with minimalism and few colours. Only thing that will have accents in colour is text in navbars, floating icons  and icons at the bottom of the page. Also, pictures posted by users will add some colour.
+I decided to go with minimalism and a few colours. The only thing that will have accents in colour is text in navbars, floating icons and icons at the bottom of the page. Also, pictures posted by users will add some colour.
 
 | Colours       | Hex           | Materialize value  | Used in         |
 | :------------- |:-------------:| :-----:| :-----:|
@@ -130,11 +130,11 @@ Icons were used from a [FontAwesome page](https://fontawesome.com/).
 [Backt to top](#travel-experiences)
 
 # Features
-As per initial idea, UI has to have uniform and appealing look, be easy to navigate and control your own content. For this reason, multi-page concept was implemented. Thanks to Flask framework, I used templates to cut down on repetitive tasks like header and footer for the page with links to travel agency page. 
+As per the initial idea, UI has to have a uniform and appealing look, be easy to navigate and control your own content. For this reason, multi-page concept was implemented. Thanks to Flask framework, I used templates to cut down on repetitive tasks like header and footer for the page with links to the travel agency page. 
 * first look at the page needs to invoke intuitiveness. Looking at some examples, I found some features I want to achieve: 
 	- not to overburden the first look with too much information.
-	- present the core of the page and when new visitor scrolls down the page, it reveals more features.
-	- ease of navigation as more info for each experience has "Read more..." link. 
+	- present the core of the page and when a new visitor scrolls down the page, it reveals more features.
+	- ease of navigation as more info for each experience has a "Read more..." link. 
 	- all of the links in the header (navbar) are always accessible (fixed position), user tools are always accessible.
 	- search bar is on the home page
 *  *About page* that explains the UI and features
@@ -142,24 +142,24 @@ As per initial idea, UI has to have uniform and appealing look, be easy to navig
 * ability to sort the experiences by country, user and recommendation
 * page dedicated to a single experience where people can read about it in more detail
 * CRUD functionality: all registered users can Create, Read, Update and Delete content they created
-* admin account to remove content that is not suitable for the page and users who are violating the rules acceptable behaviour. Admin will not have the option to modify the users content at any point - only to delete.
+* admin account to remove content that is not suitable for the page and users who are violating the rules of acceptable behaviour. Admin will not have the option to modify the users content at any point - only to delete.
 * on every page there is a link to a travel agency page so people can get travel arrangements whenever they choose.
 * header image is offering different features while slides change and lead to respectable addresses
 * floating icon that gives direct access to user tools
 * Users can create and delete their account
-* Image hosting will be handled by a third-party provider. Users will have option to upload pictures to that service as current storage capacities aren't adequate for large number of images. 
+* Image hosting will be handled by a third-party provider. Users will have the option to upload pictures to that service as current storage capacities aren't adequate for a large number of images. 
 
-## Features left to implement
-Due to time constrains, some of the features were left out so the page can be fully functional within the deadline. Afterwards, features can be added:
+## Features Left to Implement
+Due to time constrains, some of the features were left out so the page can be fully functional within the deadline. Afterwards, the following features can be added:
 * More in-depth user profile page: email, date of birth, location,... This was left out as GDPR requires to inform the users how the data is handled. Incorporating GDPR compliance would take more time, so the users are defined only by user name and password.
 * A maps container so the location of the experience can be seen.
-* Voting system - registered users will be able to add their vote to the experience they find motivating, inspiring, well written, ... This can be used for users to filter out best and worst experiences other people had and either look for a travel arrangement for ones they like, or change their plans. Travel company can use this system to make travel arrangements based on the highest voted experiences.
+* Voting system - registered users will be able to add their vote to the experience they find motivating, inspiring, well written, ... This can be used for users to filter out best and worst experiences other people had and either look for a travel arrangement for ones they like, or change their plans. The travel company can use this system to make travel arrangements based on the highest voted experiences.
 * Communication between users - On each experience description there will be an option to contact the user who created the experience. Only registered users will have this option. Also, this will also be used if admin has to delete some content and let the user know what they did wrong.
 * Delete user with all experiences. Most people just forget about their profile all together, so the admin account is here to delete their experiences. Deleting all experiences would require more time to implement, but within the scope of this project, this will suffice.
 
 [Backt to top](#travel-experiences)
 
-# Technologies used
+# Technologies Used
 
 ## Languages
 
@@ -201,7 +201,7 @@ Due to time constrains, some of the features were left out so the page can be fu
 | Opera            | PC         | Excellent | Version  70|
 | Google Chrome | OnePlus 3t  |      Mostly ok, user icon sometimes gets in the way, only in certain cases                                               |      Version 85  |
 | Opera Touch | OnePlus 3t  | Country selector isn't showing flags                                                    | Version 2.6.1       |
-| Safari           | iPad mini   |        Edit button in profile page has strange fading color effect.                                             | Version           |
+| Safari           | iPad Mini   |        Edit button in profile page has strange fading color effect.                                             | Version 13.6.1          |
 
 - [x] Test links to all pages
 - [x] Test errors by typing in random page redirects
@@ -223,11 +223,11 @@ While testing on various screen sizes on desktop pc, I noticed that close to scr
 
 Also screen sizes below 350px don't look visually appealing. I didn't address this as screens of these sizes are rare.
 
-On iPad mini with Safary, I've noticed that ``edit`` button in profile page has strange colour effect, but the button itself is working fine.
+On iPad Mini with Safary, I've noticed that ``edit`` button in profile page has strange colour effect, but the button itself is working fine.
 
 [Backt to top](#travel-experiences)
 
-### Bugs during development
+### Bugs During Development
 
 **List of bugs found:**
 
@@ -238,7 +238,7 @@ On iPad mini with Safary, I've noticed that ``edit`` button in profile page has 
 
 * **Description:** Page crashed after clicking on ``Add experience`` button
     * **How I found it:** after implementing the filter to show only users experiences in their profile
-    * **What went wrong:** cancel button which redirected to profile page, didn't had username to refer to
+    * **What went wrong:** cancel button which redirected to profile page, didn't have username to refer to
     * **Resolution:** added user name for the call in the button
 
 * **Description:** Odd text appeared on the left side if datamod template was used
@@ -278,19 +278,19 @@ On iPad mini with Safary, I've noticed that ``edit`` button in profile page has 
 
 [Backt to top](#travel-experiences)
 
-## User stories Testing
+## User Stories Testing
 
 **For users:**
 1. As a new visitor to the page, I want to be able to find an inspiration for my next holiday.
 	* This is fulfilled with just arriving on this page as there are experiences from people presented right on the 	home page. If this isn't enough, there is a search bar right below the banner image.
 2. As a person who wants to travel to Spain in the Summer, I want to find more information on Barcelona so I can plan with what kind of clothes to wear (going to the beach and to the fancy restaurant is not the same).
-	* User entries cover their own experiences and even if it's not guaranteed a visitor will find something they 	are looking for, they can register and send a message with a direct question.
-3 As a person who is interested in traveling to India, I want to read more from someone who has already been there.
-	* If a solution from previous user story doesn't work, it is highly likely that someone has already been to 	India and they can use the search feature to read through the experiences or even filter them by country
-4. As a user of this page, I want to be able to add and modify my own content so I can present it to the others.
+	* User entries cover their own experiences and a visitor will find something they are looking for. One of the future features will be messaging between users so they can register and send a message with a direct question.
+3. As a person who is interested in traveling to India, I want to read more from someone who has already been there.
+	* If a solution from a previous user story doesn't work, it is highly likely that someone has already been to 	India and they can use the search feature to read through the experiences or even filter them by country
+4. As a user of this page, I want to be able to add and modify my own content so I can present it to others.
 	* this is possible due to MongoDB as all entries are saved there so they can be shared with others and details 	edited afterwards. Some entries cannot be left empty even when editing.
 5. As a special needs person, I want to be able to contact the user who has been to Mt. Rushmore so I can find out how wheelchair accessible the place is.
-	* User story 2 answer applies here too: after registering/ logging in, user can contact another user and ask a 	direct question.
+	* User story 2 answer applies here too: when messaging gets implemented and after registering/logging in, user will be able to contact another user and ask a direct question.
 
 **For business:**
 1. As a company who owns the travel agency, I want to find places where people want to travel the most so I can make more popular travel arrangements
@@ -298,12 +298,12 @@ On iPad mini with Safary, I've noticed that ``edit`` button in profile page has 
 2. As a Hotel owner, I want to know if my Hotel was mentioned, so I can improve on my services or add new ones.
 	* Using the search tool, anyone can search through the data base and find the term they are looking for.
 3.  As a tourist information centre of the city of Zadar, I want to know if anyone has mentioned the city of Zadar, so we can improve on our event offers and advertising.
-	* With the search engine, anyone can filter out a desired keyword and read through the experiences that contain this keyword
+	* With the search engine, anyone can filter out a desired keyword and read through the experiences that contain this keyword.
 
 [Backt to top](#travel-experiences)
 
 # Deployment
-The repository for this project is hosted on [GitHub](https://github.com/) and uses [Heroku](https://www.heroku.com/) to serve the site to the world wide web. If you would like to contribute to this project you would need to first have some sort of online code editor like [Gitpod](https://www.gitpod.io/) or local such as [VS Code](https://code.visualstudio.com/). Also you will some version control software like [Git](https://git-scm.com/). For Git, you will also need a GitHub account.
+The repository for this project is hosted on [GitHub](https://github.com/) and uses [Heroku](https://www.heroku.com/) to serve the site to the world wide web. If you would like to contribute to this project you would need to first have some sort of online code editor like [Gitpod](https://www.gitpod.io/) or local such as [VS Code](https://code.visualstudio.com/). Also you will need some version control software like [Git](https://git-scm.com/). For Git, you will also need a GitHub account.
 
 #### Prerequisites
 
@@ -351,13 +351,13 @@ You will need to setup the following environment variables on your system.
 
 ##### Deployment
 
-The easiest way to deploy the project to Heroku is to set your connect method to GitHub and link the repository master branch. If you set the project up for automatic deploys it will deploy once the master branch is updated.
+The easiest way to deploy the project to Heroku is to set your connect method to GitHub and link the repository master branch. If you set the project up for automatic deploys, it will deploy once the master branch is updated.
 
 [Back to top](#travel-Experiences)
 
 Travel Experiences site was developed on GitPod and VS code, using GitHub and Heroku to host the repository. As GitHub pages cannot host dynamic pages, for this purpose I used Heroku.
 
-When deploying Travel Experiences using Heroku, the following steps were made:
+When deploying Travel Experiences using Heroku, the following steps were taken:
 
 Linking the Heroku and GitHub:
 * Log in to [Heroku](https://www.heroku.com/) and [GitHub](github.com)
@@ -379,12 +379,12 @@ Traveling Typewritter font made by [Carl Krull](https://www.onlinewebfonts.com/a
 ## Content
  During development, you will notice users of name test01,test02,... These were my test accounts with which I tested the functionality of the site. Images in these experiences belong to me. Images from other users belong to their respective owners.
 
-## Acknowledgments and thank you's
+## Acknowledgments and Thank-Yous
 
-- Huge thank you to [Tim Nelson (tim_ci)](https://github.com/TravelTimN) from Code Institute for redoing flask mini project videos. I used his ``validateMaterializeSelect();`` function to make country field mandatory. You can find it in ``script.js``.
+- Huge thank you to [Tim Nelson (tim_ci)](https://github.com/TravelTimN) from Code Institute for redoing flask mini project videos. I used his ``validateMaterializeSelect();`` function to make the country field mandatory. You can find it in ``script.js``.
 - CI student by the name of [Frozenaught](https://github.com/Frozenaught/homechopped) whose site Homechopped served as an inspiration to my project.
 - Code for coutry selector dropdown in ``addxp.html`` and ``editxp.html`` used from mrmarkfrench and his Country selector project. More info [here](https://github.com/mrmarkfrench/country-select-js).
-- code for dynamic image preview for image upload taken from [Webtrickshome](https://www.webtrickshome.com/faq/how-to-display-uploaded-image-in-html-using-javascript)
+- Code for dynamic image preview for image upload taken from [Webtrickshome](https://www.webtrickshome.com/faq/how-to-display-uploaded-image-in-html-using-javascript)
 
 [Backt to top](#travel-experiences)
 
