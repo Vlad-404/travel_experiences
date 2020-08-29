@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1 class="center-align marker-font deep-orange-text text-lighten-1">{{ username }}'s Experiences</h1>
+<h1 class="center-align marker-font deep-orange-text text-lighten-1">Manage experiences</h1>
 
 <div class="container">
 	<div class="row">
@@ -16,7 +16,7 @@
         <div class="row margin-above">
         {% for experience in experiences %}
             <!-- Shows only experiences from user in session -->
-            {% if session.user|lower == experience.created_by|lower %}
+           {% if session.user|lower == experience.created_by|lower %}
             <!-- Cards slider -->
             <div class="col s12 m6 xl4">
                 <div class="card card-xl">
@@ -49,7 +49,41 @@
                     </div>
                 </div>
             </div>
+            {% endif %}
 
+            {% if username == 'admin' %}
+             <!-- Cards slider -->
+            <div class="col s12 m6 xl4">
+                <div class="card card-xl">
+                    <!-- Card image -->
+                    <div class="card-image static-height">
+                            <a href="{{ url_for('moreinfo', experience_id=experience._id) }}" aria-label="Read more">
+                                <img src="{{ experience.imagelink }}" alt="{{ experience.title }} image" class="static-height">
+                            </a>
+                    </div>
+                    <!-- Card content -->
+                    <div class="card-content">
+                        <p class="left-align deep-orange-text text-lighten-1 typewritter-font">{{ experience.title }}</p>
+                        <ul>
+                            <li><strong>Created by: </strong>{{ experience.created_by }}</li>
+                            <li class="truncate"><strong>Location: </strong><span class="typewritter-font">{{ experience.location }}, {{ experience.country_name }}</span></li>
+                            <li><strong>Recommendation: </strong><span class="typewritter-font">{{ experience.recommendation }}</span></li>
+                            <li><strong>Duration: </strong><span class="typewritter-font">{{ experience.duration }} day(s)</span></li>
+                            <li class="truncate"><strong>Tips: </strong><span class="typewritter-font">{{ experience.tips }}</span></li>
+                            <li class="truncate"><strong>Travel arrangements: </strong><span class="typewritter-font">{{ experience.travel_arrangements }}</span></li>
+                            <li class="truncate"><strong>Description: </strong><span class="typewritter-font">{{ experience.description }}</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="card-action center-align">
+                        <!-- Delete experience -->
+                        <a href="#deletexpmodal" class="btn white-text red shadow-text modal-trigger">Delete</a>
+                    </div>
+                </div>
+            </div>
+
+            {% endif %}
+            
             <!-- Delete experience modal -->
             <div id="deletexpmodal" class="modal center-align">
                 <div class="modal-content center-align">
@@ -62,7 +96,6 @@
                     <a href="#!" class="btn green modal-close waves-effect waves-green shadow-text" aria-label="Cancel">Cancel</a>
                 </div>
             </div>
-            {% endif %}
         {% endfor %}
         </div>
     </div>

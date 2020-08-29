@@ -201,14 +201,14 @@ Due to time constrains, some of the features were left out so the page can be fu
 | Opera            | PC         | Excellent | Version  70|
 | Google Chrome | OnePlus 3t  |      Mostly ok, user icon sometimes gets in the way, only in certain cases                                               |      Version 85  |
 | Opera Touch | OnePlus 3t  | Country selector isn't showing flags                                                    | Version 2.6.1       |
-| Safari           | iPad   |                                                     | Version           |
+| Safari           | iPad mini   |        Edit button in profile page has strange fading color effect.                                             | Version           |
 
 - [x] Test links to all pages
 - [x] Test errors by typing in random page redirects
 - [x] Try to access the user area without signing in
 - [x] Test filtering dropdowns
 - [x] Test searching
-- [x] Tests Read more...
+- [x] Test Read more...
 - [x] Test account registration
 - [x] Test create new experience forms
 - [x] Test add / del experiences
@@ -217,8 +217,13 @@ Due to time constrains, some of the features were left out so the page can be fu
 - [x] Test delete experience 
 - [x] Test log out 
 - [x] Test sign in
+- [x] Test admin page
 
-While testing on various screen sizes, I noticed that close to screen size breaks, some elements don't look visually appealing. For that reason, I removed certain elements you can see in wireframes. 
+While testing on various screen sizes on desktop pc, I noticed that close to screen size breaks, some elements don't look visually appealing. For that reason, I removed certain elements you can see in wireframes. 
+
+Also screen sizes below 350px don't look visually appealing. I didn't address this as screens of these sizes are rare.
+
+On iPad mini with Safary, I've noticed that ``edit`` button in profile page has strange colour effect, but the button itself is working fine.
 
 [Backt to top](#travel-experiences)
 
@@ -269,7 +274,7 @@ While testing on various screen sizes, I noticed that close to screen size break
 * **Description:** After loging in and going to ``My Profile`` page, experiences were shown from all users with ability to add and delete them
     * **How I found it:** By loging in and going to ``My profile`` page
     * **What went wrong:** While deleting commented out code, I accidentally deleted ``for`` loop in ``profile.html`` that filters experiences by user ``{% if session.user|lower == experience.created_by|lower %}``
-    * **Resolution:** Went back to Github to compare the code and restored the missing parts. Learned that Flask ignores comment markers for its own code.
+    * **Resolution:** Went back to Github to compare the code and restored the missing parts. Learned that Flask ignores HTML comment markers for its own code.
 
 [Backt to top](#travel-experiences)
 
