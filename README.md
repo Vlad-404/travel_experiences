@@ -152,10 +152,10 @@ As per initial idea, UI has to have uniform and appealing look, be easy to navig
 ## Features left to implement
 Due to time constrains, some of the features were left out so the page can be fully functional within the deadline. Afterwards, features can be added:
 * More in-depth user profile page: email, date of birth, location,... This was left out as GDPR requires to inform the users how the data is handled. Incorporating GDPR compliance would take more time, so the users are defined only by user name and password.
-* A container that displays the location of the experience.
+* A maps container so the location of the experience can be seen.
 * Voting system - registered users will be able to add their vote to the experience they find motivating, inspiring, well written, ... This can be used for users to filter out best and worst experiences other people had and either look for a travel arrangement for ones they like, or change their plans. Travel company can use this system to make travel arrangements based on the highest voted experiences.
 * Communication between users - On each experience description there will be an option to contact the user who created the experience. Only registered users will have this option. Also, this will also be used if admin has to delete some content and let the user know what they did wrong.
-* Admin page is left for future implementations as is delete user. Later one is just a small inconvenience as most people just forget about their profile all together. However, it is a useful feature that needs to be implemented in the future.
+* Delete user with all experiences. Most people just forget about their profile all together, so the admin account is here to delete their experiences. Deleting all experiences would require more time to implement, but within the scope of this project, this will suffice.
 
 [Backt to top](#travel-experiences)
 
